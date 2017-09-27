@@ -3,6 +3,7 @@ package application;
 import java.io.IOException;
 
 import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,6 +28,9 @@ public class QuizController {
 	protected Button beginButton;
 
 	@FXML
+	protected Button continueButton;
+
+	@FXML
 	protected Label label;
 
 	@FXML
@@ -35,16 +39,45 @@ public class QuizController {
 
 	protected boolean mouseClicked = false;
 	protected boolean hard;
+	protected int questionCount = 0;
 	private int countdown = 3;
 
-	public void recordPress(ActionEvent event) throws IOException {	
+	public void recordPress(ActionEvent event) throws IOException {
+		questionCount++;
+		recordButton.setVisible(false);
+		menuButton.setVisible(false);
+		label.setText("Recording...");
+		label.setTextFill(Color.RED);
+		PauseTransition delay = new PauseTransition(Duration.seconds(0.5));
+		delay.setOnFinished( e -> {
+			label.setText("Recorded!");
+			label.setTextFill(Color.BLACK);
+			continueButton.setVisible(true);
+		});
+		delay.play();	
+	}
+
+	public void continuePress(ActionEvent event) throws IOException {
+		continueButton.setVisible(false);
+		
+		if (questionCount == 10) {
+			questionCount = 0;
+			Scene score = SceneStorage.getInstance().score;
+			Stage window = (Stage) menuButton.getScene().getWindow();
+			window.setScene(score);
+		} else {
+			recordButton.setVisible(true);
+			menuButton.setVisible(true);
 			label.setText(RandomMaoriNums.maoriNums(hard));
+			label.setTextFill(Color.web("#24970f"));
+		}
 	}
 
 	public void menuPress(ActionEvent event) throws IOException {
 		Scene levelMenu = SceneStorage.getInstance().levelMenu;
 		Stage window = (Stage) menuButton.getScene().getWindow();
 		window.setScene(levelMenu);
+		questionCount = 0;
 	}
 
 	public void mouseClick(MouseEvent e) throws IOException {
@@ -70,7 +103,7 @@ public class QuizController {
 		} else if (countdown == -1){
 			countdown = 3;
 			label.setTextFill(Color.web("#24970f"));
-			
+
 			label.setText(RandomMaoriNums.maoriNums(hard));
 
 			menuButton.setVisible(true);
