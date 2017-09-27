@@ -19,6 +19,7 @@ public class Main extends Application {
 			e.printStackTrace();
 			
 		}
+		banana.run();
 	}
 	
 	public static void main(String[] args) {
