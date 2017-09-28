@@ -40,7 +40,9 @@ public class QuizController {
 	protected boolean mouseClicked = false;
 	protected boolean hard;
 	protected int questionCount = 0;
+	protected int currentScore;
 	private int countdown = 3;
+	
 
 	public void recordPress(ActionEvent event) throws IOException {
 		questionCount++;
@@ -62,9 +64,13 @@ public class QuizController {
 		
 		if (questionCount == 10) {
 			questionCount = 0;
+			currentScore = (int)(10*Math.random() + 1);
 			Scene score = SceneStorage.getInstance().score;
 			Stage window = (Stage) menuButton.getScene().getWindow();
 			window.setScene(score);
+			SceneStorage.getInstance().scc.score.setText(currentScore + "/10");
+			SceneStorage.getInstance().sc.addSessionScore(currentScore, hard);
+			
 		} else {
 			recordButton.setVisible(true);
 			menuButton.setVisible(true);

@@ -36,17 +36,22 @@ public class StatisticsController implements Initializable {
 	
 	
 	@FXML
-	ListView<String> myList = new ListView<String>();
-
-	public static ObservableList<String> list = FXCollections.observableArrayList();
+	ListView<String> easyList = new ListView<String>();
 	
-	static int sessionNumber = 0;
+	@FXML
+	ListView<String> hardList = new ListView<String>();
+
+	public static ObservableList<String> listHard = FXCollections.observableArrayList();
+	public static ObservableList<String> listEasy = FXCollections.observableArrayList();
+	
+	static int easySession = 0;
+	static int hardSession = 0;
 	
 	// Method to be invoked when sessionScore is to be added. When called, String will
 	// be added to ListView, in the relevant format. This will then be visually updated
 	// within the ListView, that is within the Statistics FXML.
 	
-	public void addSessionScore(int sessionScore) {
+	public void addSessionScore(int sessionScore, boolean hard) {
 		
 		
 		// Place constraints on range of input sessionScore (should not be greater than
@@ -56,13 +61,24 @@ public class StatisticsController implements Initializable {
 			
 		} else {
 			
-			sessionNumber++;
-			
-			String sessionNum = "" + sessionNumber;
-			
-			String format = "Session Number: " + sessionNum + "  " + "/10";
-			
-			list.add(format);
+			if (hard) {
+				hardSession++;
+				
+				String sessionNum = "" + hardSession;
+				
+				String format = "Session Number: " + sessionNum + "\t\t\t" + sessionScore + "/10";
+				
+				listHard.add(format);
+			} else {
+				easySession++;
+				
+				String sessionNum = "" + easySession;
+				
+				String format = "Session Number: " + sessionNum + "\t\t\t" + sessionScore + "/10";
+				
+				listEasy.add(format);
+			}
+
 		
 		}
 		
@@ -70,8 +86,7 @@ public class StatisticsController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
-		myList.setItems(list);
-		
+		easyList.setItems(listEasy);
+		hardList.setItems(listHard);
 	}
 }

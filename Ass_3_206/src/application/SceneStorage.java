@@ -13,6 +13,9 @@ public class SceneStorage {
 	private static SceneStorage ss;
 	
 	public QuizController qc;
+	public StatisticsController sc;
+	public ScoreController scc;
+
 	
 	public Scene menu,quiz,levelMenu,instructions,score, statistics;
 	
@@ -22,8 +25,8 @@ public class SceneStorage {
 		menu = new Scene(FXMLLoader.load(getClass().getResource("Menu.fxml")));
 		levelMenu = new Scene(FXMLLoader.load(getClass().getResource("LevelMenu.fxml")));
 		instructions = new Scene(FXMLLoader.load(getClass().getResource("Instructions.fxml")));
-		score = new Scene(FXMLLoader.load(getClass().getResource("Score.fxml")));
-		statistics = new Scene(FXMLLoader.load(getClass().getResource("Statistics.fxml")));
+		scoreLoader();
+		statsLoader();
 		quizLoader();
 	}
 	
@@ -32,6 +35,18 @@ public class SceneStorage {
 			ss = new SceneStorage();
 		}
 		return ss;
+	}
+	
+	private void scoreLoader() throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("Score.fxml"));
+		score = new Scene(loader.load());
+		scc = loader.getController();
+	}
+	
+	private void statsLoader() throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("Statistics.fxml"));
+		statistics = new Scene(loader.load());
+		sc = loader.getController();
 	}
 	
 	private void quizLoader() throws IOException {
@@ -50,5 +65,6 @@ public class SceneStorage {
 		qc.mouseClicked = false;
 		qc.continueButton.setVisible(false);
 		qc.questionCount = 0;
+		qc.currentScore = 0;
 	}
 }
