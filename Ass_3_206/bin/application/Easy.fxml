@@ -9,7 +9,7 @@
    <children>
       <Label fx:id="label" alignment="CENTER" layoutX="169.0" layoutY="128.0" prefHeight="72.0" prefWidth="263.0" text="Tahi!" textFill="#24970f">
          <font>
-            <Font name="Britannic Bold" size="72.0" />
+            <Font size="72.0" />
          </font>
       </Label>
       <Button fx:id="returnButton" layoutX="256.0" layoutY="240.0" mnemonicParsing="false" onAction="#returnPress" text="Say Word!">

@@ -11,7 +11,7 @@
    <children>
       <Label layoutX="208.0" layoutY="119.0" text="Tātai!">
          <font>
-            <Font name="Britannic Bold" size="72.0" />
+            <Font size="72.0" />
          </font>
       </Label>
       <Button fx:id="timataButton" layoutX="253.0" layoutY="240.0" mnemonicParsing="false" onAction="#timataPress" text="Timata!">

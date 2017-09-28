@@ -18,7 +18,7 @@
          </font></Button>
       <Label fx:id="score" alignment="CENTER" layoutY="185.0" prefHeight="72.0" prefWidth="600.0" text="7/10" textFill="#110382">
          <font>
-            <Font name="Britannic Bold" size="55.0" />
+            <Font size="55.0" />
          </font>
       </Label>
    </children>
