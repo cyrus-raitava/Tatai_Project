@@ -67,6 +67,13 @@ public class QuizController {
 			currentScore = (int)(10*Math.random() + 1);
 			Scene score = SceneStorage.getInstance().score;
 			Stage window = (Stage) menuButton.getScene().getWindow();
+			
+			SceneStorage.getInstance().scc.hardTransition.setVisible(false);
+			
+			if ((currentScore >= 8) && (!hard)) {
+				SceneStorage.getInstance().scc.hardTransition.setVisible(true);
+			}
+			
 			window.setScene(score);
 			SceneStorage.getInstance().scc.score.setText(currentScore + "/10");
 			SceneStorage.getInstance().sc.addSessionScore(currentScore, hard);

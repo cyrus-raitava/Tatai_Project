@@ -19,6 +19,17 @@ public class ScoreController {
 	private Button levelMenuButton;
 	
 	@FXML
+	public Button hardTransition;
+	
+	public void hardTransitionPressed(ActionEvent event) throws IOException {
+		SceneStorage.getInstance().quizSetup();
+		SceneStorage.getInstance().qc.hard = true;
+		Scene quiz = SceneStorage.getInstance().quiz;
+		Stage window = (Stage) hardTransition.getScene().getWindow();
+		window.setScene(quiz);
+	}
+	
+	@FXML
 	protected Label score;
 	
 	public void levelMenuPress(ActionEvent event) throws IOException {
