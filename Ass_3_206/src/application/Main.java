@@ -20,7 +20,7 @@ public class Main extends Application {
 
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
-			window.setTitle("Tatai");
+			window.setTitle("Tātai");
 			window.setScene(scene);
 			window.show();
 		} catch(Exception e) {

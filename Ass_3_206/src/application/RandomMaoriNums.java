@@ -34,7 +34,7 @@ public class RandomMaoriNums {
 		case 1 : return "tahi";
 		case 2 : return "rua";
 		case 3 : return "toru";
-		case 4 : return "wha";
+		case 4 : return "whā";
 		case 5 : return "rima";
 		case 6 : return "ono";
 		case 7 : return "whitu";
@@ -51,7 +51,7 @@ public class RandomMaoriNums {
 		} else if (ones == 0) {
 			return " tekau ";
 		} else {
-			return " tekau ma ";
+			return " tekau mā ";
 		}
 	}
 }

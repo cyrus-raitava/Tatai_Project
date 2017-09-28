@@ -9,14 +9,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MenuController">
    <children>
-      <Label layoutX="208.0" layoutY="119.0" text="Tatai!">
+      <Label layoutX="208.0" layoutY="119.0" text="Tātai!">
          <font>
             <Font name="Britannic Bold" size="72.0" />
-         </font>
-      </Label>
-      <Label layoutX="256.0" layoutY="101.0" text="_">
-         <font>
-            <Font name="Britannic Bold" size="37.0" />
          </font>
       </Label>
       <Button fx:id="timataButton" layoutX="253.0" layoutY="240.0" mnemonicParsing="false" onAction="#timataPress" text="Timata!">
