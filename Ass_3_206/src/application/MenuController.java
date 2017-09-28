@@ -28,4 +28,10 @@ public class MenuController {
 		Stage window = (Stage) timataButton.getScene().getWindow();
 		window.setScene(instructions);
 	}
+	
+	public void statsPress(ActionEvent event) throws IOException {
+		Scene statistics = SceneStorage.getInstance().statistics;
+		Stage window = (Stage) timataButton.getScene().getWindow();
+		window.setScene(statistics);
+	}
 }

@@ -14,7 +14,7 @@ public class SceneStorage {
 	
 	public QuizController qc;
 	
-	public Scene menu,quiz,levelMenu,instructions,score;
+	public Scene menu,quiz,levelMenu,instructions,score, statistics;
 	
 	ObservableList<String> list = FXCollections.observableArrayList();
 	
@@ -23,6 +23,7 @@ public class SceneStorage {
 		levelMenu = new Scene(FXMLLoader.load(getClass().getResource("LevelMenu.fxml")));
 		instructions = new Scene(FXMLLoader.load(getClass().getResource("Instructions.fxml")));
 		score = new Scene(FXMLLoader.load(getClass().getResource("Score.fxml")));
+		statistics = new Scene(FXMLLoader.load(getClass().getResource("Statistics.fxml")));
 		quizLoader();
 	}
 	
