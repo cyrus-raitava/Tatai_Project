@@ -37,7 +37,7 @@
          <children>
             <Label layoutX="59.0" layoutY="57.0" text="Hard!">
                <font>
-                  <Font name="Britannic Bold" size="72.0" />
+                  <Font size="72.0" />
                </font>
             </Label>
             <Label layoutX="93.0" layoutY="146.0" text="Numbers from 1 to 99">
