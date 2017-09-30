@@ -23,6 +23,7 @@ public class Main extends Application {
 			window.setTitle("Tātai");
 			window.setScene(scene);
 			window.show();
+			window.setResizable(false);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

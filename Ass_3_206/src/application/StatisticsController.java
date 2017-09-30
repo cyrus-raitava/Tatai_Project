@@ -66,7 +66,7 @@ public class StatisticsController implements Initializable {
 				
 				String sessionNum = "" + hardSession;
 				
-				String format = "Session Number: " + sessionNum + "\t\t\t" + sessionScore + "/10";
+				String format = "Session Number: " + sessionNum + "\t\t" + sessionScore + "/10";
 				
 				listHard.add(format);
 			} else {
@@ -74,7 +74,7 @@ public class StatisticsController implements Initializable {
 				
 				String sessionNum = "" + easySession;
 				
-				String format = "Session Number: " + sessionNum + "\t\t\t" + sessionScore + "/10";
+				String format = "Session Number: " + sessionNum + "\t\t" + sessionScore + "/10";
 				
 				listEasy.add(format);
 			}

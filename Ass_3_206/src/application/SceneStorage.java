@@ -59,6 +59,7 @@ public class SceneStorage {
 
 	public void quizSetup() {
 		qc.recordButton.setVisible(false);
+		qc.reRecordButton.setVisible(false);
 		qc.menuButton.setVisible(false);
 		qc.label.setTextFill(Color.BLACK);
 		qc.label.setText("Click to Start!");

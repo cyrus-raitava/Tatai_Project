@@ -3,7 +3,6 @@ package application;
 import java.io.IOException;
 
 import javafx.animation.KeyFrame;
-import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +19,9 @@ public class QuizController {
 
 	@FXML
 	protected Button recordButton;
+	
+	@FXML
+	protected Button reRecordButton;
 
 	@FXML
 	protected Button menuButton;
@@ -48,15 +50,13 @@ public class QuizController {
 		questionCount++;
 		recordButton.setVisible(false);
 		menuButton.setVisible(false);
-		label.setText("Recording...");
-		label.setTextFill(Color.RED);
-		PauseTransition delay = new PauseTransition(Duration.seconds(0.5));
-		delay.setOnFinished( e -> {
-			label.setText("Recorded!");
-			label.setTextFill(Color.BLACK);
-			continueButton.setVisible(true);
-		});
-		delay.play();	
+		Recorder.getInstance().recordPress();
+	}
+	
+	public void reRecordPress(ActionEvent event) throws IOException {
+		reRecordButton.setVisible(false);
+		menuButton.setVisible(false);
+		Recorder.getInstance().recordPress();
 	}
 
 	public void continuePress(ActionEvent event) throws IOException {
@@ -64,7 +64,6 @@ public class QuizController {
 		
 		if (questionCount == 10) {
 			questionCount = 0;
-			currentScore = (int)(10*Math.random() + 1);
 			Scene score = SceneStorage.getInstance().score;
 			Stage window = (Stage) menuButton.getScene().getWindow();
 			
@@ -81,7 +80,7 @@ public class QuizController {
 		} else {
 			recordButton.setVisible(true);
 			menuButton.setVisible(true);
-			label.setText(RandomMaoriNums.maoriNums(hard));
+			label.setText(RandomMaoriNums.getInstance().maoriNums(hard));
 			label.setTextFill(Color.web("#24970f"));
 		}
 	}
@@ -117,7 +116,7 @@ public class QuizController {
 			countdown = 3;
 			label.setTextFill(Color.web("#24970f"));
 
-			label.setText(RandomMaoriNums.maoriNums(hard));
+			label.setText(RandomMaoriNums.getInstance().maoriNums(hard));
 
 			menuButton.setVisible(true);
 			recordButton.setVisible(true);
