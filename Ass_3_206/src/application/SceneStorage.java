@@ -19,11 +19,12 @@ public class SceneStorage {
 	public QuizController qc;
 	public StatisticsController sc;
 	public ScoreController scc;
+	public LevelMenuController lmc;
 
 	
 	public Scene menu,quiz,levelMenu,instructions,score, statistics;
 	
-	// Specify variabels within SceneStorage instances, that may be accessed.
+	// Specify variables within SceneStorage instances, that may be accessed.
 	
 	private SceneStorage() throws IOException {
 		menu = new Scene(FXMLLoader.load(getClass().getResource("Menu.fxml")));
@@ -32,6 +33,7 @@ public class SceneStorage {
 		scoreLoader();
 		statsLoader();
 		quizLoader();
+		levelMenuLoader();
 	}
 	
 	// Create constructor method that creates instances of SceneStorage, from which individual scenes may be loaded.
@@ -43,6 +45,14 @@ public class SceneStorage {
 		return ss;
 	}
 	
+	// Method that allows for access to the LevelMenuController
+	
+	private void levelMenuLoader() throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("LevelMenu.fxml"));
+		levelMenu = new Scene(loader.load());
+		lmc = loader.getController();
+		
+	}
 	// Method that allows for access to the ScoreController.
 	
 	private void scoreLoader() throws IOException {

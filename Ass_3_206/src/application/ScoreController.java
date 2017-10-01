@@ -24,13 +24,12 @@ public class ScoreController {
 	 * @throws IOException
 	 */
 	public void hardTransitionPressed(ActionEvent event) throws IOException {
-		SceneStorage.getInstance().quizSetup(); // reset quizController to defaults 
-		SceneStorage.getInstance().qc.hard = true; // set hard level
-		
-		// change to quiz scene
+		SceneStorage.getInstance().qc.hard = true;
+		SceneStorage.getInstance().quizSetup();
 		Scene quiz = SceneStorage.getInstance().quiz;
 		Stage window = (Stage) hardTransition.getScene().getWindow();
 		window.setScene(quiz);
+		// reset quizController to defaults 
 	}
 	
 	@FXML
