@@ -8,9 +8,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 
+// Create class to use for allowing access to instances of different scenes, as well as their respective controllers
+// (and the variables/methods within those controllers).
+
 public class SceneStorage {
 
+	// Initialize SceneStorage instance.
 	private static SceneStorage ss;
+	
+	// Initialize variables of type ___Controller, to allow access to individual controllers.
 	
 	public QuizController qc;
 	public StatisticsController sc;
@@ -19,7 +25,7 @@ public class SceneStorage {
 	
 	public Scene menu,quiz,levelMenu,instructions,score, statistics;
 	
-	ObservableList<String> list = FXCollections.observableArrayList();
+	// Specify variabels within SceneStorage instances, that may be accessed.
 	
 	private SceneStorage() throws IOException {
 		menu = new Scene(FXMLLoader.load(getClass().getResource("Menu.fxml")));
@@ -30,6 +36,8 @@ public class SceneStorage {
 		quizLoader();
 	}
 	
+	// Create constructor method that creates instances of SceneStorage, from which individual scenes may be loaded.
+	
 	public static SceneStorage getInstance() throws IOException {
 		if (ss == null) {
 			ss = new SceneStorage();
@@ -37,17 +45,23 @@ public class SceneStorage {
 		return ss;
 	}
 	
+	// Method that allows for access to the ScoreController.
+	
 	private void scoreLoader() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Score.fxml"));
 		score = new Scene(loader.load());
 		scc = loader.getController();
 	}
 	
+	// Method that allows for access to the StatsController.
+	
 	private void statsLoader() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Statistics.fxml"));
 		statistics = new Scene(loader.load());
 		sc = loader.getController();
 	}
+	
+	// Method that allows for access to the QuizController.
 	
 	private void quizLoader() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Quiz.fxml"));
@@ -56,7 +70,9 @@ public class SceneStorage {
 		quizSetup();
 	}
 	
-
+	// When method is called upon, necessary buttons are made invisible, allows for re-usage of FXML
+	// scene setup, without having to actually change scene.
+	
 	public void quizSetup() {
 		qc.recordButton.setVisible(false);
 		qc.reRecordButton.setVisible(false);
