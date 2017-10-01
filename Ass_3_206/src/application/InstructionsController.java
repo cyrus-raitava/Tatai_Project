@@ -14,6 +14,11 @@ public class InstructionsController {
 	@FXML
 	private Button returnButton;
 	
+	/**
+	 * When return button is pressed, return to main menu.
+	 * @param event
+	 * @throws IOException
+	 */
 	public void returnPress(ActionEvent event) throws IOException {
 		Scene menu = SceneStorage.getInstance().menu;
 		Stage window = (Stage) returnButton.getScene().getWindow();
