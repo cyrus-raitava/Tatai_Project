@@ -34,6 +34,7 @@ public class StatisticsController implements Initializable {
 	}
 	
 	
+	// Initialize String ListViews, to be linked to ObservableLists, for the display of relevant Statistics.
 	
 	@FXML
 	ListView<String> easyList = new ListView<String>();
@@ -43,6 +44,8 @@ public class StatisticsController implements Initializable {
 
 	public static ObservableList<String> listHard = FXCollections.observableArrayList();
 	public static ObservableList<String> listEasy = FXCollections.observableArrayList();
+	
+	// Initialize the numbers of relevant sessions as zero, upon the beginning of the program.
 	
 	static int easySession = 0;
 	static int hardSession = 0;
@@ -60,16 +63,26 @@ public class StatisticsController implements Initializable {
 		if ((sessionScore < 0) || (sessionScore > 10)) {
 			
 		} else {
-			
+			// Determine if session is Hard or Easy: if the session is Hard, create String to add to the Hard ListView,
+			// and consequently the Hard ObservableList.
 			if (hard) {
+				
+				// Increment the hardSessions counter. 
+				
 				hardSession++;
 				
 				String sessionNum = "" + hardSession;
+				
+				// Format String to add to Hard ListView.
 				
 				String format = "Session Number: " + sessionNum + "\t\t" + sessionScore + "/10";
 				
 				listHard.add(format);
 			} else {
+				
+				// If level chosen is Easy, then increment easySessions counter: similar to the formatting for the Hard ListView,
+				// add the formatted String to the ListView, passing in the current session number as well as the SessionScore, before adding it.
+				
 				easySession++;
 				
 				String sessionNum = "" + easySession;
