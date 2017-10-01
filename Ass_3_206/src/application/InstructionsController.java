@@ -20,6 +20,8 @@ import javafx.stage.Stage;
 
 public class InstructionsController implements Initializable {
 
+	@FXML
+	private Label myLabel;
 	
 	@FXML
 	public TextArea dataPane = new TextArea();
@@ -37,7 +39,7 @@ public class InstructionsController implements Initializable {
 	 * @throws IOException
 	 */
 	public void returnPress(ActionEvent event) throws IOException {
-		Scene menu = SceneStorage.getInstance().menu;
+		Scene menu = StorageAndSetUps.getInstance().menu;
 		Stage window = (Stage) returnButton.getScene().getWindow();
 		window.setScene(menu);
 	}

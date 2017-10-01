@@ -16,7 +16,7 @@ public class Main extends Application {
 
 			window = primaryStage; // set primary stage
 
-			Scene scene = SceneStorage.getInstance().menu; // load menu scene
+			Scene scene = StorageAndSetUps.getInstance().menu; // load menu scene
 
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm()); // set style
 

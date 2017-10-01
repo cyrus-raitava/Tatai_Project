@@ -43,5 +43,10 @@
             <Font size="12.0" />
          </font>
       </Label>
+      <Label fx:id="myLabel" layoutX="249.0" layoutY="375.0" text="Images © 2016 TE PUIA">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

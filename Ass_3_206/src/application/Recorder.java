@@ -17,9 +17,9 @@ public class Recorder {
 
 	private static Recorder r;
 
-	private Label label = SceneStorage.getInstance().qc.label;
-	private Button continueButton = SceneStorage.getInstance().qc.continueButton;
-	private Button reRecordButton = SceneStorage.getInstance().qc.reRecordButton;
+	private Label label = StorageAndSetUps.getInstance().qc.label;
+	private Button continueButton = StorageAndSetUps.getInstance().qc.continueButton;
+	private Button reRecordButton = StorageAndSetUps.getInstance().qc.reRecordButton;
 	private boolean transition1 = true;
 
 	private ArrayList<String> saidWords = new ArrayList<String>();
@@ -53,7 +53,7 @@ public class Recorder {
 
 		// set record time depending on whether on hard or easy level
 		double time;
-		if (SceneStorage.getInstance().qc.hard) {
+		if (StorageAndSetUps.getInstance().qc.hard) {
 			time = 3.5;
 		} else {
 			time = 2.5;
@@ -79,7 +79,7 @@ public class Recorder {
 		timeline.setCycleCount(2); // run twice
 		timeline.play();
 
-		SceneStorage.getInstance().qc.progressBar(time,true); // set the progress bar
+		StorageAndSetUps.getInstance().qc.progressBar(time,true); // set the progress bar
 
 		transition1 = true; // store transition state
 	}
@@ -92,7 +92,7 @@ public class Recorder {
 	 */
 	public void recordTransition(double time) throws FileNotFoundException, IOException {
 		if (transition1) {
-			SceneStorage.getInstance().qc.progressBar(time, false);
+			StorageAndSetUps.getInstance().qc.progressBar(time, false);
 
 			label.setText("Playback..."); // change label
 			label.setTextFill(Color.BLUE); // make label blue
@@ -100,7 +100,7 @@ public class Recorder {
 			transition1 = false; 
 		} else {
 
-			SceneStorage.getInstance().qc.progBar.setVisible(false);
+			StorageAndSetUps.getInstance().qc.progBar.setVisible(false);
 
 			// read voice recognition file
 			try (BufferedReader br = new BufferedReader(new FileReader("/home/se206/Documents"
@@ -144,11 +144,11 @@ public class Recorder {
 
 
 			if (success) {
-				label.setText("CORRECT!"); // set label to success text
+				label.setText("KA PAI!"); // set label to success text
 				label.setTextFill(Color.GREEN); // set to black
 
 				// increment the current score
-				SceneStorage.getInstance().qc.currentScore++;
+				StorageAndSetUps.getInstance().qc.currentScore++;
 
 				// do not allow a retry attempt
 				retry = false;
@@ -163,13 +163,13 @@ public class Recorder {
 				label.setText("" + RandomMaoriNums.getInstance().currentInt); // set label to current number
 				label.setTextFill(Color.PURPLE); // set to green
 				reRecordButton.setVisible(true);
-				SceneStorage.getInstance().qc.number.setVisible(true);
+				StorageAndSetUps.getInstance().qc.number.setVisible(true);
 			} else {
 				// display expected answer if wrong and already retried.
 				if (!success) {
 					label.setText("Not Quite!"); // set label to fail text
 					label.setTextFill(Color.RED); // set to black
-					SceneStorage.getInstance().qc.expectedAnswer.setVisible(true);
+					StorageAndSetUps.getInstance().qc.expectedAnswer.setVisible(true);
 					String text = "\"";
 					int i = 0;
 					for (String s : RandomMaoriNums.getInstance().currentNum) {
@@ -181,7 +181,7 @@ public class Recorder {
 						}
 					}
 					text = text + "\" expected";
-					SceneStorage.getInstance().qc.expectedAnswer.setText(text);
+					StorageAndSetUps.getInstance().qc.expectedAnswer.setText(text);
 				}
 				continueButton.setVisible(true);
 			}

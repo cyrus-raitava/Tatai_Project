@@ -24,9 +24,9 @@ public class ScoreController {
 	 * @throws IOException
 	 */
 	public void hardTransitionPressed(ActionEvent event) throws IOException {
-		SceneStorage.getInstance().qc.hard = true;
-		SceneStorage.getInstance().quizSetup();
-		Scene quiz = SceneStorage.getInstance().quiz;
+		StorageAndSetUps.getInstance().qc.hard = true;
+		StorageAndSetUps.getInstance().quizSetup();
+		Scene quiz = StorageAndSetUps.getInstance().quiz;
 		Stage window = (Stage) hardTransition.getScene().getWindow();
 		window.setScene(quiz);
 		// reset quizController to defaults 
@@ -41,7 +41,7 @@ public class ScoreController {
 	 * @throws IOException
 	 */
 	public void levelMenuPress(ActionEvent event) throws IOException {
-		Scene levelMenu = SceneStorage.getInstance().levelMenu;
+		Scene levelMenu = StorageAndSetUps.getInstance().levelMenu;
 		Stage window = (Stage) levelMenuButton.getScene().getWindow();
 		window.setScene(levelMenu);
 	}

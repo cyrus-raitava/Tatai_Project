@@ -26,9 +26,9 @@ public class LevelMenuController {
 	 * @throws IOException
 	 */
 	public void easyGoPress(ActionEvent event) throws IOException {
-		SceneStorage.getInstance().qc.hard = false;		
-		SceneStorage.getInstance().quizSetup();
-		Scene quiz = SceneStorage.getInstance().quiz;
+		StorageAndSetUps.getInstance().qc.hard = false;		
+		StorageAndSetUps.getInstance().quizSetup();
+		Scene quiz = StorageAndSetUps.getInstance().quiz;
 		Stage window = (Stage) easyGoButton.getScene().getWindow();
 		window.setScene(quiz);
 	}
@@ -40,9 +40,9 @@ public class LevelMenuController {
 	 * @throws IOException
 	 */
 	public void hardGoPress(ActionEvent event) throws IOException {
-		SceneStorage.getInstance().qc.hard = true;
-		SceneStorage.getInstance().quizSetup();
-		Scene quiz = SceneStorage.getInstance().quiz;
+		StorageAndSetUps.getInstance().qc.hard = true;
+		StorageAndSetUps.getInstance().quizSetup();
+		Scene quiz = StorageAndSetUps.getInstance().quiz;
 		Stage window = (Stage) hardGoButton.getScene().getWindow();
 		window.setScene(quiz);
 	}
@@ -54,7 +54,7 @@ public class LevelMenuController {
 	 * @throws IOException
 	 */
 	public void mainMenuPress(ActionEvent event) throws IOException {
-		Scene menu = SceneStorage.getInstance().menu;
+		Scene menu = StorageAndSetUps.getInstance().menu;
 		Stage window = (Stage) hardGoButton.getScene().getWindow();
 		window.setScene(menu);
 	}

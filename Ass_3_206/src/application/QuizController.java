@@ -116,19 +116,19 @@ public class QuizController {
 
 			// set hard transition to true only if the score is 8 or above and
 			// we are on the easy level (hard = false)
-			SceneStorage.getInstance().scc.hardTransition.setVisible(false);
+			StorageAndSetUps.getInstance().scc.hardTransition.setVisible(false);
 			if ((currentScore >= 8) && (!hard)) {
-				SceneStorage.getInstance().scc.hardTransition.setVisible(true);
+				StorageAndSetUps.getInstance().scc.hardTransition.setVisible(true);
 			}
 
 			// Move to score scene
-			Scene score = SceneStorage.getInstance().score;
+			Scene score = StorageAndSetUps.getInstance().score;
 			Stage window = (Stage) menuButton.getScene().getWindow();
 			window.setScene(score);
 
 			// Set the label to the currentScore
-			SceneStorage.getInstance().scc.score.setText(currentScore + "/10");
-			SceneStorage.getInstance().sc.addSessionScore(currentScore, hard);
+			StorageAndSetUps.getInstance().scc.score.setText(currentScore + "/10");
+			StorageAndSetUps.getInstance().sc.addSessionScore(currentScore, hard);
 
 			// if not 10th question, set a new number to record.
 		} else {
@@ -149,7 +149,7 @@ public class QuizController {
 	 * @throws IOException
 	 */
 	public void menuPress(ActionEvent event) throws IOException {
-		Scene levelMenu = SceneStorage.getInstance().levelMenu;
+		Scene levelMenu = StorageAndSetUps.getInstance().levelMenu;
 		Stage window = (Stage) menuButton.getScene().getWindow();
 		window.setScene(levelMenu);
 		questionCount = 0;
