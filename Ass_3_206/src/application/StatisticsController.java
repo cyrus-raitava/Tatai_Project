@@ -75,7 +75,7 @@ public class StatisticsController implements Initializable {
 				
 				// Format String to add to Hard ListView.
 				
-				String format = "Session Number: " + sessionNum + "\t\t" + sessionScore + "/10";
+				String format = "Session " + sessionNum + "\t\t" + sessionScore + "/10";
 				
 				listHard.add(format);
 			} else {
@@ -87,7 +87,7 @@ public class StatisticsController implements Initializable {
 				
 				String sessionNum = "" + easySession;
 				
-				String format = "Session Number: " + sessionNum + "\t\t" + sessionScore + "/10";
+				String format = "Session " + sessionNum + "\t\t" + sessionScore + "/10";
 				
 				listEasy.add(format);
 			}

@@ -21,6 +21,9 @@ public class MenuController {
 	@FXML
 	private Button howToButton;
 	
+	@FXML
+	private Button statsButton;
+	
 	/**
 	 * When timata is pressed, change scenes to level menu
 	 * @param event
