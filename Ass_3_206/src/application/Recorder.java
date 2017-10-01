@@ -30,6 +30,11 @@ public class Recorder {
 	public boolean success;
 	public boolean retry = false;
 
+	/**
+	 * Singleton pattern
+	 * @return
+	 * @throws IOException
+	 */
 	public static Recorder getInstance() throws IOException {
 		if (r == null) {
 			r = new Recorder();
@@ -38,18 +43,25 @@ public class Recorder {
 	}
 	
 	
+	/**
+	 * Sets recording functionality.
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
 	public void recordPress() throws IOException, InterruptedException {
-		label.setText("Recording...");
-		label.setTextFill(Color.RED);
+		label.setText("Recording..."); // set label to 'recording...'
+		label.setTextFill(Color.RED); // set colour to red
 		
+		// set record time depending on whether on hard or easy level
 		double time;
-		
 		if (SceneStorage.getInstance().qc.hard) {
 			time = 3.5;
 		} else {
 			time = 2.5;
 		}
 
+		
+		// run bash script for audio recognition using 'time' for recording time
 		ProcessBuilder builder = new ProcessBuilder("/bin/bash","-c", "cd /home/se206/Documents/HTK/MaoriNumbers ; arecord -d " + time + " -r 22050 -c 1 -i -t wav -f s16_LE foo.wav ; " + 
 				"HVite -H HMMs/hmm15/macros -H HMMs/hmm15/hmmdefs -C user/configLR  -w user/wordNetworkNum -o SWT -l '*' -i recout.mlf -p 0.0 -s 5.0  user/dictionaryD user/tiedList foo.wav ; " + 
 				"aplay foo.wav ; " + 
@@ -57,7 +69,7 @@ public class Recorder {
 		builder.start();
 
 
-
+		// create a transition for recording to sync in time with bash process
 		Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(time), ae -> {
 			try {
 				recordTransition();
@@ -65,23 +77,37 @@ public class Recorder {
 			} catch (IOException e) {
 			}
 		} ));
-		timeline.setCycleCount(2);
+		timeline.setCycleCount(2); // run twice
 		timeline.play();
-		transition1 = true;
+		
+		transition1 = true; // store transition state
 	}
 
+	/**
+	 * Sets playback transition and determines whether response is correct, then
+	 * edits the scene. 
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public void recordTransition() throws FileNotFoundException, IOException {
 		if (transition1) {
-			label.setText("Playback...");
-			label.setTextFill(Color.BLUE);
-			transition1 = false;
+			label.setText("Playback..."); // change label
+			label.setTextFill(Color.BLUE); // make label blue
+			
+			transition1 = false; 
 		} else {
-
+			
+			// read voice recognition file
 			try (BufferedReader br = new BufferedReader(new FileReader("/home/se206/Documents"
 					+ "/HTK/MaoriNumbers/recout.mlf"))) {
 				String line = null;
+				
+				// variable to store said words
 				saidWords = new ArrayList<String>();
+				
+				// store said words in string 
 				while ((line = br.readLine()) != null) {
+					// ignore parts of file that are not said words
 					if (!line.equals("#!MLF!#") && !line.equals("sil") 
 							&& !line.equals("\"*/foo.rec\"") && !line.equals(".")) {
 						saidWords.add(line);
@@ -89,12 +115,16 @@ public class Recorder {
 				}
 			}
 
+			// access current word string
 			ArrayList<String> num = RandomMaoriNums.getInstance().currentNum;
+			
+			// determine whether all words were said
 			success = true;
 			for (String part : num) {
 
 				String word = part;
 
+				// ensure accents are interpreted in the same way
 				if (part == "whā") {
 					word = "whaa";
 				} else if (part == "mā") {
@@ -102,25 +132,36 @@ public class Recorder {
 				}
 
 				if (!saidWords.contains(word)){
-					success = false;
+					success = false; // if any word is not said, then it is unsuccessful
 					break;
 				}
 			}
 
+			
 			if (success) {
-				label.setText("SUCCESS!");
-				label.setTextFill(Color.BLACK);
+				label.setText("SUCCESS!"); // set label to success text
+				label.setTextFill(Color.BLACK); // set to black
+				
+				// increment the current score
 				SceneStorage.getInstance().qc.currentScore++;
+				
+				// do not allow a retry attempt
 				retry = false;
+				
 			} else {
-				label.setText("FAIL!");
-				label.setTextFill(Color.BLACK);
-				retry ^= true;
+				label.setText("FAIL!"); // set label to fail text
+				label.setTextFill(Color.BLACK); // set to black
+				
+				retry ^= true; // toggle retry to ensure retry can only occur once per question.
 			}
 			
+			
 			if (retry) {
+				// reecord appears if user is allowed a re-attempt
 				reRecordButton.setVisible(true);
 			} else {
+				// recordButton appears if no more retry and so is continue button, ready for the 
+				// next number
 				recordButton.setText("Record");
 				continueButton.setVisible(true);
 			}

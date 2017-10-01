@@ -50,8 +50,9 @@ public class QuizController {
 	 * Begins a recording process when record button is pressed.
 	 * @param event
 	 * @throws IOException
+	 * @throws InterruptedException 
 	 */
-	public void recordPress(ActionEvent event) throws IOException {
+	public void recordPress(ActionEvent event) throws IOException, InterruptedException {
 		questionCount++; // question count is incremented
 		recordButton.setVisible(false); // record button disappears
 		menuButton.setVisible(false); // menu button disappears
@@ -65,8 +66,9 @@ public class QuizController {
 	 * not increment question count!
 	 * @param event
 	 * @throws IOException
+	 * @throws InterruptedException 
 	 */
-	public void reRecordPress(ActionEvent event) throws IOException {
+	public void reRecordPress(ActionEvent event) throws IOException, InterruptedException {
 		reRecordButton.setVisible(false); // rerecord button disappears
 		menuButton.setVisible(false); // menu button disappears
 

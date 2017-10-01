@@ -45,23 +45,37 @@ public class RandomMaoriNums {
 		return Integer.toString(currentInt);
 	}
 
+	
+	/**
+	 * Given an integer input, works out the maori string equivalent and
+	 * saves to arrayList.
+	 * @param num
+	 */
 	private void numToMaori(int num) {
-		currentNum = new ArrayList<String>();
+		currentNum = new ArrayList<String>(); // set new arrayList
 		
-		int tens = num / 10;
-		int ones = num % 10;
+		int tens = num / 10; // calculate tens digit
+		int ones = num % 10; // calculate ones digit
 		
+		// set tenstring if above 1
 		String tenString = maoriNums(tens);
 		if (tens > 1) {
 			currentNum.add(tenString);
 		}
 		
+		// work out middle string
 		middle(tens,ones);
 		
+		// add ones string
 		currentNum.add(maoriNums(ones));
 		
 	}
 	
+	/**
+	 * Returns the maori string for numbers 1 to 10
+	 * @param num integer from 1 to 10
+	 * @return maori string
+	 */
 	private String maoriNums(int num) {
 		switch (num) {
 		case 0 : return "";
@@ -79,6 +93,11 @@ public class RandomMaoriNums {
 		}
 	}
 	
+	/**
+	 * adds the middle string for a maori number given two digits
+	 * @param tens
+	 * @param ones
+	 */
 	private void middle(int tens, int ones) {
 		if (tens == 0) {
 		} else if (ones == 0) {

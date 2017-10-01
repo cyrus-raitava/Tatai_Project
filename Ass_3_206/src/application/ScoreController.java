@@ -18,9 +18,16 @@ public class ScoreController {
 	@FXML
 	public Button hardTransition;
 	
+	/**
+	 * When hardTransition button is pressed, it moves to the hard quiz setup. 
+	 * @param event
+	 * @throws IOException
+	 */
 	public void hardTransitionPressed(ActionEvent event) throws IOException {
-		SceneStorage.getInstance().quizSetup();
-		SceneStorage.getInstance().qc.hard = true;
+		SceneStorage.getInstance().quizSetup(); // reset quizController to defaults 
+		SceneStorage.getInstance().qc.hard = true; // set hard level
+		
+		// change to quiz scene
 		Scene quiz = SceneStorage.getInstance().quiz;
 		Stage window = (Stage) hardTransition.getScene().getWindow();
 		window.setScene(quiz);
@@ -29,6 +36,11 @@ public class ScoreController {
 	@FXML
 	protected Label score;
 	
+	/**
+	 * When level menu is pressed, scene is switched to level menu.
+	 * @param event
+	 * @throws IOException
+	 */
 	public void levelMenuPress(ActionEvent event) throws IOException {
 		Scene levelMenu = SceneStorage.getInstance().levelMenu;
 		Stage window = (Stage) levelMenuButton.getScene().getWindow();
