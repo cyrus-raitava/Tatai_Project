@@ -72,7 +72,7 @@ public class Recorder {
 		// create a transition for recording to sync in time with bash process
 		Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(time), ae -> {
 			try {
-				recordTransition();
+				recordTransition(time);
 			} catch (FileNotFoundException e) {
 			} catch (IOException e) {
 			}
@@ -91,9 +91,9 @@ public class Recorder {
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	public void recordTransition() throws FileNotFoundException, IOException {
+	public void recordTransition(double time) throws FileNotFoundException, IOException {
 		if (transition1) {
-			SceneStorage.getInstance().qc.progBar.setVisible(false);
+			SceneStorage.getInstance().qc.progressBar(time, false);
 
 			label.setText("Playback..."); // change label
 			label.setTextFill(Color.BLUE); // make label blue

@@ -32,5 +32,11 @@
       <ProgressBar fx:id="progBar" layoutX="210.0" layoutY="290.0" prefWidth="200.0" progress="0.0" />
       <Label fx:id="sessionLabel" layoutX="29.0" layoutY="23.0" text="Session Number:" />
       <Label fx:id="questionLabel" layoutX="434.0" layoutY="23.0" text="Question Number:" />
+      <Label fx:id="expectedAnswer" alignment="CENTER" layoutX="55.0" layoutY="208.0" prefHeight="16.0" prefWidth="502.0" text="EXPECTED RESPONSE: toru" />
+      <Label fx:id="number" alignment="CENTER" layoutX="-2.0" layoutY="82.0" prefHeight="72.0" prefWidth="600.0" text="5" textFill="#24970f">
+         <font>
+            <Font size="55.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
