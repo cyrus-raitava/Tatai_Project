@@ -80,7 +80,7 @@ public class Recorder {
 		timeline.setCycleCount(2); // run twice
 		timeline.play();
 		
-		SceneStorage.getInstance().qc.progressBar(time); // set the progress bar
+		SceneStorage.getInstance().qc.progressBar(time,true); // set the progress bar
 		
 		transition1 = true; // store transition state
 	}
@@ -101,6 +101,8 @@ public class Recorder {
 			transition1 = false; 
 		} else {
 			
+			SceneStorage.getInstance().qc.progBar.setVisible(false);
+
 			// read voice recognition file
 			try (BufferedReader br = new BufferedReader(new FileReader("/home/cyrus/Documents"
 					+ "/HTK/MaoriNumbers/recout.mlf"))) {
@@ -163,10 +165,18 @@ public class Recorder {
 			if (retry) {
 				// reecord appears if user is allowed a re-attempt
 				reRecordButton.setVisible(true);
+				SceneStorage.getInstance().qc.number.setVisible(true);
+				SceneStorage.getInstance().qc.number.setText("" + RandomMaoriNums.getInstance().currentInt);
 			} else {
-				// recordButton appears if no more retry and so is continue button, ready for the 
-				// next number
-				recordButton.setText("Record");
+				// display expected answer if wrong and already retried.
+				if (!success) {
+					SceneStorage.getInstance().qc.expectedAnswer.setVisible(true);
+					String text = "EXPECTED RESPONSE:";
+					for (String s : RandomMaoriNums.getInstance().currentNum) {
+						text = text + " " + s;
+					}
+					SceneStorage.getInstance().qc.expectedAnswer.setText(text);
+				}
 				continueButton.setVisible(true);
 			}
 

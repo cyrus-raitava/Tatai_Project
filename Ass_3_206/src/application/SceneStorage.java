@@ -105,5 +105,7 @@ public class SceneStorage {
 		qc.questionCount = 0;
 		qc.currentScore = 0;
 		qc.progBar.setVisible(false);
+		qc.number.setVisible(false);
+		qc.expectedAnswer.setVisible(false);
 	}
 }

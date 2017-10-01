@@ -49,6 +49,12 @@ public class QuizController {
 	protected ProgressBar progBar;
 	protected double prog;
 	protected double counts = 1000;
+	
+	@FXML
+	protected Label expectedAnswer;
+	
+	@FXML
+	protected Label number;
 
 
 	protected boolean mouseClicked = false;
@@ -81,6 +87,7 @@ public class QuizController {
 	 * @throws InterruptedException 
 	 */
 	public void reRecordPress(ActionEvent event) throws IOException, InterruptedException {
+		number.setVisible(false);
 		reRecordButton.setVisible(false); // rerecord button disappears
 		menuButton.setVisible(false); // menu button disappears
 
@@ -96,6 +103,7 @@ public class QuizController {
 	 * @throws IOException
 	 */
 	public void continuePress(ActionEvent event) throws IOException {
+		expectedAnswer.setVisible(false);
 		String questionNum = "Question Number: " + (questionCount + 1) + "/10";
 		questionLabel.setText(questionNum);
 		
@@ -211,13 +219,33 @@ public class QuizController {
 
 	}
 	
-	public void progressBar(double time) {
+	public void progressBar(double time, boolean up) {
 		progBar.setVisible(true);
-		progBar.setProgress(0);
-		prog = 0;
+		if (up) {
+			progBar.setProgress(0);
+			prog = 0;
+		} else {
+			progBar.setProgress(1);
+			prog = 1;
+		}
+
 
 		Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(time/counts), ae -> {
-			prog = prog + 1/counts;
+			if (up) {
+				if (!(prog >= 1)) {
+					prog = prog + 1/counts;
+				} else {
+					prog = 1;
+				}
+
+			} else {
+				if (!(prog <= 0)) {
+					prog = prog - 1/counts;
+				} else {
+					prog = 0;
+				}
+			}
+
 			progBar.setProgress(prog);
 		} ));
 		timeline2.setCycleCount((int)(counts + 1));
