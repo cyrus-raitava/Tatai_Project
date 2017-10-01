@@ -38,17 +38,27 @@ public class Recorder {
 	}
 	
 	
-	public void recordPress() throws IOException {
+	public void recordPress() throws IOException, InterruptedException {
 		label.setText("Recording...");
 		label.setTextFill(Color.RED);
+		
+		double time;
+		
+		if (SceneStorage.getInstance().qc.hard) {
+			time = 3.5;
+		} else {
+			time = 2.5;
+		}
 
-		ProcessBuilder builder = new ProcessBuilder("/bin/bash","-c", "cd /home/se206/"
-				+ "Documents/HTK/MaoriNumbers;./GoSpeech");
+		ProcessBuilder builder = new ProcessBuilder("/bin/bash","-c", "cd /home/se206/Documents/HTK/MaoriNumbers ; arecord -d " + time + " -r 22050 -c 1 -i -t wav -f s16_LE foo.wav ; " + 
+				"HVite -H HMMs/hmm15/macros -H HMMs/hmm15/hmmdefs -C user/configLR  -w user/wordNetworkNum -o SWT -l '*' -i recout.mlf -p 0.0 -s 5.0  user/dictionaryD user/tiedList foo.wav ; " + 
+				"aplay foo.wav ; " + 
+				"rm foo.wav");
 		builder.start();
 
 
 
-		Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2.6), ae -> {
+		Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(time), ae -> {
 			try {
 				recordTransition();
 			} catch (FileNotFoundException e) {

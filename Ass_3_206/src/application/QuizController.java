@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -34,6 +35,10 @@ public class QuizController {
 
 	@FXML
 	protected Label label;
+	
+	@FXML
+	protected ProgressBar progBar;
+	
 
 	@FXML
 	protected AnchorPane ap;
@@ -46,14 +51,15 @@ public class QuizController {
 	private int countdown = 3;
 	
 
-	public void recordPress(ActionEvent event) throws IOException {
+	public void recordPress(ActionEvent event) throws IOException, InterruptedException {
 		questionCount++;
 		recordButton.setVisible(false);
 		menuButton.setVisible(false);
 		Recorder.getInstance().recordPress();
+		progBar.
 	}
 	
-	public void reRecordPress(ActionEvent event) throws IOException {
+	public void reRecordPress(ActionEvent event) throws IOException, InterruptedException {
 		reRecordButton.setVisible(false);
 		menuButton.setVisible(false);
 		Recorder.getInstance().recordPress();
