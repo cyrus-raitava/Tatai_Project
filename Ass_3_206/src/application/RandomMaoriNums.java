@@ -12,6 +12,9 @@ public class RandomMaoriNums {
 	private RandomMaoriNums() {
 	}
 	
+	/**
+	 * Singleton pattern.
+	 */
 	public static RandomMaoriNums getInstance() {
 		if (rmn == null) {
 			rmn = new RandomMaoriNums();
@@ -19,17 +22,26 @@ public class RandomMaoriNums {
 		return rmn;
 	}
 	
+	/**
+	 * Sets a random number from 1-9 or 1-99 depending on whether hard is true.
+	 * @param hard
+	 * @return a string representing the number.
+	 */
 	public String maoriNums(boolean hard) {
 		int num;
 		
-		if (hard) {
+		if (hard) { // set random number to 1-99 if on hard level
 			num = (int)(99*(Math.random()) + 1);
-		} else {
+		} else { // set random number to 1-9 if on easy level
 			num = (int)(9*(Math.random()) + 1);
 		}
 		
+		// save the current number that is displayed on quiz
 		currentInt = num;
-		numToMaori(num);
+		
+		numToMaori(num); // set ArrayList to current number
+		
+		// return string of the current number
 		return Integer.toString(currentInt);
 	}
 
