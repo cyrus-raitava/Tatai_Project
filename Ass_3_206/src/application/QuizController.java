@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -43,6 +44,11 @@ public class QuizController {
 
 	@FXML
 	protected AnchorPane ap;
+	
+	@FXML
+	protected ProgressBar progBar;
+	protected double prog;
+	protected double counts = 1000;
 
 
 	protected boolean mouseClicked = false;
@@ -203,6 +209,19 @@ public class QuizController {
 			label.setText(Integer.toString(countdown));
 		}
 
+	}
+	
+	public void progressBar(double time) {
+		progBar.setVisible(true);
+		progBar.setProgress(0);
+		prog = 0;
+
+		Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(time/counts), ae -> {
+			prog = prog + 1/counts;
+			progBar.setProgress(prog);
+		} ));
+		timeline2.setCycleCount((int)(counts + 1));
+		timeline2.play();
 	}
 
 

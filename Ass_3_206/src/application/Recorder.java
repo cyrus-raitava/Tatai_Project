@@ -80,6 +80,8 @@ public class Recorder {
 		timeline.setCycleCount(2); // run twice
 		timeline.play();
 		
+		SceneStorage.getInstance().qc.progressBar(time); // set the progress bar
+		
 		transition1 = true; // store transition state
 	}
 
@@ -91,6 +93,8 @@ public class Recorder {
 	 */
 	public void recordTransition() throws FileNotFoundException, IOException {
 		if (transition1) {
+			SceneStorage.getInstance().qc.progBar.setVisible(false);
+
 			label.setText("Playback..."); // change label
 			label.setTextFill(Color.BLUE); // make label blue
 			

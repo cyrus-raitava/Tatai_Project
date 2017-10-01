@@ -2,8 +2,6 @@ package application;
 
 import java.io.IOException;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -75,9 +73,6 @@ public class SceneStorage {
 	
 	public void quizSetup() {
 		
-		System.out.println(qc.hard);
-		
-		
 		if (qc.hard) {
 			String sessionNum = "Hard Session Number: " + (StatisticsController.hardSession + 1);
 			qc.sessionLabel.setText(sessionNum);
@@ -99,5 +94,6 @@ public class SceneStorage {
 		qc.continueButton.setVisible(false);
 		qc.questionCount = 0;
 		qc.currentScore = 0;
+		qc.progBar.setVisible(false);
 	}
 }

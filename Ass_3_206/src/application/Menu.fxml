@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MenuController">
    <children>
       <Label layoutX="208.0" layoutY="119.0" text="Tātai!">
          <font>
@@ -21,12 +21,12 @@
       </Button>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="43.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../03_Warrior_Tan.png" />
+            <Image url="@../images/03_Warrior_Tan.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="408.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../10_Wahine_Brn.png" />
+            <Image url="@../images/10_Wahine_Brn.png" />
          </image>
       </ImageView>
       <Button fx:id="howToButton" layoutX="240.0" layoutY="291.0" mnemonicParsing="false" onAction="#howTo" text="How to Play">
