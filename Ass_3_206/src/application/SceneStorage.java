@@ -74,6 +74,22 @@ public class SceneStorage {
 	// scene setup, without having to actually change scene.
 	
 	public void quizSetup() {
+		
+		System.out.println(qc.hard);
+		
+		
+		if (qc.hard) {
+			String sessionNum = "Hard Session Number: " + (StatisticsController.hardSession + 1);
+			qc.sessionLabel.setText(sessionNum);
+		} else {
+			String sessionNum = "Easy Session Number: " + (StatisticsController.easySession + 1);
+			qc.sessionLabel.setText(sessionNum);
+		}
+		
+		String questionNum = "Question Number: " + (qc.questionCount + 1) + "/10";
+		qc.questionLabel.setText(questionNum);
+		
+		
 		qc.recordButton.setVisible(false);
 		qc.reRecordButton.setVisible(false);
 		qc.menuButton.setVisible(false);

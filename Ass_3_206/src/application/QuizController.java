@@ -34,6 +34,12 @@ public class QuizController {
 
 	@FXML
 	protected Label label;
+	
+	@FXML
+	protected Label sessionLabel;
+	
+	@FXML
+	protected Label questionLabel;
 
 	@FXML
 	protected AnchorPane ap;
@@ -84,6 +90,9 @@ public class QuizController {
 	 * @throws IOException
 	 */
 	public void continuePress(ActionEvent event) throws IOException {
+		String questionNum = "Question Number: " + (questionCount + 1) + "/10";
+		questionLabel.setText(questionNum);
+		
 		continueButton.setVisible(false); // continue button disappears
 
 		// if the question is the tenth one, move to score scene
