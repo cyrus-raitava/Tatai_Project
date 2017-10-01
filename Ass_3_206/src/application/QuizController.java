@@ -104,7 +104,7 @@ public class QuizController {
 	 */
 	public void continuePress(ActionEvent event) throws IOException {
 		expectedAnswer.setVisible(false);
-		String questionNum = "Question Number: " + (questionCount + 1) + "/10";
+		String questionNum = (questionCount + 1) + "/10";
 		questionLabel.setText(questionNum);
 		
 		continueButton.setVisible(false); // continue button disappears
@@ -139,7 +139,7 @@ public class QuizController {
 			label.setText(RandomMaoriNums.getInstance().maoriNums(hard));
 
 			// text colour set to green
-			label.setTextFill(Color.web("#24970f"));
+			label.setTextFill(Color.PURPLE);
 		}
 	}
 
@@ -204,10 +204,13 @@ public class QuizController {
 			countdown = 3; // reset countdown 
 
 			// set text colour to green
-			label.setTextFill(Color.web("#24970f"));
+			label.setTextFill(Color.PURPLE);
 
 			// set text to a random number
 			label.setText(RandomMaoriNums.getInstance().maoriNums(hard));
+			
+			// question label appears
+			questionLabel.setVisible(true);
 
 			menuButton.setVisible(true); // menu button appears
 			recordButton.setVisible(true); // record button appears

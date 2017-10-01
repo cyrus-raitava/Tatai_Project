@@ -84,14 +84,14 @@ public class SceneStorage {
 	public void quizSetup() {
 		
 		if (qc.hard) {
-			String sessionNum = "Hard Session Number: " + (StatisticsController.hardSession + 1);
+			String sessionNum = "Hard Session " + (StatisticsController.hardSession + 1);
 			qc.sessionLabel.setText(sessionNum);
 		} else {
-			String sessionNum = "Easy Session Number: " + (StatisticsController.easySession + 1);
+			String sessionNum = "Easy Session " + (StatisticsController.easySession + 1);
 			qc.sessionLabel.setText(sessionNum);
 		}
 		
-		String questionNum = "Question Number: " + (qc.questionCount + 1) + "/10";
+		String questionNum = (qc.questionCount + 1) + "/10";
 		qc.questionLabel.setText(questionNum);
 		
 		
@@ -107,5 +107,6 @@ public class SceneStorage {
 		qc.progBar.setVisible(false);
 		qc.number.setVisible(false);
 		qc.expectedAnswer.setVisible(false);
+		qc.questionLabel.setVisible(false);
 	}
 }
