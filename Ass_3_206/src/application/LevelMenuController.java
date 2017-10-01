@@ -19,6 +19,12 @@ public class LevelMenuController {
 	@FXML
 	private Button mainMenuButton;
 	
+	/**
+	 * When 'Go!' button for easy is pressed, move to quiz scene with hard set to 
+	 * false.
+	 * @param event
+	 * @throws IOException
+	 */
 	public void easyGoPress(ActionEvent event) throws IOException {
 		SceneStorage.getInstance().quizSetup();
 		SceneStorage.getInstance().qc.hard = false;
@@ -27,6 +33,12 @@ public class LevelMenuController {
 		window.setScene(quiz);
 	}
 	
+	/**
+	 * When 'Go!' button for hard is pressed, move to quiz scene with hard set to 
+	 * true.
+	 * @param event
+	 * @throws IOException
+	 */
 	public void hardGoPress(ActionEvent event) throws IOException {
 		SceneStorage.getInstance().quizSetup();
 		SceneStorage.getInstance().qc.hard = true;
@@ -35,6 +47,12 @@ public class LevelMenuController {
 		window.setScene(quiz);
 	}
 	
+	
+	/**
+	 * When MainMenu is pressed, switch to menu scene.
+	 * @param event
+	 * @throws IOException
+	 */
 	public void mainMenuPress(ActionEvent event) throws IOException {
 		Scene menu = SceneStorage.getInstance().menu;
 		Stage window = (Stage) hardGoButton.getScene().getWindow();
