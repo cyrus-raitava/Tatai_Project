@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class RandomMaoriNums {
 
 	private static RandomMaoriNums rmn;
-	
+
 	protected ArrayList<String> currentNum = new ArrayList<String>();
 	protected int currentInt;
-	
+
 	private RandomMaoriNums() {
 	}
-	
+
 	/**
 	 * Singleton pattern.
 	 */
@@ -21,7 +21,7 @@ public class RandomMaoriNums {
 		}
 		return rmn;
 	}
-	
+
 	/**
 	 * Sets a random number from 1-9 or 1-99 depending on whether hard is true.
 	 * @param hard
@@ -29,23 +29,23 @@ public class RandomMaoriNums {
 	 */
 	public String maoriNums(boolean hard) {
 		int num;
-		
+
 		if (hard) { // set random number to 1-99 if on hard level
 			num = (int)(99*(Math.random()) + 1);
 		} else { // set random number to 1-9 if on easy level
 			num = (int)(9*(Math.random()) + 1);
 		}
-		
+
 		// save the current number that is displayed on quiz
 		currentInt = num;
-		
+
 		numToMaori(num); // set ArrayList to current number
-		
+
 		// return string of the current number
 		return Integer.toString(currentInt);
 	}
 
-	
+
 	/**
 	 * Given an integer input, works out the maori string equivalent and
 	 * saves to arrayList.
@@ -53,24 +53,26 @@ public class RandomMaoriNums {
 	 */
 	private void numToMaori(int num) {
 		currentNum = new ArrayList<String>(); // set new arrayList
-		
+
 		int tens = num / 10; // calculate tens digit
 		int ones = num % 10; // calculate ones digit
-		
+
 		// set tenstring if above 1
 		String tenString = maoriNums(tens);
 		if (tens > 1) {
 			currentNum.add(tenString);
 		}
-		
+
 		// work out middle string
 		middle(tens,ones);
-		
+
 		// add ones string
-		currentNum.add(maoriNums(ones));
-		
+		if (!(ones == 0)) {
+			currentNum.add(maoriNums(ones));
+		}
+
 	}
-	
+
 	/**
 	 * Returns the maori string for numbers 1 to 10
 	 * @param num integer from 1 to 10
@@ -78,7 +80,6 @@ public class RandomMaoriNums {
 	 */
 	private String maoriNums(int num) {
 		switch (num) {
-		case 0 : return "";
 		case 1 : return "tahi";
 		case 2 : return "rua";
 		case 3 : return "toru";
@@ -92,7 +93,7 @@ public class RandomMaoriNums {
 		default : return "ERROR!";
 		}
 	}
-	
+
 	/**
 	 * adds the middle string for a maori number given two digits
 	 * @param tens
