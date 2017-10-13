@@ -121,71 +121,26 @@ public class Recorder {
 			}
 
 			// access current word string
-			ArrayList<String> num = new ArrayList<String>(RandomMaoriNums.getInstance().currentNum);
-			
-			// Making num ArrayList (what they should have said), into comparable format for saidWords.
-			for (int i = 0; i < num.size(); i ++) {
-				if (num.get(i) == "whā") {
-					num.set(i, "whaa");
-				} else if (num.get(i) == "mā") {
-					num.set(i,"maa");
-				} else {
+			ArrayList<String> num = RandomMaoriNums.getInstance().currentNum;
+
+			// determine whether all words were said
+			success = true;
+			for (String part : num) {
+
+				String word = part;
+
+				// ensure accents are interpreted in the same way
+				if (part == "whā") {
+					word = "whaa";
+				} else if (part == "mā") {
+					word = "maa";
 				}
-			}
-			
-			boolean success = true;
-			boolean reachedEnd = false;
-			
-			// Make counter, to keep track of position in saidWords ArrayList
-			int start = 0;
-			
-			
-			// Outermost loop: go through all words in what they should've said (the answer).
-			for (int i = 0; i < num.size(); i++) {
-				
-				// Specify variable for given word to check within saidWords.
-				String chosenNum =  num.get(i);
-				
-				// Innermost loop: go through all the words from last accessed within saidWords, until you find the given word 
-				// within the saidWords ArrayList.
-				for (int j = start; j < saidWords.size(); j++) {
-					
-					if (chosenNum.equals(saidWords.get(j))) {
-						start = j;
-						break;
-					}
-					
-					if (j == (saidWords.size() - 1)) {
-						reachedEnd = true;
-					}
-				}
-				
-				if (reachedEnd == true) {
-					success = false;
+
+				if (!saidWords.contains(word)){
+					success = false; // if any word is not said, then it is unsuccessful
 					break;
 				}
 			}
-
-//			// determine whether all words were said
-//			success = false;
-//			int indexCounter = 0;
-//			for (int i = 0; i < num.size(); i++) {
-//				String word = num.get(i);
-//				// ensure accents are interpreted in the same way
-//				if (word == "whā") {
-//					word = "whaa";
-//				} else if (word == "mā") {
-//					word = "maa";
-//				}
-//
-//				for (int j = indexCounter; j < saidWords.size(); j++) {
-//					if (word.equals(saidWords.get(j))) {
-//						indexCounter = j;
-//						break;
-//					}
-//				}
-//
-//			}
 
 
 			if (success) {
