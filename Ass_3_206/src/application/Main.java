@@ -14,6 +14,9 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 
+			PersistentStats.createFile();
+			PersistentStats.loadStats();
+			
 			window = primaryStage; // set primary stage
 
 			Scene scene = StorageAndSetUps.getInstance().menu; // load menu scene

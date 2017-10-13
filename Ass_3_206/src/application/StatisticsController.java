@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -47,14 +48,14 @@ public class StatisticsController implements Initializable {
 	
 	// Initialize the numbers of relevant sessions as zero, upon the beginning of the program.
 	
-	static int easySession = 0;
-	static int hardSession = 0;
+	public static int easySession;
+	public static int hardSession;
 	
 	// Method to be invoked when sessionScore is to be added. When called, String will
 	// be added to ListView, in the relevant format. This will then be visually updated
 	// within the ListView, that is within the Statistics FXML.
 	
-	public void addSessionScore(int sessionScore, boolean hard) {
+	public void addSessionScore(int sessionScore, boolean hard) throws IOException {
 		
 		
 		// Place constraints on range of input sessionScore (should not be greater than
@@ -67,6 +68,7 @@ public class StatisticsController implements Initializable {
 			// and consequently the Hard ObservableList.
 			if (hard) {
 				
+				
 				// Increment the hardSessions counter. 
 				
 				hardSession++;
@@ -75,9 +77,17 @@ public class StatisticsController implements Initializable {
 				
 				// Format String to add to Hard ListView.
 				
-				String format = "Session " + sessionNum + "\t\t" + sessionScore + "/10";
+				String format = "Session " + sessionNum + ":\t\t" + sessionScore + "/10";
 				
 				listHard.add(format);
+				
+				// Alongside adding score to ArrayList<String>, append score to relevant text file,
+				// to retain as a persistent statistic.
+				
+				PersistentStats.appendStat(sessionScore, true);
+				
+				
+				
 			} else {
 				
 				// If level chosen is Easy, then increment easySessions counter: similar to the formatting for the Hard ListView,
@@ -87,9 +97,11 @@ public class StatisticsController implements Initializable {
 				
 				String sessionNum = "" + easySession;
 				
-				String format = "Session " + sessionNum + "\t\t" + sessionScore + "/10";
+				String format = "Session " + sessionNum + ":\t\t" + sessionScore + "/10";
 				
 				listEasy.add(format);
+				
+				PersistentStats.appendStat(sessionScore, false);
 			}
 
 		
