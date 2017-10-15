@@ -54,7 +54,7 @@ public class InstructionsController implements Initializable {
 		dataPane.appendText("\n\nAfter choosing your level, the game will display a number to you: try to pronounce it in Māori!");
 		dataPane.appendText("\n\nIf you are right, you will get a point. After 10 questions, you will get your score, which you can view -with all your other session scores- on the Statistics option!");
 		dataPane.appendText("\n\nAll the best, and Waimarie Pai! (Good Luck!)");
-		dataPane.selectPositionCaret(0);
+		dataPane.positionCaret(0);
 		dataPane.setVisible(true);
 	
 	}
