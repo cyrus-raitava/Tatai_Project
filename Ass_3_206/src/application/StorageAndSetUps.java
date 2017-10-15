@@ -23,9 +23,10 @@ public class StorageAndSetUps {
 	public LevelMenuController lmc;
 	public AdvancedController ac;
 	public CustomController cc;
+	public ClearStatsController csc;
 
 
-	public Scene menu,quiz,levelMenu,instructions,score, statistics, advanced, custom;
+	public Scene menu,quiz,levelMenu,instructions,score, statistics, advanced, custom, clearStats;
 
 	// Specify variables within SceneStorage instances, that may be accessed.
 
@@ -33,6 +34,8 @@ public class StorageAndSetUps {
 		menu = new Scene(FXMLLoader.load(getClass().getResource("Menu.fxml")));
 		levelMenu = new Scene(FXMLLoader.load(getClass().getResource("LevelMenu.fxml")));
 		instructions = new Scene(FXMLLoader.load(getClass().getResource("Instructions.fxml")));
+		clearStats = new Scene(FXMLLoader.load(getClass().getResource("ClearStats.fxml")));
+		clearStatsLoader();
 		customLoader();
 		scoreLoader();
 		statsLoader();
@@ -50,6 +53,13 @@ public class StorageAndSetUps {
 		return ss;
 	}
 
+	// Method that allows for access to the ClearStatsController
+	
+	private void clearStatsLoader() throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("ClearStats.fxml"));
+		clearStats = new Scene(loader.load());
+		csc = loader.getController();
+	}
 
 	// Method that allows for access to the CustomController
 

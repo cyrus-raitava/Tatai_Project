@@ -1,7 +1,9 @@
 package application;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
@@ -15,7 +17,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
 import javafx.scene.control.ListView;
+import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class StatisticsController implements Initializable {
 
@@ -33,6 +39,111 @@ public class StatisticsController implements Initializable {
 		Stage window = (Stage) returnButton.getScene().getWindow();
 		window.setScene(menu);
 	}
+	
+	
+	
+	@FXML
+	private Button easyClear;
+	
+	public static String levelChosen;
+	
+	public static void changeDisplayMessage(boolean change) throws IOException {
+		
+		if (change) {
+		StorageAndSetUps.getInstance().csc.displayLabel.setText("There are no:");
+		StorageAndSetUps.getInstance().csc.displayLabel1.setText("Statistics");
+		StorageAndSetUps.getInstance().csc.ok.setVisible(true);
+		
+		StorageAndSetUps.getInstance().csc.No.setVisible(false);
+		StorageAndSetUps.getInstance().csc.Yes.setVisible(false);
+		
+		} else {
+			StorageAndSetUps.getInstance().csc.displayLabel.setText("Are you sure you want to delete:");
+			StorageAndSetUps.getInstance().csc.displayLabel1.setText("Statistics?");
+			StorageAndSetUps.getInstance().csc.ok.setVisible(false);
+			StorageAndSetUps.getInstance().csc.Yes.setVisible(true);
+			StorageAndSetUps.getInstance().csc.No.setVisible(true);
+		}
+		
+	}
+	
+	public void easyClearPress(ActionEvent event) throws IOException {
+		StatisticsController.levelChosen = "easy";
+		
+		if (StatisticsController.listEasy.isEmpty()) {
+			StatisticsController.changeDisplayMessage(true);
+		} else {
+			StatisticsController.changeDisplayMessage(false);
+		}
+		
+		StorageAndSetUps.getInstance().csc.levelLabel.setText("Easy");
+		StorageAndSetUps.getInstance().csc.levelLabel.setTextFill(Paint.valueOf("#4dc313"));
+		StorageAndSetUps.getInstance().csc.levelLabel.setFont(new Font("System", 49));
+		
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        Scene scene = StorageAndSetUps.getInstance().clearStats;
+        stage.setTitle("Clear Easy Statistics");
+        stage.setScene(scene);  
+        stage.setResizable(false);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.show();
+	}
+	
+	@FXML
+	private Button mediumClear;
+	
+	public void mediumClearPress(ActionEvent event) throws IOException {
+		StatisticsController.levelChosen = "medium";
+		
+		if (StatisticsController.listMedium.isEmpty()) {
+			StatisticsController.changeDisplayMessage(true);
+		} else {
+			StatisticsController.changeDisplayMessage(false);
+		}
+		
+		StorageAndSetUps.getInstance().csc.levelLabel.setText("Medium");
+		StorageAndSetUps.getInstance().csc.levelLabel.setTextFill(Paint.valueOf("#ff8800"));
+		StorageAndSetUps.getInstance().csc.levelLabel.setFont(new Font("System", 49));
+		
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        Scene scene = StorageAndSetUps.getInstance().clearStats;
+        stage.setTitle("Clear Medium Statistics");
+        stage.setScene(scene);  
+        stage.setResizable(false);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.show();
+	}
+	
+	@FXML
+	private Button hardClear;
+	
+	public void hardClearPress(ActionEvent event) throws IOException {
+		StatisticsController.levelChosen = "hard";
+		
+		if (StatisticsController.listHard.isEmpty()) {
+			StatisticsController.changeDisplayMessage(true);
+		} else {
+			StatisticsController.changeDisplayMessage(false);
+		}
+		
+		
+		StorageAndSetUps.getInstance().csc.levelLabel.setText("Hard");
+		StorageAndSetUps.getInstance().csc.levelLabel.setTextFill(Paint.valueOf("#0055ff"));
+		StorageAndSetUps.getInstance().csc.levelLabel.setFont(new Font("System", 49));
+		
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        Scene scene = StorageAndSetUps.getInstance().clearStats;
+        stage.setTitle("Clear Hard Statistics");
+        stage.setScene(scene);  
+        stage.setResizable(false);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.show();
+	}
+	
+	
 	
 	
 	// Initialize String ListViews, to be linked to ObservableLists, for the display of relevant Statistics.
