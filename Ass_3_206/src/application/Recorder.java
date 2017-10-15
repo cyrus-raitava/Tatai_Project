@@ -52,16 +52,11 @@ public class Recorder {
 		label.setTextFill(Color.RED); // set colour to red
 
 		// set record time depending on whether on hard or easy level
-		double time;
-		if (StorageAndSetUps.getInstance().qc.hard) {
-			time = 3.5;
-		} else {
-			time = 2.5;
-		}
+		double time = 3.5;
 
 
 		// run bash script for audio recognition using 'time' for recording time
-		ProcessBuilder builder = new ProcessBuilder("/bin/bash","-c", "cd /home/cyrus/Documents/HTK/MaoriNumbers ; arecord -d " + time + " -r 22050 -c 1 -i -t wav -f s16_LE foo.wav ; " + 
+		ProcessBuilder builder = new ProcessBuilder("/bin/bash","-c", "cd /home/se206/Documents/HTK/MaoriNumbers ; arecord -d " + time + " -r 22050 -c 1 -i -t wav -f s16_LE foo.wav ; " + 
 				"HVite -H HMMs/hmm15/macros -H HMMs/hmm15/hmmdefs -C user/configLR  -w user/wordNetworkNum -o SWT -l '*' -i recout.mlf -p 0.0 -s 5.0  user/dictionaryD user/tiedList foo.wav ; " + 
 				"aplay foo.wav ; " + 
 				"rm foo.wav");
@@ -103,7 +98,7 @@ public class Recorder {
 			StorageAndSetUps.getInstance().qc.progBar.setVisible(false);
 
 			// read voice recognition file
-			try (BufferedReader br = new BufferedReader(new FileReader("/home/cyrus/Documents"
+			try (BufferedReader br = new BufferedReader(new FileReader("/home/se206/Documents"
 					+ "/HTK/MaoriNumbers/recout.mlf"))) {
 				String line = null;
 
@@ -124,9 +119,9 @@ public class Recorder {
 			ArrayList<String> num = RandomMaoriNums.getInstance().currentNum;
 
 			// determine whether all words were said
-			success = true;
+			success = false;
 			for (String part : num) {
-
+				success = true;
 				String word = part;
 
 				// ensure accents are interpreted in the same way
@@ -160,14 +155,14 @@ public class Recorder {
 
 			if (retry) {
 				// rerecord appears if user is allowed a re-attempt
-				label.setText("" + RandomMaoriNums.getInstance().currentInt); // set label to current number
+				label.setText("" + RandomMaoriNums.getInstance().currentEquation); // set label to current number
 				label.setTextFill(Color.PURPLE); // set to green
 				reRecordButton.setVisible(true);
 				StorageAndSetUps.getInstance().qc.number.setVisible(true);
 			} else {
 				// display expected answer if wrong and already retried.
 				if (!success) {
-					label.setText("Not Quite!"); // set label to fail text
+					label.setText(RandomMaoriNums.getInstance().currentEquation + " = " + RandomMaoriNums.getInstance().currentAns); // set label to fail text
 					label.setTextFill(Color.RED); // set to black
 					StorageAndSetUps.getInstance().qc.expectedAnswer.setVisible(true);
 					String text = "\"";

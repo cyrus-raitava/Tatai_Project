@@ -16,7 +16,23 @@ public class ScoreController {
 	private Button levelMenuButton;
 	
 	@FXML
+	public Button mediumTransition;
+	@FXML
 	public Button hardTransition;
+	
+	/**
+	 * When mediumTransition button is pressed, it moves to the medium quiz setup. 
+	 * @param event
+	 * @throws IOException
+	 */
+	public void mediumTransitionPressed(ActionEvent event) throws IOException {
+		StorageAndSetUps.getInstance().qc.level = Level.MEDIUM;
+		StorageAndSetUps.getInstance().quizSetup();
+		Scene quiz = StorageAndSetUps.getInstance().quiz;
+		Stage window = (Stage) mediumTransition.getScene().getWindow();
+		window.setScene(quiz);
+		// reset quizController to defaults 
+	}
 	
 	/**
 	 * When hardTransition button is pressed, it moves to the hard quiz setup. 
@@ -24,7 +40,7 @@ public class ScoreController {
 	 * @throws IOException
 	 */
 	public void hardTransitionPressed(ActionEvent event) throws IOException {
-		StorageAndSetUps.getInstance().qc.hard = true;
+		StorageAndSetUps.getInstance().qc.level = Level.HARD;
 		StorageAndSetUps.getInstance().quizSetup();
 		Scene quiz = StorageAndSetUps.getInstance().quiz;
 		Stage window = (Stage) hardTransition.getScene().getWindow();

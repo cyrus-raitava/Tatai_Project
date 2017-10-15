@@ -58,7 +58,7 @@ public class QuizController {
 
 
 	protected boolean mouseClicked = false;
-	protected boolean hard;
+	protected Level level;
 	protected int questionCount = 0;
 	protected int currentScore;
 	private int countdown = 3;
@@ -114,11 +114,33 @@ public class QuizController {
 			questionCount = 0; // reset question count
 
 
-			// set hard transition to true only if the score is 8 or above and
+			// set medium transition to true only if the score is 8 or above and
 			// we are on the easy level (hard = false)
+			StorageAndSetUps.getInstance().scc.mediumTransition.setVisible(false);
 			StorageAndSetUps.getInstance().scc.hardTransition.setVisible(false);
-			if ((currentScore >= 8) && (!hard)) {
+			if ((currentScore >= 8) && (level == Level.EASY)) {
+				StorageAndSetUps.getInstance().scc.mediumTransition.setVisible(true);
+				StorageAndSetUps.getInstance().lmc.mediumGoButton.setDisable(false);
+				StorageAndSetUps.getInstance().lmc.mediumMessage.setVisible(false);
+			}
+			
+			// set hard transition to true only if the score is 8 or above and
+			// we are on the medium level (hard = false)
+			if ((currentScore >= 8) && (level == Level.MEDIUM)) {
 				StorageAndSetUps.getInstance().scc.hardTransition.setVisible(true);
+				StorageAndSetUps.getInstance().lmc.hardGoButton.setDisable(false);
+				StorageAndSetUps.getInstance().lmc.hardMessage.setVisible(false);
+
+			}
+			
+			// set custom transition to true only if the score is 8 or above and
+			// we are on the medium level (hard = false)
+			if ((currentScore >= 8) && (level == Level.HARD)) {
+				StorageAndSetUps.getInstance().lmc.customGoButton.setDisable(false);
+				StorageAndSetUps.getInstance().lmc.customSettings.setVisible(true);
+				StorageAndSetUps.getInstance().lmc.customMessage.setVisible(false);
+
+
 			}
 
 			// Move to score scene
@@ -128,7 +150,7 @@ public class QuizController {
 
 			// Set the label to the currentScore
 			StorageAndSetUps.getInstance().scc.score.setText(currentScore + "/10");
-			StorageAndSetUps.getInstance().sc.addSessionScore(currentScore, hard);
+			StorageAndSetUps.getInstance().sc.addSessionScore(currentScore, level);
 
 			// if not 10th question, set a new number to record.
 		} else {
@@ -136,7 +158,7 @@ public class QuizController {
 			menuButton.setVisible(true); // menu button appears
 
 			// number is randomly reset
-			label.setText(RandomMaoriNums.getInstance().maoriNums(hard));
+			label.setText(RandomMaoriNums.getInstance().maoriNums(level));
 
 			// text colour set to green
 			label.setTextFill(Color.PURPLE);
@@ -183,15 +205,22 @@ public class QuizController {
 	 */
 	private void delay(double seconds) {
 		// set a timeline to do countdown() 4 times at the input interval time (in seconds)
-		Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(seconds), ae -> countdown() )); 
+		Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(seconds), ae -> {
+			try {
+				countdown();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} )); 
 		timeline.setCycleCount(4);
 		timeline.play();
 	}
 
 	/**
 	 * Edits the quiz label to a 3,2,1, Haere! countdown.
+	 * @throws IOException 
 	 */
-	private void countdown() {
+	private void countdown() throws IOException {
 		// decrease count
 		countdown--;
 
@@ -207,7 +236,7 @@ public class QuizController {
 			label.setTextFill(Color.PURPLE);
 
 			// set text to a random number
-			label.setText(RandomMaoriNums.getInstance().maoriNums(hard));
+			label.setText(RandomMaoriNums.getInstance().maoriNums(level));
 			
 			// question label appears
 			questionLabel.setVisible(true);

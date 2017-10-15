@@ -41,21 +41,26 @@ public class StatisticsController implements Initializable {
 	ListView<String> easyList = new ListView<String>();
 	
 	@FXML
+	ListView<String> mediumList = new ListView<String>();
+	
+	@FXML
 	ListView<String> hardList = new ListView<String>();
 
 	public static ObservableList<String> listHard = FXCollections.observableArrayList();
+	public static ObservableList<String> listMedium = FXCollections.observableArrayList();
 	public static ObservableList<String> listEasy = FXCollections.observableArrayList();
 	
 	// Initialize the numbers of relevant sessions as zero, upon the beginning of the program.
 	
 	public static int easySession;
+	public static int mediumSession;
 	public static int hardSession;
 	
 	// Method to be invoked when sessionScore is to be added. When called, String will
 	// be added to ListView, in the relevant format. This will then be visually updated
 	// within the ListView, that is within the Statistics FXML.
 	
-	public void addSessionScore(int sessionScore, boolean hard) throws IOException {
+	public void addSessionScore(int sessionScore, Level level) throws IOException {
 		
 		
 		// Place constraints on range of input sessionScore (should not be greater than
@@ -66,7 +71,7 @@ public class StatisticsController implements Initializable {
 		} else {
 			// Determine if session is Hard or Easy: if the session is Hard, create String to add to the Hard ListView,
 			// and consequently the Hard ObservableList.
-			if (hard) {
+			if (level == Level.HARD) {
 				
 				
 				// Increment the hardSessions counter. 
@@ -77,18 +82,18 @@ public class StatisticsController implements Initializable {
 				
 				// Format String to add to Hard ListView.
 				
-				String format = "Session " + sessionNum + ":\t\t" + sessionScore + "/10";
+				String format = "Session " + sessionNum + ":\t" + sessionScore + "/10";
 				
 				listHard.add(format);
 				
 				// Alongside adding score to ArrayList<String>, append score to relevant text file,
 				// to retain as a persistent statistic.
 				
-				PersistentStats.appendStat(sessionScore, true);
+				PersistentStats.appendStat(sessionScore, level);
 				
 				
 				
-			} else {
+			} else if (level == Level.EASY){
 				
 				// If level chosen is Easy, then increment easySessions counter: similar to the formatting for the Hard ListView,
 				// add the formatted String to the ListView, passing in the current session number as well as the SessionScore, before adding it.
@@ -97,11 +102,25 @@ public class StatisticsController implements Initializable {
 				
 				String sessionNum = "" + easySession;
 				
-				String format = "Session " + sessionNum + ":\t\t" + sessionScore + "/10";
+				String format = "Session " + sessionNum + ":\t" + sessionScore + "/10";
 				
 				listEasy.add(format);
 				
-				PersistentStats.appendStat(sessionScore, false);
+				PersistentStats.appendStat(sessionScore, level);
+				
+			} else if (level == Level.MEDIUM) {
+				// If level chosen is Easy, then increment easySessions counter: similar to the formatting for the Hard ListView,
+				// add the formatted String to the ListView, passing in the current session number as well as the SessionScore, before adding it.
+				
+				mediumSession++;
+				
+				String sessionNum = "" + mediumSession;
+				
+				String format = "Session " + sessionNum + ":\t" + sessionScore + "/10";
+				
+				listMedium.add(format);
+				
+				PersistentStats.appendStat(sessionScore, level);
 			}
 
 		

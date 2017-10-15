@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.StatisticsController">
+<AnchorPane fx:id="listEasy" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.StatisticsController">
    <children>
       <Label layoutX="115.0" layoutY="20.0" text="Statistics">
          <font>
@@ -18,14 +18,20 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <ListView fx:id="easyList" layoutX="43.0" layoutY="151.0" prefHeight="168.0" prefWidth="238.0" />
-      <ListView fx:id="hardList" layoutX="325.0" layoutY="151.0" prefHeight="168.0" prefWidth="238.0" />
-      <Label layoutX="136.0" layoutY="116.0" text="Easy" textFill="#4dc313">
+      <ListView fx:id="easyList" layoutX="24.0" layoutY="153.0" prefHeight="168.0" prefWidth="168.0" />
+      <ListView fx:id="hardList" layoutX="407.0" layoutY="154.0" prefHeight="168.0" prefWidth="168.0" />
+      <Label layoutX="80.0" layoutY="123.0" text="Easy" textFill="#4dc313">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="424.0" layoutY="116.0" text="Hard" textFill="#0055ff">
+      <Label layoutX="456.0" layoutY="119.0" text="Hard" textFill="#0055ff">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <ListView fx:id="mediumList" layoutX="216.0" layoutY="154.0" prefHeight="168.0" prefWidth="168.0" />
+      <Label layoutX="245.0" layoutY="123.0" text="Medium" textFill="#ff8800">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
