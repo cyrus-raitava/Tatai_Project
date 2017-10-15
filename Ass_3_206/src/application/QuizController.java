@@ -1,5 +1,8 @@
 package application;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import javafx.animation.KeyFrame;
@@ -107,6 +110,12 @@ public class QuizController {
 		String questionNum = (questionCount + 1) + "/10";
 		questionLabel.setText(questionNum);
 		
+		String pwd = System.getProperty("user.dir");
+		File file = new File(pwd + "/persistentLevels.txt");
+		
+		BufferedWriter bw = null;
+		FileWriter fw = null;
+		
 		continueButton.setVisible(false); // continue button disappears
 
 		// if the question is the tenth one, move to score scene
@@ -122,6 +131,20 @@ public class QuizController {
 				StorageAndSetUps.getInstance().scc.mediumTransition.setVisible(true);
 				StorageAndSetUps.getInstance().lmc.mediumGoButton.setDisable(false);
 				StorageAndSetUps.getInstance().lmc.mediumMessage.setVisible(false);
+				
+				// On top of this, write to the PersistentLevels.txt file, to retain medium stage unlock
+				// for user's future sessions.
+				
+				fw = new FileWriter(file.getAbsoluteFile());
+				
+				bw = new BufferedWriter(fw);
+				
+				String mediumUnlock = "1\n1\n0\n0";
+				
+				bw.write(mediumUnlock);
+				
+				bw.close();
+			
 			}
 			
 			// set hard transition to true only if the score is 8 or above and
@@ -130,6 +153,19 @@ public class QuizController {
 				StorageAndSetUps.getInstance().scc.hardTransition.setVisible(true);
 				StorageAndSetUps.getInstance().lmc.hardGoButton.setDisable(false);
 				StorageAndSetUps.getInstance().lmc.hardMessage.setVisible(false);
+				
+				// On top of this, write to the PersistentLevels.txt file, to retain hard stage unlock
+				// for user's future sessions.
+				
+				fw = new FileWriter(file.getAbsoluteFile());
+				
+				bw = new BufferedWriter(fw);
+				
+				String hardUnlock = "1\n1\n1\n0";
+				
+				bw.write(hardUnlock);
+				
+				bw.close();
 
 			}
 			
@@ -139,6 +175,19 @@ public class QuizController {
 				StorageAndSetUps.getInstance().lmc.customGoButton.setDisable(false);
 				StorageAndSetUps.getInstance().lmc.customSettings.setVisible(true);
 				StorageAndSetUps.getInstance().lmc.customMessage.setVisible(false);
+				
+				// On top of this, write to the PersistentLevels.txt file, to retain custom stage unlock
+				// for user's future sessions.
+				
+				fw = new FileWriter(file.getAbsoluteFile());
+				
+				bw = new BufferedWriter(fw);
+				
+				String customUnlock = "1\n1\n1\n1";
+				
+				bw.write(customUnlock);
+				
+				bw.close();
 
 
 			}

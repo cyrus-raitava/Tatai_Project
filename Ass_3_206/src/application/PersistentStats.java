@@ -20,6 +20,8 @@ public class PersistentStats {
 		File fileMedium = new File(pwd + "/mediumStats.txt");
 
 		File fileHard = new File(pwd + "/hardStats.txt");
+		
+		File fileLevels = new File(pwd + "/persistentLevels.txt");
 
 		if(!fileEasy.exists()) {
 			fileEasy.createNewFile();
@@ -31,6 +33,10 @@ public class PersistentStats {
 
 		if(!fileHard.exists()) {
 			fileHard.createNewFile();
+		}
+		
+		if(!fileLevels.exists()) {
+			fileLevels.createNewFile();
 		}
 
 
@@ -63,14 +69,6 @@ public class PersistentStats {
 				score = sE.nextLine();
 				format = "Session " + easySessionNum + ":\t" + score + "/10";
 				StorageAndSetUps.getInstance().sc.listEasy.add(format);
-				
-				
-				
-				if (Integer.parseInt(score) >= 8) {
-					StorageAndSetUps.getInstance().lmc.mediumGoButton.setDisable(false);
-					StorageAndSetUps.getInstance().lmc.mediumMessage.setVisible(false);
-					
-				}
 
 				StorageAndSetUps.getInstance().sc.easySession = easySessionNum;
 			}
@@ -86,10 +84,6 @@ public class PersistentStats {
 				score = sM.nextLine();
 				format = "Session " + mediumSessionNum + ":\t" + score + "/10";
 				
-				if (Integer.parseInt(score) >= 8) {
-					StorageAndSetUps.getInstance().lmc.hardGoButton.setDisable(false);
-					StorageAndSetUps.getInstance().lmc.hardMessage.setVisible(false);
-				}
 				
 				StorageAndSetUps.getInstance().sc.listMedium.add(format);
 
@@ -108,11 +102,7 @@ public class PersistentStats {
 				format = "Session " + hardSessionNum + ":\t" + score + "/10";
 				StorageAndSetUps.getInstance().sc.listHard.add(format);
 				
-				if (Integer.parseInt(score) >= 8) {
-					StorageAndSetUps.getInstance().lmc.customGoButton.setDisable(false);
-					StorageAndSetUps.getInstance().lmc.customSettings.setVisible(true);
-					StorageAndSetUps.getInstance().lmc.customMessage.setVisible(false);
-				}
+
 
 				StorageAndSetUps.getInstance().sc.hardSession = hardSessionNum;
 			}
@@ -122,6 +112,7 @@ public class PersistentStats {
 		} finally {
 
 		}
+
 	}
 
 	public static void appendStat(int sessionScore, Level level) throws IOException {
@@ -168,6 +159,54 @@ public class PersistentStats {
 			}
 		}
 
+	}
+	
+	public static void stageUnlockSet() throws IOException {
+		// Gets current working directory
+		String pwd = System.getProperty("user.dir");
+		
+		File fileLevels = new File(pwd + "/persistentLevels.txt");
+		
+		Scanner sL = new Scanner(fileLevels);
+		
+		String stage;
+		
+		int line = 0;
+		
+		try {
+			
+			while (sL.hasNextLine()) {
+				line++;
+				
+				stage = sL.nextLine();
+				
+
+				if ((Integer.parseInt(stage) == 1) && (line == 2)) {
+					StorageAndSetUps.getInstance().lmc.mediumGoButton.setDisable(false);
+					StorageAndSetUps.getInstance().lmc.mediumMessage.setVisible(false);
+					
+				}
+				
+				if ((Integer.parseInt(stage) == 1) && (line == 3)) {
+					StorageAndSetUps.getInstance().lmc.hardGoButton.setDisable(false);
+					StorageAndSetUps.getInstance().lmc.hardMessage.setVisible(false);
+				}
+				
+				if ((Integer.parseInt(stage) == 1) && (line == 4)) {
+					StorageAndSetUps.getInstance().lmc.customGoButton.setDisable(false);
+					StorageAndSetUps.getInstance().lmc.customSettings.setVisible(true);
+					StorageAndSetUps.getInstance().lmc.customMessage.setVisible(false);
+				}
+				
+
+				
+			}
+			
+			sL.close();
+			
+		} finally {
+			
+		}
 	}
 
 }

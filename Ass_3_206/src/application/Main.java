@@ -16,6 +16,7 @@ public class Main extends Application {
 
 			PersistentStats.createFile();
 			PersistentStats.loadStats();
+			PersistentStats.stageUnlockSet();
 			
 			window = primaryStage; // set primary stage
 

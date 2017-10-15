@@ -50,7 +50,7 @@ public class StatisticsController implements Initializable {
 	public static void changeDisplayMessage(boolean change) throws IOException {
 		
 		if (change) {
-		StorageAndSetUps.getInstance().csc.displayLabel.setText("There are no:");
+		StorageAndSetUps.getInstance().csc.displayLabel.setText("There are no");
 		StorageAndSetUps.getInstance().csc.displayLabel1.setText("Statistics");
 		StorageAndSetUps.getInstance().csc.ok.setVisible(true);
 		
