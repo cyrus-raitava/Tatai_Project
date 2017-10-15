@@ -131,6 +131,7 @@ public class StatisticsController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		easyList.setItems(listEasy);
+		mediumList.setItems(listMedium);
 		hardList.setItems(listHard);
 	}
 }

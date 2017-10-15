@@ -17,7 +17,7 @@ public class PersistentStats {
 
 		File fileEasy = new File(pwd + "/easyStats.txt");
 
-		File fileMedium = new File(pwd + "/easyStats.txt");
+		File fileMedium = new File(pwd + "/mediumStats.txt");
 
 		File fileHard = new File(pwd + "/hardStats.txt");
 
@@ -25,7 +25,7 @@ public class PersistentStats {
 			fileEasy.createNewFile();
 		}
 
-		if(!fileEasy.exists()) {
+		if(!fileMedium.exists()) {
 			fileMedium.createNewFile();
 		}
 
@@ -44,7 +44,7 @@ public class PersistentStats {
 
 		File fileEasy = new File(pwd + "/easyStats.txt");
 
-		File fileMedium = new File(pwd + "/easyStats.txt");
+		File fileMedium = new File(pwd + "/mediumStats.txt");
 
 		File fileHard = new File(pwd + "/hardStats.txt");
 
@@ -63,6 +63,14 @@ public class PersistentStats {
 				score = sE.nextLine();
 				format = "Session " + easySessionNum + ":\t" + score + "/10";
 				StorageAndSetUps.getInstance().sc.listEasy.add(format);
+				
+				
+				
+				if (Integer.parseInt(score) >= 8) {
+					StorageAndSetUps.getInstance().lmc.mediumGoButton.setDisable(false);
+					StorageAndSetUps.getInstance().lmc.mediumMessage.setVisible(false);
+					
+				}
 
 				StorageAndSetUps.getInstance().sc.easySession = easySessionNum;
 			}
@@ -77,6 +85,12 @@ public class PersistentStats {
 				mediumSessionNum++;
 				score = sM.nextLine();
 				format = "Session " + mediumSessionNum + ":\t" + score + "/10";
+				
+				if (Integer.parseInt(score) >= 8) {
+					StorageAndSetUps.getInstance().lmc.hardGoButton.setDisable(false);
+					StorageAndSetUps.getInstance().lmc.hardMessage.setVisible(false);
+				}
+				
 				StorageAndSetUps.getInstance().sc.listMedium.add(format);
 
 				StorageAndSetUps.getInstance().sc.mediumSession = mediumSessionNum;
@@ -93,6 +107,12 @@ public class PersistentStats {
 				score = sH.nextLine();
 				format = "Session " + hardSessionNum + ":\t" + score + "/10";
 				StorageAndSetUps.getInstance().sc.listHard.add(format);
+				
+				if (Integer.parseInt(score) >= 8) {
+					StorageAndSetUps.getInstance().lmc.customGoButton.setDisable(false);
+					StorageAndSetUps.getInstance().lmc.customSettings.setVisible(true);
+					StorageAndSetUps.getInstance().lmc.customMessage.setVisible(false);
+				}
 
 				StorageAndSetUps.getInstance().sc.hardSession = hardSessionNum;
 			}
