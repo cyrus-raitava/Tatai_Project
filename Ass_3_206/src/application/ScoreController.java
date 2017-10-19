@@ -26,6 +26,9 @@ public class ScoreController {
 	 * @throws IOException
 	 */
 	public void mediumTransitionPressed(ActionEvent event) throws IOException {
+		PersistentStates.stageUnlockSet();
+		PersistentStates.achievementsLoad();	
+		
 		StorageAndSetUps.getInstance().qc.level = Level.MEDIUM;
 		StorageAndSetUps.getInstance().quizSetup();
 		Scene quiz = StorageAndSetUps.getInstance().quiz;
@@ -40,6 +43,9 @@ public class ScoreController {
 	 * @throws IOException
 	 */
 	public void hardTransitionPressed(ActionEvent event) throws IOException {
+		PersistentStates.stageUnlockSet();
+		PersistentStates.achievementsLoad();	
+		
 		StorageAndSetUps.getInstance().qc.level = Level.HARD;
 		StorageAndSetUps.getInstance().quizSetup();
 		Scene quiz = StorageAndSetUps.getInstance().quiz;
@@ -57,6 +63,9 @@ public class ScoreController {
 	 * @throws IOException
 	 */
 	public void levelMenuPress(ActionEvent event) throws IOException {
+		PersistentStates.stageUnlockSet();
+		PersistentStates.achievementsLoad();	
+		
 		Scene levelMenu = StorageAndSetUps.getInstance().levelMenu;
 		Stage window = (Stage) levelMenuButton.getScene().getWindow();
 		window.setScene(levelMenu);

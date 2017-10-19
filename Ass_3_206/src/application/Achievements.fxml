@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AchievementsController">
+   <children>
+      <Label layoutX="60.0" layoutY="14.0" text="Achievements">
+         <font>
+            <Font name="System Bold" size="72.0" />
+         </font>
+      </Label>
+      <Button fx:id="returnButton" layoutX="266.0" layoutY="357.0" mnemonicParsing="false" onAction="#returnPress" text="Return">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="arrowIcon" fitHeight="100.0" fitWidth="120.0" layoutX="61.0" layoutY="104.0" onMouseEntered="#opacityChangeUp" onMouseExited="#opacityChangeDown" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+         <image>
+            <Image url="@../images/U_ACCURATE.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="streakIcon" fitHeight="100.0" fitWidth="91.0" layoutX="61.0" layoutY="233.0" onMouseEntered="#opacityChangeUp" onMouseExited="#opacityChangeDown" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+         <image>
+            <Image url="@../images/U_RISING.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="scrollIcon" fitHeight="100.0" fitWidth="91.0" layoutX="255.0" layoutY="108.0" onMouseEntered="#opacityChangeUp" onMouseExited="#opacityChangeDown" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+         <image>
+            <Image url="@../images/U_SCROLL.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="scholarIcon" fitHeight="100.0" fitWidth="91.0" layoutX="255.0" layoutY="234.0" onMouseEntered="#opacityChangeUp" onMouseExited="#opacityChangeDown" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+         <image>
+            <Image url="@../images/U_STUDENT.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="wreathIcon" fitHeight="100.0" fitWidth="91.0" layoutX="450.0" layoutY="229.0" onMouseEntered="#opacityChangeUp" onMouseExited="#opacityChangeDown" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+         <image>
+            <Image url="@../images/U_WREATH.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="starIcon" fitHeight="100.0" fitWidth="91.0" layoutX="450.0" layoutY="108.0" onMouseEntered="#opacityChangeUp" onMouseExited="#opacityChangeDown" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+         <image>
+            <Image url="@../images/U_STAR.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="arrowText" layoutX="46.0" layoutY="200.0" prefHeight="45.0" prefWidth="121.0" />
+      <Label fx:id="scrollText" layoutX="241.0" layoutY="200.0" prefHeight="45.0" prefWidth="121.0" />
+      <Label fx:id="starText" layoutX="436.0" layoutY="200.0" prefHeight="45.0" prefWidth="121.0" />
+      <Label fx:id="streakText" layoutX="46.0" layoutY="303.0" prefHeight="45.0" prefWidth="121.0" />
+      <Label fx:id="scholarText" layoutX="241.0" layoutY="307.0" prefHeight="45.0" prefWidth="121.0" />
+      <Label fx:id="wreathText" layoutX="436.0" layoutY="307.0" prefHeight="45.0" prefWidth="121.0" />
+   </children>
+</AnchorPane>

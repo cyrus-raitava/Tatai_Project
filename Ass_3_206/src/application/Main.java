@@ -13,13 +13,17 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-
-			PersistentStats.createFile();
-			PersistentStats.loadStats();
-			PersistentStats.stageUnlockSet();
+			
+			
+			PersistentStates.createFile();
+			PersistentStates.loadStats();
+			PersistentStates.defaultAchievements();
+			PersistentStates.stageUnlockSet();
+			PersistentStates.achievementsLoad();	
+			
 			
 			window = primaryStage; // set primary stage
-
+		
 			Scene scene = StorageAndSetUps.getInstance().menu; // load menu scene
 
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm()); // set style
@@ -29,6 +33,8 @@ public class Main extends Application {
 			window.setScene(scene);
 			window.show();
 			window.setResizable(false);
+			
+			
 			
 		} catch(Exception e) {
 			e.printStackTrace();

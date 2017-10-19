@@ -200,7 +200,7 @@ public class StatisticsController implements Initializable {
 				// Alongside adding score to ArrayList<String>, append score to relevant text file,
 				// to retain as a persistent statistic.
 				
-				PersistentStats.appendStat(sessionScore, level);
+				PersistentStates.appendStat(sessionScore, level);
 				
 				
 				
@@ -217,7 +217,7 @@ public class StatisticsController implements Initializable {
 				
 				listEasy.add(format);
 				
-				PersistentStats.appendStat(sessionScore, level);
+				PersistentStates.appendStat(sessionScore, level);
 				
 			} else if (level == Level.MEDIUM) {
 				// If level chosen is Easy, then increment easySessions counter: similar to the formatting for the Hard ListView,
@@ -231,7 +231,7 @@ public class StatisticsController implements Initializable {
 				
 				listMedium.add(format);
 				
-				PersistentStats.appendStat(sessionScore, level);
+				PersistentStates.appendStat(sessionScore, level);
 			}
 
 		

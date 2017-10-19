@@ -1,14 +1,18 @@
 package application;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -29,6 +33,22 @@ public class MenuController {
 	
 	@FXML
 	private Button statsButton;
+	
+	@FXML
+	private Button achievementsButton;
+	
+	@FXML
+	public ImageView menuUserStatus;
+	
+	@FXML
+	public Label userStatus;
+	
+	public void achievementsPress(ActionEvent event) throws IOException {
+		
+		Scene achievements = StorageAndSetUps.getInstance().achievements;		
+		Stage window = (Stage) achievementsButton.getScene().getWindow();
+		window.setScene(achievements);
+	}
 	
 	/**Function that loads quit option as pop-up, to be utilized by the Quit button
 	 * from the main menu. Note that the quit scene in itself is UNDECORATED.
@@ -81,4 +101,6 @@ public class MenuController {
 		Stage window = (Stage) timataButton.getScene().getWindow();
 		window.setScene(statistics);
 	}
+
+
 }
