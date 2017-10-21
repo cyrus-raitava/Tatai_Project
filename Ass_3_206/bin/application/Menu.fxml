@@ -61,5 +61,6 @@
          </image>
       </ImageView>
       <Label fx:id="userStatus" layoutX="257.0" layoutY="36.0" prefHeight="35.0" prefWidth="89.0" text="GOLD USER" />
+      <Button fx:id="creditsButton" layoutX="460.0" layoutY="350.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="121.0" text="Credits" />
    </children>
 </AnchorPane>

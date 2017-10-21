@@ -152,9 +152,6 @@ public class PersistentStates {
 				score = sH.nextLine();
 				format = "Session " + hardSessionNum + ":\t" + score + "/10";
 				StorageAndSetUps.getInstance().sc.listHard.add(format);
-				
-
-
 				StorageAndSetUps.getInstance().sc.hardSession = hardSessionNum;
 			}
 
@@ -300,6 +297,8 @@ public class PersistentStates {
 				StorageAndSetUps.getInstance().achc.streakIcon.setMouseTransparent(true);
 				StorageAndSetUps.getInstance().achc.streakIcon.setImage(new Image("/images/C_RISING.png", true));
 				StorageAndSetUps.getInstance().achc.streakText.setText("UNLOCKED! You have gotten 10/10 in at least 3 consecutive sessions.");
+				StorageAndSetUps.getInstance().achc.streakText.setWrapText(true);
+
 			}
 		}
 	}

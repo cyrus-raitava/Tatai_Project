@@ -14,12 +14,14 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			
-			
 			PersistentStates.createFile();
 			PersistentStates.loadStats();
 			PersistentStates.defaultAchievements();
 			PersistentStates.stageUnlockSet();
 			PersistentStates.achievementsLoad();	
+
+			//UserLogin.startUp();
+			
 			
 			
 			window = primaryStage; // set primary stage

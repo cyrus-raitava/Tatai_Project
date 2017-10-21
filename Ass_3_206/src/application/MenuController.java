@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -38,6 +39,9 @@ public class MenuController {
 	private Button achievementsButton;
 	
 	@FXML
+	private Button creditsButton;
+	
+	@FXML
 	public ImageView menuUserStatus;
 	
 	@FXML
@@ -48,6 +52,10 @@ public class MenuController {
 		Scene achievements = StorageAndSetUps.getInstance().achievements;		
 		Stage window = (Stage) achievementsButton.getScene().getWindow();
 		window.setScene(achievements);
+	}
+	
+	public void creditsShow(MouseEvent event) {
+		
 	}
 	
 	/**Function that loads quit option as pop-up, to be utilized by the Quit button
@@ -62,10 +70,11 @@ public class MenuController {
         stage.initModality(Modality.APPLICATION_MODAL);
         Scene scene = new Scene(root1);
         stage.setTitle("Quit Page");
-        stage.setScene(scene);  
+        stage.setScene(scene);
         stage.setResizable(false);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
+        
 	}
 	
 	/**

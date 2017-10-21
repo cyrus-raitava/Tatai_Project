@@ -49,11 +49,11 @@
             <Image url="@../images/U_STAR.png" />
          </image>
       </ImageView>
-      <Label fx:id="arrowText" layoutX="46.0" layoutY="200.0" prefHeight="45.0" prefWidth="121.0" />
-      <Label fx:id="scrollText" layoutX="241.0" layoutY="200.0" prefHeight="45.0" prefWidth="121.0" />
-      <Label fx:id="starText" layoutX="436.0" layoutY="200.0" prefHeight="45.0" prefWidth="121.0" />
-      <Label fx:id="streakText" layoutX="46.0" layoutY="303.0" prefHeight="45.0" prefWidth="121.0" />
-      <Label fx:id="scholarText" layoutX="241.0" layoutY="307.0" prefHeight="45.0" prefWidth="121.0" />
-      <Label fx:id="wreathText" layoutX="436.0" layoutY="307.0" prefHeight="45.0" prefWidth="121.0" />
+      <Label fx:id="arrowText" layoutX="22.0" layoutY="200.0" prefHeight="36.0" prefWidth="169.0" />
+      <Label fx:id="scrollText" layoutX="216.0" layoutY="200.0" prefHeight="36.0" prefWidth="169.0" />
+      <Label fx:id="starText" layoutX="411.0" layoutY="200.0" prefHeight="36.0" prefWidth="169.0" />
+      <Label fx:id="streakText" layoutX="22.0" layoutY="307.0" prefHeight="36.0" prefWidth="169.0" />
+      <Label fx:id="scholarText" layoutX="216.0" layoutY="307.0" prefHeight="42.0" prefWidth="169.0" />
+      <Label fx:id="wreathText" layoutX="411.0" layoutY="307.0" prefHeight="36.0" prefWidth="169.0" />
    </children>
 </AnchorPane>
