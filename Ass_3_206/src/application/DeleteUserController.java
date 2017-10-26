@@ -141,7 +141,7 @@ public class DeleteUserController {
 		}
 	
 		// Re-disable the loginConfirm and deleteUser buttons, to only be re-enabled upon
-		// a subsequent selection within the userList Combo Box being made.
+		// a subsequent selection within the userList Combo Box that holds the list of users, being made.
 		
 		StorageAndSetUps.getInstance().ulc.loginConfirm.setDisable(true);
 		StorageAndSetUps.getInstance().ulc.deleteUser.setDisable(true);

@@ -5,8 +5,21 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class EquationGenerator {
-
+	
+	
+	/**
+	 * Method that produces a random equation in the form of a string, given
+	 * an input enum of type Level.
+	 * 
+	 * @param level
+	 * @return
+	 * @throws IOException
+	 */
 	public static String[] randomEquation(Level level) throws IOException {
+		
+		// Initialise a random variable to help generate random questions for
+		// each level, as well as an ArrayList<String> to help further specify
+		// which 
 		int rand = (int)(4*Math.random() + 1);
 		ArrayList<Integer> timesTable;
 
