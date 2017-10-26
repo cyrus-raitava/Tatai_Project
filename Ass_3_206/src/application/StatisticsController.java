@@ -33,6 +33,12 @@ public class StatisticsController implements Initializable {
 	private Button returnButton;
 	
 	public void returnPress(ActionEvent event) throws IOException {
+		
+		PersistentStates.defaultAchievements();
+		
+		PersistentStates.loadStats(UserLogin.username);
+		PersistentStates.achievementsLoad(UserLogin.username);
+		
 		Scene menu = StorageAndSetUps.getInstance().menu;
 		Stage window = (Stage) returnButton.getScene().getWindow();
 		window.setScene(menu);

@@ -32,36 +32,44 @@ public class PersistentStates {
 		StorageAndSetUps.getInstance().achc.streakIcon.setOpacity(0.3);
 		StorageAndSetUps.getInstance().achc.wreathIcon.setOpacity(0.3);
 			
+		StorageAndSetUps.getInstance().achc.arrowIcon.setImage(new Image("/images/U_ACCURATE.png", true));
 		StorageAndSetUps.getInstance().achc.arrowText.setText("LOCKED");
 		StorageAndSetUps.getInstance().achc.arrowText.setVisible(true);
 		StorageAndSetUps.getInstance().achc.arrowText.setWrapText(true);
 		StorageAndSetUps.getInstance().achc.arrowText.setAlignment(Pos.CENTER);
 		
+		StorageAndSetUps.getInstance().achc.scholarIcon.setImage(new Image("/images/U_STUDENT.png", true));
 		StorageAndSetUps.getInstance().achc.scholarText.setText("LOCKED");
 		StorageAndSetUps.getInstance().achc.scholarText.setVisible(true);
 		StorageAndSetUps.getInstance().achc.scholarText.setWrapText(true);
 		StorageAndSetUps.getInstance().achc.scholarText.setAlignment(Pos.CENTER);
 		
+		StorageAndSetUps.getInstance().achc.scrollIcon.setImage(new Image("/images/U_SCROLL.png", true));
 		StorageAndSetUps.getInstance().achc.scrollText.setText("LOCKED");
 		StorageAndSetUps.getInstance().achc.scrollText.setVisible(true);
 		StorageAndSetUps.getInstance().achc.scrollText.setWrapText(true);
 		StorageAndSetUps.getInstance().achc.scrollText.setAlignment(Pos.CENTER);
 		
+		StorageAndSetUps.getInstance().achc.starIcon.setImage(new Image("/images/U_STAR.png", true));
 		StorageAndSetUps.getInstance().achc.starText.setText("LOCKED");
 		StorageAndSetUps.getInstance().achc.starText.setVisible(true);
 		StorageAndSetUps.getInstance().achc.starText.setWrapText(true);
 		StorageAndSetUps.getInstance().achc.starText.setAlignment(Pos.CENTER);
 		
+		StorageAndSetUps.getInstance().achc.streakIcon.setImage(new Image("/images/U_RISING.png", true));
 		StorageAndSetUps.getInstance().achc.streakText.setText("LOCKED");
 		StorageAndSetUps.getInstance().achc.streakText.setVisible(true);
 		StorageAndSetUps.getInstance().achc.streakText.setWrapText(true);
 		StorageAndSetUps.getInstance().achc.streakText.setAlignment(Pos.CENTER);
 		
+		StorageAndSetUps.getInstance().achc.wreathIcon.setImage(new Image("/images/U_WREATH.png", true));
 		StorageAndSetUps.getInstance().achc.wreathText.setText("LOCKED");
 		StorageAndSetUps.getInstance().achc.wreathText.setVisible(true);
 		StorageAndSetUps.getInstance().achc.wreathText.setWrapText(true);
 		StorageAndSetUps.getInstance().achc.wreathText.setAlignment(Pos.CENTER);
 		
+		
+		StorageAndSetUps.getInstance().mc.menuUserStatus.setImage(new Image("/images/U_WREATH.png", true));
 		StorageAndSetUps.getInstance().mc.menuUserStatus.setOpacity(0.3);
 		StorageAndSetUps.getInstance().mc.userStatus.setText("");
 		StorageAndSetUps.getInstance().mc.userStatus.setVisible(false);
@@ -111,11 +119,8 @@ public class PersistentStates {
 		StatisticsController.listMedium.clear();
 		StatisticsController.listHard.clear();
 		
-
 		try {
 
-			
-			
 			Scanner sE = new Scanner(fileEasy);
 
 			String score, format;
@@ -141,8 +146,7 @@ public class PersistentStates {
 				mediumSessionNum++;
 				score = sM.nextLine();
 				format = "Session " + mediumSessionNum + ":\t" + score + "/10";
-				
-				
+	
 				StorageAndSetUps.getInstance().sc.listMedium.add(format);
 
 				StorageAndSetUps.getInstance().sc.mediumSession = mediumSessionNum;

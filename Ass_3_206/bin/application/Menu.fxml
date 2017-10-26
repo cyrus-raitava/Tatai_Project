@@ -49,18 +49,21 @@
             <Font size="9.0" />
          </font>
       </Label>
-      <Button fx:id="achievementsButton" layoutX="14.0" layoutY="350.0" mnemonicParsing="false" onAction="#achievementsPress" prefHeight="27.0" prefWidth="121.0" text="Achievements" />
+      <Button fx:id="achievementsButton" layoutX="31.0" layoutY="350.0" mnemonicParsing="false" onAction="#achievementsPress" prefHeight="27.0" prefWidth="121.0" text="Achievements" />
       <ImageView fx:id="menuUserStatus" fitHeight="98.0" fitWidth="178.0" layoutX="245.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/U_WREATH.png" />
          </image>
       </ImageView>
       <Label fx:id="userStatus" alignment="CENTER" layoutX="218.0" layoutY="26.0" prefHeight="49.0" prefWidth="161.0" text="GOLD USER" textAlignment="CENTER" />
-      <Button fx:id="creditsButton" layoutX="460.0" layoutY="350.0" mnemonicParsing="false" onAction="#creditsPress" prefHeight="27.0" prefWidth="121.0" text="Credits" />
+      <Button fx:id="creditsButton" layoutX="441.0" layoutY="347.0" mnemonicParsing="false" onAction="#creditsPress" prefHeight="27.0" prefWidth="121.0" text="Credits" />
       <Label fx:id="userLabel" layoutX="11.0" layoutY="4.0" prefHeight="43.0" prefWidth="161.0" text="USER:">
          <font>
             <Font name="System Bold" size="21.0" />
          </font></Label>
-      <Label fx:id="achieveNotify" layoutX="6.0" layoutY="315.0" prefHeight="27.0" prefWidth="138.0" text="NEW ACHIEVEMENT" textFill="RED" />
+      <Label fx:id="achieveNotify" layoutX="17.0" layoutY="321.0" prefHeight="27.0" prefWidth="150.0" text="NEW ACHIEVEMENT" textFill="RED">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Label>
    </children>
 </AnchorPane>
