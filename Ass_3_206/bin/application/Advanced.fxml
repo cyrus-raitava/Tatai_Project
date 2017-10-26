@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Group?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -13,25 +12,25 @@
   <tabs>
     <Tab text="+">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="367.0" prefWidth="550.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="276.0" prefWidth="410.0">
                <children>
-                  <Label layoutX="103.0" layoutY="16.0" text="+" textFill="#275cbf">
+                  <Label layoutX="96.0" layoutY="-14.0" text="+" textFill="#f41eff">
                      <font>
-                        <Font name="System Bold" size="70.0" />
+                        <Font name="System Bold" size="96.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="plusDigits" layoutX="61.0" layoutY="143.0" prefWidth="150.0" />
-                  <Label layoutX="40.0" layoutY="110.0" text="Number of Digits">
+                  <ChoiceBox fx:id="plusDigits" layoutX="66.0" layoutY="137.0" prefWidth="150.0" />
+                  <Label layoutX="7.0" layoutY="91.0" prefHeight="51.0" prefWidth="260.0" text="How big do you want your numbers?" textAlignment="CENTER" wrapText="true">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="25.0" layoutY="184.0" text="Number of Variables">
+                  <Label layoutX="4.0" layoutY="182.0" prefHeight="39.0" prefWidth="267.0" text="How many numbers do you want to add together?" textAlignment="CENTER" wrapText="true">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="plusVariables" layoutX="62.0" layoutY="210.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="plusVariables" layoutX="66.0" layoutY="224.0" prefWidth="150.0" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -39,23 +38,23 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Label layoutX="101.0" layoutY="19.0" text="−" textFill="#275cbf">
+                  <Label layoutX="98.0" layoutY="-7.0" text="−" textFill="#275cbf">
                      <font>
-                        <Font name="System Bold" size="70.0" />
+                        <Font name="System Bold" size="96.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="minusDigits" layoutX="59.0" layoutY="124.0" prefWidth="150.0" />
-                  <Label layoutX="43.0" layoutY="100.0" text="Number of  Digits">
+                  <ChoiceBox fx:id="minusDigits" layoutX="59.0" layoutY="136.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="minusVariables" layoutX="59.0" layoutY="221.0" prefWidth="150.0" />
+                  <Label layoutX="6.0" layoutY="91.0" prefHeight="51.0" prefWidth="260.0" text="How big do you want your numbers?" textAlignment="CENTER" wrapText="true">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="24.0" layoutY="178.0" text="Number of Variables">
+                  <Label layoutX="5.0" layoutY="174.0" prefHeight="49.0" prefWidth="267.0" text="How many numbers do you want to minus?" textAlignment="CENTER" wrapText="true">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="minusVariables" layoutX="59.0" layoutY="204.0" prefWidth="150.0" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -63,61 +62,57 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Group layoutX="24.0" layoutY="4.0">
+                  <Label layoutX="93.0" layoutY="-20.0" text="×" textFill="#f41eff">
+                     <font>
+                        <Font name="System Bold" size="96.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="19.0" layoutY="186.0" prefHeight="54.0" prefWidth="247.0" text="What range of numbers do you want to practice with?" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="6.0" layoutY="74.0" prefHeight="44.0" prefWidth="256.0" text="Which Times Tables would you like to practice?" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="timesRange" layoutX="64.0" layoutY="234.0" prefWidth="150.0" />
+                  <AnchorPane layoutX="19.0" layoutY="122.0">
                      <children>
-                        <Label layoutX="83.0" text="×" textFill="#275cbf">
-                           <font>
-                              <Font name="System Bold" size="70.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="81.0" layoutY="194.0" text="Range">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label layoutY="85.0" text="Times Tables Choice">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <ChoiceBox fx:id="timesRange" layoutX="37.0" layoutY="222.0" prefWidth="150.0" />
-                        <AnchorPane layoutY="117.0">
-                           <children>
-                              <CheckBox fx:id="cb1x" mnemonicParsing="false" selected="true" text="1" />
-                              <CheckBox fx:id="cb6x" layoutY="23.0" mnemonicParsing="false" selected="true" text="6" />
-                              <CheckBox fx:id="cb11x" layoutY="46.0" mnemonicParsing="false" selected="true" text="11" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="200.0" layoutY="119.0">
-                           <children>
-                              <CheckBox fx:id="cb5x" mnemonicParsing="false" selected="true" text="5" />
-                              <CheckBox fx:id="cb10x" layoutY="23.0" mnemonicParsing="false" selected="true" text="10" />
-                              <CheckBox fx:id="cb15x" layoutY="46.0" mnemonicParsing="false" text="15" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="153.0" layoutY="118.0">
-                           <children>
-                              <CheckBox fx:id="cb4x" mnemonicParsing="false" selected="true" text="4" />
-                              <CheckBox fx:id="cb9x" layoutY="23.0" mnemonicParsing="false" selected="true" text="9" />
-                              <CheckBox fx:id="cb14x" layoutY="46.0" mnemonicParsing="false" text="14" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="98.0" layoutY="115.0">
-                           <children>
-                              <CheckBox fx:id="cb3x" mnemonicParsing="false" selected="true" text="3" />
-                              <CheckBox fx:id="cb8x" layoutY="23.0" mnemonicParsing="false" selected="true" text="8" />
-                              <CheckBox fx:id="cb13x" layoutY="46.0" mnemonicParsing="false" text="13" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="46.0" layoutY="117.0">
-                           <children>
-                              <CheckBox fx:id="cb2x" mnemonicParsing="false" selected="true" text="2" />
-                              <CheckBox fx:id="cb7x" layoutY="23.0" mnemonicParsing="false" selected="true" text="7" />
-                              <CheckBox fx:id="cb12x" layoutY="46.0" mnemonicParsing="false" selected="true" text="12" />
-                           </children>
-                        </AnchorPane>
+                        <CheckBox fx:id="cb1x" mnemonicParsing="false" selected="true" text="1" />
+                        <CheckBox fx:id="cb6x" layoutY="23.0" mnemonicParsing="false" selected="true" text="6" />
+                        <CheckBox fx:id="cb11x" layoutY="46.0" mnemonicParsing="false" selected="true" text="11" />
                      </children>
-                  </Group>
+                  </AnchorPane>
+                  <AnchorPane layoutX="219.0" layoutY="124.0">
+                     <children>
+                        <CheckBox fx:id="cb5x" mnemonicParsing="false" selected="true" text="5" />
+                        <CheckBox fx:id="cb10x" layoutY="23.0" mnemonicParsing="false" selected="true" text="10" />
+                        <CheckBox fx:id="cb15x" layoutY="46.0" mnemonicParsing="false" text="15" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="172.0" layoutY="123.0">
+                     <children>
+                        <CheckBox fx:id="cb4x" mnemonicParsing="false" selected="true" text="4" />
+                        <CheckBox fx:id="cb9x" layoutY="23.0" mnemonicParsing="false" selected="true" text="9" />
+                        <CheckBox fx:id="cb14x" layoutY="46.0" mnemonicParsing="false" text="14" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="117.0" layoutY="120.0">
+                     <children>
+                        <CheckBox fx:id="cb3x" mnemonicParsing="false" selected="true" text="3" />
+                        <CheckBox fx:id="cb8x" layoutY="23.0" mnemonicParsing="false" selected="true" text="8" />
+                        <CheckBox fx:id="cb13x" layoutY="46.0" mnemonicParsing="false" text="13" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="65.0" layoutY="122.0">
+                     <children>
+                        <CheckBox fx:id="cb2x" mnemonicParsing="false" selected="true" text="2" />
+                        <CheckBox fx:id="cb7x" layoutY="23.0" mnemonicParsing="false" selected="true" text="7" />
+                        <CheckBox fx:id="cb12x" layoutY="46.0" mnemonicParsing="false" selected="true" text="12" />
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </content>
@@ -126,61 +121,57 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Group layoutX="16.0" layoutY="7.0">
+                  <Label layoutX="98.0" layoutY="-18.0" text="÷" textFill="#275cbf">
+                     <font>
+                        <Font name="System Bold" size="96.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="7.0" layoutY="189.0" prefHeight="52.0" prefWidth="255.0" text="What range of numbers do you want to practice with?" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="1.0" layoutY="76.0" prefHeight="45.0" prefWidth="276.0" text="Which numbers would you like to practice your division with?" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="divRange" layoutX="60.0" layoutY="235.0" prefWidth="150.0" />
+                  <AnchorPane layoutX="16.0" layoutY="124.0">
                      <children>
-                        <Label layoutX="83.0" text="÷" textFill="#275cbf">
-                           <font>
-                              <Font name="System Bold" size="70.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="81.0" layoutY="194.0" text="Range">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="42.0" layoutY="85.0" text="Multiples of:">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <ChoiceBox fx:id="divRange" layoutX="37.0" layoutY="222.0" prefWidth="150.0" />
-                        <AnchorPane layoutY="117.0">
-                           <children>
-                              <CheckBox fx:id="cb1div" mnemonicParsing="false" selected="true" text="1" />
-                              <CheckBox fx:id="cb6div" layoutY="23.0" mnemonicParsing="false" selected="true" text="6" />
-                              <CheckBox fx:id="cb11div" layoutY="46.0" mnemonicParsing="false" selected="true" text="11" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="200.0" layoutY="119.0">
-                           <children>
-                              <CheckBox fx:id="cb5div" mnemonicParsing="false" selected="true" text="5" />
-                              <CheckBox fx:id="cb10div" layoutY="23.0" mnemonicParsing="false" selected="true" text="10" />
-                              <CheckBox fx:id="cb15div" layoutY="46.0" mnemonicParsing="false" text="15" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="153.0" layoutY="118.0">
-                           <children>
-                              <CheckBox fx:id="cb4div" mnemonicParsing="false" selected="true" text="4" />
-                              <CheckBox fx:id="cb9div" layoutY="23.0" mnemonicParsing="false" selected="true" text="9" />
-                              <CheckBox fx:id="cb14div" layoutY="46.0" mnemonicParsing="false" text="14" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="98.0" layoutY="115.0">
-                           <children>
-                              <CheckBox fx:id="cb3div" mnemonicParsing="false" selected="true" text="3" />
-                              <CheckBox fx:id="cb8div" layoutY="23.0" mnemonicParsing="false" selected="true" text="8" />
-                              <CheckBox fx:id="cb13div" layoutY="46.0" mnemonicParsing="false" text="13" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="46.0" layoutY="117.0">
-                           <children>
-                              <CheckBox fx:id="cb2div" mnemonicParsing="false" selected="true" text="2" />
-                              <CheckBox fx:id="cb7div" layoutY="23.0" mnemonicParsing="false" selected="true" text="7" />
-                              <CheckBox fx:id="cb12div" layoutY="46.0" mnemonicParsing="false" text="12" />
-                           </children>
-                        </AnchorPane>
+                        <CheckBox fx:id="cb1div" mnemonicParsing="false" selected="true" text="1" />
+                        <CheckBox fx:id="cb6div" layoutY="23.0" mnemonicParsing="false" selected="true" text="6" />
+                        <CheckBox fx:id="cb11div" layoutY="46.0" mnemonicParsing="false" selected="true" text="11" />
                      </children>
-                  </Group>
+                  </AnchorPane>
+                  <AnchorPane layoutX="216.0" layoutY="126.0">
+                     <children>
+                        <CheckBox fx:id="cb5div" mnemonicParsing="false" selected="true" text="5" />
+                        <CheckBox fx:id="cb10div" layoutY="23.0" mnemonicParsing="false" selected="true" text="10" />
+                        <CheckBox fx:id="cb15div" layoutY="46.0" mnemonicParsing="false" text="15" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="169.0" layoutY="125.0">
+                     <children>
+                        <CheckBox fx:id="cb4div" mnemonicParsing="false" selected="true" text="4" />
+                        <CheckBox fx:id="cb9div" layoutY="23.0" mnemonicParsing="false" selected="true" text="9" />
+                        <CheckBox fx:id="cb14div" layoutY="46.0" mnemonicParsing="false" text="14" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="114.0" layoutY="122.0">
+                     <children>
+                        <CheckBox fx:id="cb3div" mnemonicParsing="false" selected="true" text="3" />
+                        <CheckBox fx:id="cb8div" layoutY="23.0" mnemonicParsing="false" selected="true" text="8" />
+                        <CheckBox fx:id="cb13div" layoutY="46.0" mnemonicParsing="false" text="13" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="62.0" layoutY="124.0">
+                     <children>
+                        <CheckBox fx:id="cb2div" mnemonicParsing="false" selected="true" text="2" />
+                        <CheckBox fx:id="cb7div" layoutY="23.0" mnemonicParsing="false" selected="true" text="7" />
+                        <CheckBox fx:id="cb12div" layoutY="46.0" mnemonicParsing="false" text="12" />
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </content>

@@ -175,7 +175,7 @@ public class Recorder {
 							text = text + s + " ";
 						}
 					}
-					text = text + "\";
+					text = text + "\"";
 					StorageAndSetUps.getInstance().qc.expectedAnswer.setText(text);
 				}
 				continueButton.setVisible(true);
