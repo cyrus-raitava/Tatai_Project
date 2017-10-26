@@ -50,8 +50,12 @@ public class MenuController {
 	@FXML
 	public Label userLabel;
 	
+	@FXML
+	public Label achieveNotify;
+	
 	public void achievementsPress(ActionEvent event) throws IOException {
 		
+		StorageAndSetUps.getInstance().mc.achieveNotify.setVisible(false);
 		Scene achievements = StorageAndSetUps.getInstance().achievements;		
 		Stage window = (Stage) achievementsButton.getScene().getWindow();
 		window.setScene(achievements);

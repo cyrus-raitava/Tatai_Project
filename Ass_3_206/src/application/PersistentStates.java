@@ -106,6 +106,11 @@ public class PersistentStates {
 		File fileMedium = new File(pwd + "/TataiResources/" + username + "mediumStats.txt");
 
 		File fileHard = new File(pwd + "/TataiResources/" + username + "hardStats.txt");
+		
+		StatisticsController.listEasy.clear();
+		StatisticsController.listMedium.clear();
+		StatisticsController.listHard.clear();
+		
 
 		try {
 
@@ -266,6 +271,7 @@ public class PersistentStates {
 				StorageAndSetUps.getInstance().achc.arrowIcon.setMouseTransparent(true);
 				StorageAndSetUps.getInstance().achc.arrowIcon.setImage(new Image("/images/C_ACCURACY.png", true));
 				StorageAndSetUps.getInstance().achc.arrowText.setText("10/10 in at least one session");
+				StorageAndSetUps.getInstance().mc.achieveNotify.setVisible(true);
 				StorageAndSetUps.getInstance().achc.arrowText.setAlignment(Pos.CENTER);
 				return;
 			}
@@ -299,6 +305,7 @@ public class PersistentStates {
 				StorageAndSetUps.getInstance().achc.streakIcon.setMouseTransparent(true);
 				StorageAndSetUps.getInstance().achc.streakIcon.setImage(new Image("/images/C_RISING.png", true));
 				StorageAndSetUps.getInstance().achc.streakText.setText("10/10 in at least 3 consecutive sessions");
+				StorageAndSetUps.getInstance().mc.achieveNotify.setVisible(true);
 				StorageAndSetUps.getInstance().achc.streakText.setAlignment(Pos.CENTER);
 				StorageAndSetUps.getInstance().achc.streakText.setWrapText(true);
 
@@ -333,6 +340,7 @@ public class PersistentStates {
 					StorageAndSetUps.getInstance().achc.scrollIcon.setMouseTransparent(true);
 					StorageAndSetUps.getInstance().achc.scrollIcon.setImage(new Image("/images/C_SCROLL.png", true));
 					StorageAndSetUps.getInstance().achc.scrollText.setText("At least " + limit + " questions correct, total");
+					StorageAndSetUps.getInstance().mc.achieveNotify.setVisible(true);
 					StorageAndSetUps.getInstance().achc.scrollText.setAlignment(Pos.CENTER);
 					break;
 				case 100:
@@ -340,6 +348,7 @@ public class PersistentStates {
 					StorageAndSetUps.getInstance().achc.scholarIcon.setMouseTransparent(true);
 					StorageAndSetUps.getInstance().achc.scholarIcon.setImage(new Image("/images/C_STUDENT.png", true));
 					StorageAndSetUps.getInstance().achc.scholarText.setText("At least " + limit + " questions correct, total");
+					StorageAndSetUps.getInstance().mc.achieveNotify.setVisible(true);
 					StorageAndSetUps.getInstance().achc.scholarText.setAlignment(Pos.CENTER);
 					break;
 				}
@@ -382,6 +391,8 @@ public class PersistentStates {
 			StorageAndSetUps.getInstance().mc.userStatus.setVisible(true);
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setOpacity(0.4);
 			
+			StorageAndSetUps.getInstance().mc.achieveNotify.setVisible(true);
+			
 		} else if ((PersistentStates.totalAnswered >= 50) && (PersistentStates.totalAnswered < 100)) {
 			StorageAndSetUps.getInstance().achc.wreathIcon.setImage(new Image("/images/SILVER_WREATH.png", true));
 			StorageAndSetUps.getInstance().achc.wreathIcon.setMouseTransparent(true);
@@ -394,6 +405,8 @@ public class PersistentStates {
 			StorageAndSetUps.getInstance().mc.userStatus.setAlignment(Pos.CENTER);
 			StorageAndSetUps.getInstance().mc.userStatus.setVisible(true);
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setOpacity(0.4);
+			
+			StorageAndSetUps.getInstance().mc.achieveNotify.setVisible(true);
 			
 		} else if ((PersistentStates.totalAnswered >= 100) && (PersistentStates.totalAnswered < 250)) {
 			StorageAndSetUps.getInstance().achc.wreathIcon.setImage(new Image("/images/GOLD_WREATH.png", true));
@@ -408,6 +421,8 @@ public class PersistentStates {
 			StorageAndSetUps.getInstance().mc.userStatus.setVisible(true);
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setOpacity(0.4);
 			
+			StorageAndSetUps.getInstance().mc.achieveNotify.setVisible(true);
+			
 		} else if ((PersistentStates.totalAnswered >= 250) && (PersistentStates.totalAnswered < 500)) {
 			StorageAndSetUps.getInstance().achc.wreathIcon.setImage(new Image("/images/PLATINUM_WREATH.png", true));
 			StorageAndSetUps.getInstance().achc.wreathIcon.setMouseTransparent(true);
@@ -421,6 +436,8 @@ public class PersistentStates {
 			StorageAndSetUps.getInstance().mc.userStatus.setVisible(true);
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setOpacity(0.4);
 			
+			StorageAndSetUps.getInstance().mc.achieveNotify.setVisible(true);
+			
 		} else if ((PersistentStates.totalAnswered >= 500)) {
 			StorageAndSetUps.getInstance().achc.wreathIcon.setImage(new Image("/images/DIAMOND.png", true));
 			StorageAndSetUps.getInstance().achc.wreathIcon.setMouseTransparent(true);
@@ -433,6 +450,8 @@ public class PersistentStates {
 			StorageAndSetUps.getInstance().mc.userStatus.setAlignment(Pos.CENTER);
 			StorageAndSetUps.getInstance().mc.userStatus.setVisible(true);
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setOpacity(0.4);
+			
+			StorageAndSetUps.getInstance().mc.achieveNotify.setVisible(true);
 			
 		} else {
 			
@@ -483,6 +502,8 @@ public class PersistentStates {
 					
 					StorageAndSetUps.getInstance().achc.starText.setText("You unlocked all levels!");
 					StorageAndSetUps.getInstance().achc.starText.setAlignment(Pos.CENTER);
+					
+					StorageAndSetUps.getInstance().mc.achieveNotify.setVisible(true);
 				}
 				
 

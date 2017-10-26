@@ -231,6 +231,7 @@ public class UserLoginController implements Initializable {
 
 
 		StorageAndSetUps.getInstance().mc.userLabel.setText("Hi " + UserLogin.username + "!");
+		StorageAndSetUps.getInstance().mc.achieveNotify.setVisible(false);
 		Scene menu = StorageAndSetUps.getInstance().menu;		
 		Stage window = (Stage) loginConfirm.getScene().getWindow();
 		window.setScene(menu);
