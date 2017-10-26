@@ -16,6 +16,8 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -103,9 +105,19 @@ public class UserLoginController implements Initializable {
 			
 			String proposedUser = StorageAndSetUps.getInstance().ulc.userNameInput.getText();
 			
+			Pattern p = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
 			
+			Matcher m = p.matcher(proposedUser);
+			
+			if (m.find()) {
+				
+				StorageAndSetUps.getInstance().ulc.warningLabel.setText("Warning! Your username cannot contain any special characters (anything not a letter or number).");
+				StorageAndSetUps.getInstance().ulc.warningLabel.setWrapText(true);
+				StorageAndSetUps.getInstance().ulc.warningLabel.setAlignment(Pos.CENTER);
 
-			if ((proposedUser.equals(null)) || (proposedUser.equals("")) || (UserLoginController.listUser.contains(proposedUser))) {
+				StorageAndSetUps.getInstance().ulc.warningLabel.setVisible(true); 
+				
+			} else if ((proposedUser.equals(null)) || (proposedUser.equals("")) || (UserLoginController.listUser.contains(proposedUser))) {
 
 				StorageAndSetUps.getInstance().ulc.warningLabel.setText("Warning! You must enter a valid name. It cannot be a name you have already entered");
 				StorageAndSetUps.getInstance().ulc.warningLabel.setWrapText(true);
@@ -121,6 +133,7 @@ public class UserLoginController implements Initializable {
 
 				StorageAndSetUps.getInstance().ulc.warningLabel.setVisible(true); 
 			}  else if (proposedUser.contains(" ")){
+				
 				StorageAndSetUps.getInstance().ulc.warningLabel.setText("Warning! Your username cannot contain any spaces.");
 				StorageAndSetUps.getInstance().ulc.warningLabel.setWrapText(true);
 				StorageAndSetUps.getInstance().ulc.warningLabel.setAlignment(Pos.CENTER);
