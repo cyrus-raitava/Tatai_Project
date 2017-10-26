@@ -165,7 +165,7 @@ public class Recorder {
 					label.setText(RandomMaoriNums.getInstance().currentEquation + " = " + RandomMaoriNums.getInstance().currentAns); // set label to fail text
 					label.setTextFill(Color.RED); // set to black
 					StorageAndSetUps.getInstance().qc.expectedAnswer.setVisible(true);
-					String text = "\"";
+					String text = "You should have said \"";
 					int i = 0;
 					for (String s : RandomMaoriNums.getInstance().currentNum) {
 						i++;
@@ -175,7 +175,7 @@ public class Recorder {
 							text = text + s + " ";
 						}
 					}
-					text = text + "\" expected";
+					text = text + "\";
 					StorageAndSetUps.getInstance().qc.expectedAnswer.setText(text);
 				}
 				continueButton.setVisible(true);
