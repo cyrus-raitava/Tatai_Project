@@ -19,30 +19,48 @@ public class EquationGenerator {
 		
 		// Initialise a random variable to help generate random questions for
 		// each level, as well as an ArrayList<String> to help further specify
-		// which 
+		// which numbers to be tested on, in either Easy, Medium, or Hard.
 		int rand = (int)(4*Math.random() + 1);
 		ArrayList<Integer> timesTable;
 
 		switch (level) {
 		case EASY:
+			
 			timesTable = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
 			switch(rand) {
+			
+			// addSubtract() is a function that takes 3 boolean parameters: the first
+			// determining whether or not the digits dealt with by the user have 2 digits
+			// or 1, the second determining whether the addition/subtraction question 
+			// will contain 2 or 3 variables, and the last parameter specifying whether
+			// the question is an addition or subtraction equation.
 			case 1:
 				return addSubtract(false, true, true);
 			case 2:
 				return addSubtract(false, true, false);
+				
+			// In Easy mode, the user may be tested on Multiplication/Division questions
+			// that deal with results up to, or less than, 25.
 			case 3:
 				return multiplyDivide(timesTable, 5, true);
 			case 4:
 				return multiplyDivide(timesTable, 5, false);
 			}
 		case MEDIUM:
+
 			timesTable = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5,6,7,8,9,10));
 			switch(rand) {
+			
+			// Sets constraints on Medium level of Addition/Subtraction questions: they must all
+			// have 2 digits, and 2 variables (as opposed to the singular digit questions in Easy).
 			case 1:
 				return addSubtract(true, true, true);
 			case 2:
 				return addSubtract(true, true, false);
+				
+			// Similar setup to the parameters specified in the Easy Level, save for that the 
+			// range of possible questions regarding multiplication and division have greater
+			// ranges.
 			case 3:
 				return multiplyDivide(timesTable, 10, true);
 			case 4:
@@ -51,16 +69,27 @@ public class EquationGenerator {
 		case HARD:
 			timesTable = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15));
 			switch(rand) {
+			
+			// Sets constraints on Hard Level: all Addition/Subtraction questions have 3 two digit variables, as
+			// opposed to the two-digit, two variable questions in Medium.
+			
 			case 1:
 				return addSubtract(true, false, true);
 			case 2:
 				return addSubtract(true, false, false);
+				
+			// Similarly the multiplication/division questions cover a greater range of results: all the way up
+			// to the answer being 99.
 			case 3:
 				return multiplyDivide(timesTable, 15, true);
 			case 4:
 				return multiplyDivide(timesTable, 15, false);
 			}
 		case CUSTOM: 
+			
+			// The underlying logic for the Practice Mode: here, the Check-boxes regarding whether the user wants
+			// Addition, Subtraction, Multiplication or Division questions is checked here.
+			
 			CustomController cc = StorageAndSetUps.getInstance().cc;
 			AdvancedController ac = StorageAndSetUps.getInstance().ac;
 			ArrayList<Operation> operations = new ArrayList<Operation>();
@@ -78,6 +107,7 @@ public class EquationGenerator {
 				operations.add(Operation.DIVIDE);
 			}
 
+			
 			int length = operations.size();
 
 			if (length == 0) {
