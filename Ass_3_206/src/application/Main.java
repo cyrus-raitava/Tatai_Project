@@ -3,6 +3,7 @@ package application;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 
 public class Main extends Application {
@@ -26,7 +27,8 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm()); // set style
 
 			// set constraints of the stage
-			window.setTitle("User Login");
+			window.setTitle("Tātai");
+			
 			window.setScene(scene);
 			window.show();
 			window.setResizable(false);

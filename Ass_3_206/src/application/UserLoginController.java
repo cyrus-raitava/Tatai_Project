@@ -100,8 +100,10 @@ public class UserLoginController implements Initializable {
 	public void createPress(ActionEvent event) {
 
 		try {
-
+			
 			String proposedUser = StorageAndSetUps.getInstance().ulc.userNameInput.getText();
+			
+			
 
 			if ((proposedUser.equals(null)) || (proposedUser.equals("")) || (UserLoginController.listUser.contains(proposedUser))) {
 
@@ -118,7 +120,14 @@ public class UserLoginController implements Initializable {
 				StorageAndSetUps.getInstance().ulc.warningLabel.setAlignment(Pos.CENTER);
 
 				StorageAndSetUps.getInstance().ulc.warningLabel.setVisible(true); 
-			}  else {
+			}  else if (proposedUser.contains(" ")){
+				StorageAndSetUps.getInstance().ulc.warningLabel.setText("Warning! Your username cannot contain any spaces.");
+				StorageAndSetUps.getInstance().ulc.warningLabel.setWrapText(true);
+				StorageAndSetUps.getInstance().ulc.warningLabel.setAlignment(Pos.CENTER);
+
+				StorageAndSetUps.getInstance().ulc.warningLabel.setVisible(true); 
+				
+			} else {
 
 				StorageAndSetUps.getInstance().ulc.warningLabel.setVisible(false);
 				UserLogin.username = proposedUser;

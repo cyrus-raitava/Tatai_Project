@@ -265,7 +265,8 @@ public class PersistentStates {
 				StorageAndSetUps.getInstance().achc.arrowIcon.setOpacity(1.0);
 				StorageAndSetUps.getInstance().achc.arrowIcon.setMouseTransparent(true);
 				StorageAndSetUps.getInstance().achc.arrowIcon.setImage(new Image("/images/C_ACCURACY.png", true));
-				StorageAndSetUps.getInstance().achc.arrowText.setText("You have gotten 10/10 in at least one session.");
+				StorageAndSetUps.getInstance().achc.arrowText.setText("10/10 in at least one session");
+				StorageAndSetUps.getInstance().achc.arrowText.setAlignment(Pos.CENTER);
 				return;
 			}
 			
@@ -297,7 +298,8 @@ public class PersistentStates {
 				StorageAndSetUps.getInstance().achc.streakIcon.setOpacity(1.0);
 				StorageAndSetUps.getInstance().achc.streakIcon.setMouseTransparent(true);
 				StorageAndSetUps.getInstance().achc.streakIcon.setImage(new Image("/images/C_RISING.png", true));
-				StorageAndSetUps.getInstance().achc.streakText.setText("You have gotten 10/10 in at least 3 consecutive sessions.");
+				StorageAndSetUps.getInstance().achc.streakText.setText("10/10 in at least 3 consecutive sessions");
+				StorageAndSetUps.getInstance().achc.streakText.setAlignment(Pos.CENTER);
 				StorageAndSetUps.getInstance().achc.streakText.setWrapText(true);
 
 			}
@@ -330,13 +332,15 @@ public class PersistentStates {
 					StorageAndSetUps.getInstance().achc.scrollIcon.setOpacity(1.0);
 					StorageAndSetUps.getInstance().achc.scrollIcon.setMouseTransparent(true);
 					StorageAndSetUps.getInstance().achc.scrollIcon.setImage(new Image("/images/C_SCROLL.png", true));
-					StorageAndSetUps.getInstance().achc.scrollText.setText("You have gotten at least " + limit + " questions correct, total.");
+					StorageAndSetUps.getInstance().achc.scrollText.setText("At least " + limit + " questions correct, total");
+					StorageAndSetUps.getInstance().achc.scrollText.setAlignment(Pos.CENTER);
 					break;
 				case 100:
 					StorageAndSetUps.getInstance().achc.scholarIcon.setOpacity(1.0);
 					StorageAndSetUps.getInstance().achc.scholarIcon.setMouseTransparent(true);
 					StorageAndSetUps.getInstance().achc.scholarIcon.setImage(new Image("/images/C_STUDENT.png", true));
-					StorageAndSetUps.getInstance().achc.scholarText.setText("You have gotten at least " + limit + " questions correct, total.");
+					StorageAndSetUps.getInstance().achc.scholarText.setText("At least " + limit + " questions correct, total");
+					StorageAndSetUps.getInstance().achc.scholarText.setAlignment(Pos.CENTER);
 					break;
 				}
 				
@@ -368,55 +372,65 @@ public class PersistentStates {
 		if ((PersistentStates.totalAnswered >= 20) && (PersistentStates.totalAnswered < 50)) {
 			StorageAndSetUps.getInstance().achc.wreathIcon.setImage(new Image("/images/BRONZE_WREATH.png", true));
 			StorageAndSetUps.getInstance().achc.wreathIcon.setMouseTransparent(true);
-			StorageAndSetUps.getInstance().achc.wreathText.setText("You have answered at least 20 questions total.");
+			StorageAndSetUps.getInstance().achc.wreathText.setText("Answered at least 20 questions total.");
+			StorageAndSetUps.getInstance().achc.wreathText.setAlignment(Pos.CENTER);
 			StorageAndSetUps.getInstance().achc.wreathIcon.setOpacity(1.0);
 			
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setImage(new Image("/images/BRONZE_WREATH.png", true));
 			StorageAndSetUps.getInstance().mc.userStatus.setText("BRONZE USER");
+			StorageAndSetUps.getInstance().mc.userStatus.setAlignment(Pos.CENTER);
 			StorageAndSetUps.getInstance().mc.userStatus.setVisible(true);
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setOpacity(0.4);
 			
 		} else if ((PersistentStates.totalAnswered >= 50) && (PersistentStates.totalAnswered < 100)) {
 			StorageAndSetUps.getInstance().achc.wreathIcon.setImage(new Image("/images/SILVER_WREATH.png", true));
 			StorageAndSetUps.getInstance().achc.wreathIcon.setMouseTransparent(true);
-			StorageAndSetUps.getInstance().achc.wreathText.setText("You have answered at least 50 questions total.");
+			StorageAndSetUps.getInstance().achc.wreathText.setText("Answered at least 50 questions total.");
+			StorageAndSetUps.getInstance().achc.wreathText.setAlignment(Pos.CENTER);
 			StorageAndSetUps.getInstance().achc.wreathIcon.setOpacity(1.0);
 			
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setImage(new Image("/images/SILVER_WREATH.png", true));
 			StorageAndSetUps.getInstance().mc.userStatus.setText("SILVER USER");
+			StorageAndSetUps.getInstance().mc.userStatus.setAlignment(Pos.CENTER);
 			StorageAndSetUps.getInstance().mc.userStatus.setVisible(true);
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setOpacity(0.4);
 			
 		} else if ((PersistentStates.totalAnswered >= 100) && (PersistentStates.totalAnswered < 250)) {
 			StorageAndSetUps.getInstance().achc.wreathIcon.setImage(new Image("/images/GOLD_WREATH.png", true));
 			StorageAndSetUps.getInstance().achc.wreathIcon.setMouseTransparent(true);
-			StorageAndSetUps.getInstance().achc.wreathText.setText("You have answered at least 100 questions total.");
+			StorageAndSetUps.getInstance().achc.wreathText.setText("Answered at least 100 questions total.");
+			StorageAndSetUps.getInstance().achc.wreathText.setAlignment(Pos.CENTER);
 			StorageAndSetUps.getInstance().achc.wreathIcon.setOpacity(1.0);
 			
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setImage(new Image("/images/GOLD_WREATH.png", true));
 			StorageAndSetUps.getInstance().mc.userStatus.setText("GOLD USER");
+			StorageAndSetUps.getInstance().mc.userStatus.setAlignment(Pos.CENTER);
 			StorageAndSetUps.getInstance().mc.userStatus.setVisible(true);
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setOpacity(0.4);
 			
 		} else if ((PersistentStates.totalAnswered >= 250) && (PersistentStates.totalAnswered < 500)) {
 			StorageAndSetUps.getInstance().achc.wreathIcon.setImage(new Image("/images/PLATINUM_WREATH.png", true));
 			StorageAndSetUps.getInstance().achc.wreathIcon.setMouseTransparent(true);
-			StorageAndSetUps.getInstance().achc.wreathText.setText("You have answered at least 250 questions total.");
+			StorageAndSetUps.getInstance().achc.wreathText.setText("Answered at least 250 questions total.");
+			StorageAndSetUps.getInstance().achc.wreathText.setAlignment(Pos.CENTER);
 			StorageAndSetUps.getInstance().achc.wreathIcon.setOpacity(1.0);
 			
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setImage(new Image("/images/PLATINUM_WREATH.png", true));
 			StorageAndSetUps.getInstance().mc.userStatus.setText("PLATINUM USER");
+			StorageAndSetUps.getInstance().mc.userStatus.setAlignment(Pos.CENTER);
 			StorageAndSetUps.getInstance().mc.userStatus.setVisible(true);
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setOpacity(0.4);
 			
 		} else if ((PersistentStates.totalAnswered >= 500)) {
 			StorageAndSetUps.getInstance().achc.wreathIcon.setImage(new Image("/images/DIAMOND.png", true));
 			StorageAndSetUps.getInstance().achc.wreathIcon.setMouseTransparent(true);
-			StorageAndSetUps.getInstance().achc.wreathText.setText("You have answered at least 500 questions total.");
+			StorageAndSetUps.getInstance().achc.wreathText.setText("Answered at least 500 questions total.");
+			StorageAndSetUps.getInstance().achc.wreathText.setAlignment(Pos.CENTER);
 			StorageAndSetUps.getInstance().achc.wreathIcon.setOpacity(1.0);
 			
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setImage(new Image("/images/DIAMOND.png", true));
 			StorageAndSetUps.getInstance().mc.userStatus.setText("DIAMOND USER");
+			StorageAndSetUps.getInstance().mc.userStatus.setAlignment(Pos.CENTER);
 			StorageAndSetUps.getInstance().mc.userStatus.setVisible(true);
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setOpacity(0.4);
 			
@@ -467,7 +481,7 @@ public class PersistentStates {
 					StorageAndSetUps.getInstance().achc.starIcon.setOpacity(1.0);
 					StorageAndSetUps.getInstance().achc.starIcon.setMouseTransparent(true);
 					
-					StorageAndSetUps.getInstance().achc.starText.setText("   UNLOCKED!\nYou unlocked all\n\tlevels!");
+					StorageAndSetUps.getInstance().achc.starText.setText("You unlocked all levels!");
 					StorageAndSetUps.getInstance().achc.starText.setAlignment(Pos.CENTER);
 				}
 				

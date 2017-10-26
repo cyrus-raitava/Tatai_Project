@@ -49,11 +49,11 @@
             <Image url="@../images/U_STAR.png" />
          </image>
       </ImageView>
-      <Label fx:id="arrowText" layoutX="22.0" layoutY="200.0" prefHeight="36.0" prefWidth="169.0" />
-      <Label fx:id="scrollText" layoutX="216.0" layoutY="200.0" prefHeight="36.0" prefWidth="169.0" />
-      <Label fx:id="starText" layoutX="411.0" layoutY="200.0" prefHeight="36.0" prefWidth="169.0" />
-      <Label fx:id="streakText" layoutX="22.0" layoutY="307.0" prefHeight="36.0" prefWidth="169.0" />
-      <Label fx:id="scholarText" layoutX="216.0" layoutY="307.0" prefHeight="42.0" prefWidth="169.0" />
-      <Label fx:id="wreathText" layoutX="411.0" layoutY="307.0" prefHeight="36.0" prefWidth="169.0" />
+      <Label fx:id="arrowText" alignment="CENTER" layoutX="22.0" layoutY="200.0" prefHeight="36.0" prefWidth="157.0" textAlignment="CENTER" />
+      <Label fx:id="scrollText" alignment="CENTER" layoutX="216.0" layoutY="200.0" prefHeight="36.0" prefWidth="169.0" textAlignment="CENTER" />
+      <Label fx:id="starText" alignment="CENTER" layoutX="411.0" layoutY="200.0" prefHeight="36.0" prefWidth="169.0" textAlignment="CENTER" />
+      <Label fx:id="streakText" alignment="CENTER" layoutX="22.0" layoutY="307.0" prefHeight="36.0" prefWidth="169.0" textAlignment="CENTER" />
+      <Label fx:id="scholarText" alignment="CENTER" layoutX="216.0" layoutY="307.0" prefHeight="42.0" prefWidth="169.0" textAlignment="CENTER" />
+      <Label fx:id="wreathText" alignment="CENTER" layoutX="411.0" layoutY="307.0" prefHeight="36.0" prefWidth="169.0" textAlignment="CENTER" />
    </children>
 </AnchorPane>
