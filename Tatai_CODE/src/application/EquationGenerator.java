@@ -107,6 +107,8 @@ public class EquationGenerator {
 				operations.add(Operation.DIVIDE);
 			}
 
+			// Determines the default case, if none of the Check Boxes are checked: in the Practice Mode, the
+			// application will simply produce numbers which the user can try to say and record: no equations.
 			
 			int length = operations.size();
 
@@ -119,18 +121,30 @@ public class EquationGenerator {
 
 			Operation op = operations.get(randOp);
 
+			
 			boolean twoDigits,twoVariables;
 			int range;
 			switch(op) {
 			case ADD:
+				
+				// Creates two Boolean Variables to check what the user has specified, in regards to the 
+				// advanced selection options for the Addition option.
+				
 				twoDigits = ac.plusDigits.getSelectionModel().getSelectedItem().equals("2 Digits");
 				twoVariables = ac.plusVariables.getSelectionModel().getSelectedItem().equals("2 Variables");
 				return addSubtract(twoDigits,twoVariables,true);
 			case SUBTRACT:
+				
+				// Creates two Boolean Variables to check what the user has specified, in regards to the 
+				// advanced selection options for the Subtraction option.
+				
 				twoDigits = ac.minusDigits.getSelectionModel().getSelectedItem().equals("2 Digits");
 				twoVariables = ac.minusVariables.getSelectionModel().getSelectedItem().equals("2 Variables");
 				return addSubtract(twoDigits,twoVariables,false);
 			case TIMES:
+				
+				// Calls on the multiplyDivide() function, to generate numbers for the multiplication equations.
+	
 				timesTable = ac.getTablesMultiples(true);
 				range = ac.getRange(true);
 				if (range == -1 || timesTable.isEmpty()) {
@@ -139,6 +153,9 @@ public class EquationGenerator {
 				}
 				return multiplyDivide(timesTable, range, true);
 			case DIVIDE:
+				
+				// Calls on the multiplyDivide() function, to generate numbers for the division equations.
+				
 				timesTable = ac.getTablesMultiples(false);
 				range = ac.getRange(false);
 				if (range == -1 || timesTable.isEmpty()) {
@@ -158,6 +175,21 @@ public class EquationGenerator {
 		}
 	}
 
+	
+	/**
+	 * 
+	 * The addSubtract function takes 3 boolean parameters, which- as stated before- help
+	 * determine the difficulty of an addition/subtraction equation, based on certain attributes.
+	 * These attributes are: 
+	 * -whether or not the variables have one digit or two
+	 * -whether or not the equation has two variables, or 3
+	 * -whether the equation is for addition, or subtraction
+	 * 
+	 * @param twoDigits
+	 * @param twoVariables
+	 * @param add
+	 * @return
+	 */
 	private static String[] addSubtract(boolean twoDigits, boolean twoVariables, boolean add) {
 
 		int int1,int2,int3,ans;
