@@ -34,7 +34,13 @@ public class CreditsController implements Initializable {
 	@FXML
 	private TextArea creditsList = new TextArea();
 
-	// Event Listener on Button[#goBack].onAction
+	/**
+	 * Function that returns the user back to the menu, upon pressing the 
+	 * return button, from the Credits Scene.
+	 * 
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	public void goBackPress(ActionEvent event) throws IOException{
 		Scene menu = StorageAndSetUps.getInstance().menu;
@@ -42,6 +48,10 @@ public class CreditsController implements Initializable {
 		window.setScene(menu);
 	}
 		
+	/**
+	 * Method that initializes the words within the TextArea called creditsList:
+	 * this is where the main parts of the credits are displayed.
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		creditsList.setVisible(true);
