@@ -17,7 +17,7 @@
             <Font name="System Bold" size="72.0" />
          </font>
       </Label>
-      <Button fx:id="returnButton" layoutX="270.0" layoutY="367.0" mnemonicParsing="false" onAction="#returnPress" text="Return">
+      <Button fx:id="returnButton" layoutX="265.0" layoutY="367.0" mnemonicParsing="false" onAction="#returnPress" text="Go Back">
          <font>
             <Font size="15.0" />
          </font>

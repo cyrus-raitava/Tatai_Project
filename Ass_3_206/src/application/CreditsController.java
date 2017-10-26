@@ -19,6 +19,12 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 public class CreditsController implements Initializable {
+	
+	/**
+	 * Controller class created for the sole purpose of holding the necessary
+	 * information for the Credits scene: contains simple JavaFX Controls, in 
+	 * the form of a simply return button
+	 */
 	@FXML
 	private Label myLabel;
 	

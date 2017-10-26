@@ -108,8 +108,12 @@ public class ClearStatsController {
 		
 		String pwd = System.getProperty("user.dir");
 		
+		// Create object to use, to clear stats level's txt file
 		PrintWriter pw;
 		
+		// Determines the value of the difficulty level input, and then performs the necessary
+		// steps in clearing the statistics of the given level: clearing the associated text file completely,
+		// , as well as clearing the corresponding ArrayList<String> related to the level.
 		if (difficulty.equals("easy")) {
 			
 			pw = new PrintWriter(pwd + "/TataiResources/" + UserLogin.username + "easyStats.txt");
