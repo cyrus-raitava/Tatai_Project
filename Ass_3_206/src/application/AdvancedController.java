@@ -7,9 +7,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 
+
 public class AdvancedController {
 
+	/**
+	 * Create necessary FXML controls, for the Advanced Settings tab of
+	 * the Practise Mode.
+	 */
 
+	
 	@FXML
 	ChoiceBox<String> plusVariables;
 	@FXML
@@ -25,6 +31,9 @@ public class AdvancedController {
 	@FXML
 	protected ChoiceBox<String> divRange;
 
+	/**
+	 * Create and name all 15 checkboxes for the Advanced Multiplication Settings.
+	 */
 
 	@FXML 
 	private CheckBox cb1x;
@@ -57,6 +66,10 @@ public class AdvancedController {
 	@FXML 
 	private CheckBox cb15x;
 
+	/**
+	 * Create and name all 15 checkboxes for the Advanced Division Settings.
+	 */
+	
 	@FXML 
 	private CheckBox cb1div;
 	@FXML 
@@ -89,6 +102,15 @@ public class AdvancedController {
 	private CheckBox cb15div;
 
 
+	/**
+	 * Used to determine a list of integers to be used in Practise Questions, dependent
+	 * on whether or not the input Boolean value 'tables', is true or false. If true, the
+	 * function will produce an ArrayList<Integer> for multiplication, and will 
+	 * otherwise produce an ArrayList<Integer> for division values, from which to test the user.
+	 * 
+	 * @param tables
+	 * @return
+	 */
 	public ArrayList<Integer> getTablesMultiples(boolean tables) {
 
 		ArrayList<Integer> ints = new ArrayList<Integer>();
@@ -114,6 +136,16 @@ public class AdvancedController {
 
 	}
 
+	
+	/**
+	 * Takes in a Boolean parameter called 'times', that represents whether the user is
+	 * accessing the advanced levels for multiplication, or for division. If it is for
+	 * multiplication, then it will fetch the selected 'range' value, from the combo box 
+	 * for setting the range. If 'times' is not true, it will fetch the same value, but
+	 * will only use it in the context of division questions.
+	 * @param times
+	 * @return
+	 */
 	public int getRange(boolean times) {
 		if (times) {
 			String range = timesRange.getSelectionModel().getSelectedItem();
@@ -190,6 +222,12 @@ public class AdvancedController {
 		}
 	}
 
+	/**
+	 * Method that simply sets the default settings that are available to the user, upon first
+	 * opening the application. Of course all of the check-boxes are available to be checked or not,
+	 * up to the discretion of the user: this method simply provides a default platform
+	 * of chosen boxes, from which the user can deviate if they so desire.
+	 */
 	public void setCheckBoxes() {
 
 		cb1x.setSelected(true);
@@ -212,9 +250,9 @@ public class AdvancedController {
 
 		cb10x.setSelected(true);
 
-		cb11x.setSelected(true);
+		cb11x.setSelected(false);
 
-		cb12x.setSelected(true);
+		cb12x.setSelected(false);
 
 		cb13x.setSelected(false);
 
@@ -243,9 +281,9 @@ public class AdvancedController {
 
 		cb10div.setSelected(true);
 
-		cb11div.setSelected(true);
+		cb11div.setSelected(false);
 
-		cb12div.setSelected(true);
+		cb12div.setSelected(false);
 
 		cb13div.setSelected(false);
 
@@ -254,6 +292,13 @@ public class AdvancedController {
 		cb15div.setSelected(false);
 	}
 
+	/**
+	 * This method returns a reference to a check-box, corresponding to the input integer 
+	 * and whether it is a multiplication check-box, or a division check-box.
+	 * @param num
+	 * @param times
+	 * @return
+	 */
 	private CheckBox returnCheckBox(int num, boolean times) {
 		if (times) {
 			switch (num) {

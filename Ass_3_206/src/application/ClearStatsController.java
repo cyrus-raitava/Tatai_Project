@@ -12,8 +12,17 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * @author cyrus
+ *
+ */
 public class ClearStatsController {
 	
+	/**
+	 * Create necessary JavaFX controls, for appropriate functionality on the ClearStats Scene.
+	 * This involves a 'Yes' or 'No' confirmation, and necessary Buttons/Button Functions etc.
+	 */
 	
 	@FXML
 	public Button No;
@@ -36,37 +45,61 @@ public class ClearStatsController {
 	@FXML
 	public Label warningLabel;
 	
+	
+	/**
+	 * This method is only used when there are no statistics to delete: the scene displays a message
+	 * saying there are no statistics within a given level to be able to delete, and the 'ok' button allows 
+	 * the user to close the pop-up window, and get back to the Statistics scene.
+	 * @param event
+	 */
 	@FXML
 	public void okPressed(ActionEvent event) {
 		Stage stage = (Stage) ok.getScene().getWindow();
 		stage.close();
 	}
 
-	// Event Listener on Button[#No].onAction
+	/**
+	 * Similar to the okPressed() function, the NoPressed() function closes the pop-up warning window, created
+	 * when the user has pressed the clear button, for a particular level's statistics.
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	public void NoPressed(ActionEvent event) throws IOException {
 	
+		// Closes window that No Button resides in
 		Stage stage = (Stage) No.getScene().getWindow();
 		stage.close();
 	}
-	// Event Listener on Button[#Yes].onAction
+	
+	/**
+	 * This function clears takes as input the levelChosen variable, which in itself
+	 * represents which level the user has chosen to clear Statistics of (either Easy,
+	 * Medium or Hard Statistics). It then calls on the clearStats() method, that sucessfully 
+	 * clears the User's Level's Statistics, both in text-file and in the corresponding ArrayList<String>.
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	public void YesPressed(ActionEvent event) throws IOException {
 		
+		// Accesses static variable 'StatisticsController.levelChosen', and passes that on to another function that clears that level's statistics
 		String level = StatisticsController.levelChosen;
 		clearStats(level);
 		
+		//Closes pop-up window that the Yes Button resides in.
 		Stage stage = (Stage) Yes.getScene().getWindow();
 		stage.close();
 	}
 
 	/**
 	 * 
+	 * clearStats() method takes in parameter string 'difficulty', and then clears
+	 * the corresponding arrayList and text file, for that given difficulty level.
+	 * 
 	 * @param difficulty
 	 * @throws IOException
-	 * 
-	 * clearStats() method takes in parameter string 'difficulty', and then clear
-	 * the corresponding arrayList and text file, for that given difficulty level.
+
 	 */
 	
 	public void clearStats(String difficulty) throws IOException {

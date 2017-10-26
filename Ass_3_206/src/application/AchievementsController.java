@@ -81,10 +81,18 @@ public class AchievementsController {
 		
 	}
 	
-	// Create public variable, that specifies for the opacity function, which icon to change the colour of.
-	
+	/**
+	 *  Create public variable, that specifies for the opacity function, which icon to change the opacity of.
+	 */
 	public static String icon;
 
+	/**
+	 * Method that determines what image is being hovered over, and then shifts the opacity of that image
+	 * accordingly, onMouseEntered.
+	 * 
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	public void opacityChangeUp(MouseEvent event) throws IOException{
 		
@@ -111,7 +119,14 @@ public class AchievementsController {
 		
 		
 	}
-	
+
+	/**
+	 * Method that determines what image is being hovered over, and then shifts the opacity of that image
+	 * accordingly, onMouseExited.
+	 * 
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	public void opacityChangeDown(MouseEvent event) throws IOException{
 		
