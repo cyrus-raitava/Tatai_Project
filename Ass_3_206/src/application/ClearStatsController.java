@@ -34,6 +34,9 @@ public class ClearStatsController {
 	public Button ok;
 	
 	@FXML
+	public Label warningLabel;
+	
+	@FXML
 	public void okPressed(ActionEvent event) {
 		Stage stage = (Stage) ok.getScene().getWindow();
 		stage.close();
@@ -41,13 +44,15 @@ public class ClearStatsController {
 
 	// Event Listener on Button[#No].onAction
 	@FXML
-	public void NoPressed(ActionEvent event) {
+	public void NoPressed(ActionEvent event) throws IOException {
+	
 		Stage stage = (Stage) No.getScene().getWindow();
 		stage.close();
 	}
 	// Event Listener on Button[#Yes].onAction
 	@FXML
 	public void YesPressed(ActionEvent event) throws IOException {
+		
 		String level = StatisticsController.levelChosen;
 		clearStats(level);
 		
@@ -67,25 +72,26 @@ public class ClearStatsController {
 	public void clearStats(String difficulty) throws IOException {
 		
 		// Gets current working directory
+		
 		String pwd = System.getProperty("user.dir");
 		
 		PrintWriter pw;
 		
 		if (difficulty.equals("easy")) {
 			
-			pw = new PrintWriter(pwd + "/easyStats.txt");
+			pw = new PrintWriter(pwd + "/TataiResources/" + UserLogin.username + "easyStats.txt");
 			pw.close();
 			
 			StorageAndSetUps.getInstance().sc.listEasy.clear();
 		} else if (difficulty.equals("medium")) {
 			
-			pw = new PrintWriter(pwd + "/mediumStats.txt");
+			pw = new PrintWriter(pwd + "/TataiResources/" + UserLogin.username + "mediumStats.txt");
 			pw.close();
 			
 			StorageAndSetUps.getInstance().sc.listMedium.clear();
 		} else if (difficulty.equals("hard")) {
 			
-			pw = new PrintWriter(pwd + "/hardStats.txt");
+			pw = new PrintWriter(pwd + "/TataiResources/" + UserLogin.username + "hardStats.txt");
 			pw.close();
 			StorageAndSetUps.getInstance().sc.listHard.clear();
 			

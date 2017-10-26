@@ -44,5 +44,10 @@
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Button>
+      <Label fx:id="warningLabel" alignment="CENTER" layoutX="-4.0" layoutY="220.0" prefHeight="18.0" prefWidth="434.0" text="Warning: clearing your Statistics may alter which Achievements you have already unlocked." textAlignment="CENTER" textFill="RED" wrapText="true">
+         <font>
+            <Font name="System Bold Italic" size="9.5" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

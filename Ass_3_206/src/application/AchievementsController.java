@@ -15,8 +15,17 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
-
+/**
+ * 
+ * @author cyrus
+ *
+ */
 public class AchievementsController {
+	
+	
+	/**
+	 * Create all necessary ImageView/Button controls, for the Achievements scene.
+	 */
 	
 	@FXML
 	private Button returnButton;
@@ -56,10 +65,13 @@ public class AchievementsController {
 
 	@FXML 
 	public Label wreathText;
-	
 
-	
-	// Event Listener on Button[#returnButton].onAction
+
+	/**
+	 * FXML method that returns the user to the menu, from the Achievements Scene.
+	 * @param event
+	 * @throws IOException
+	 */
 	
 	@FXML
 	public void returnPress(ActionEvent event) throws IOException {
@@ -67,14 +79,12 @@ public class AchievementsController {
 		Stage window = (Stage) returnButton.getScene().getWindow();
 		window.setScene(menu);
 		
-		
-		
-
 	}
 	
+	// Create public variable, that specifies for the opacity function, which icon to change the colour of.
+	
 	public static String icon;
-	
-	
+
 	@FXML
 	public void opacityChangeUp(MouseEvent event) throws IOException{
 		

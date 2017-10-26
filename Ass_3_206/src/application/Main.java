@@ -9,29 +9,24 @@ public class Main extends Application {
 
 	Stage window;
 
-
 	@Override
 	public void start(Stage primaryStage) {
+		
 		try {
 			
-			PersistentStates.createFile();
-			PersistentStates.loadStats();
-			PersistentStates.defaultAchievements();
-			PersistentStates.stageUnlockSet();
-			PersistentStates.achievementsLoad();	
-
-			//UserLogin.startUp();
+			PersistentStates.createStartFile();
 			
-			
+			UserLogin.loadUsers();
+			UserLogin.startUp();
 			
 			window = primaryStage; // set primary stage
-		
-			Scene scene = StorageAndSetUps.getInstance().menu; // load menu scene
+			
+			Scene scene = StorageAndSetUps.getInstance().userLogin; // load menu scene
 
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm()); // set style
 
 			// set constraints of the stage
-			window.setTitle("Tātai");
+			window.setTitle("User Login");
 			window.setScene(scene);
 			window.show();
 			window.setResizable(false);

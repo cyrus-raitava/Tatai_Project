@@ -24,10 +24,10 @@ public class MenuController {
 	private Label myLabel;
 	
 	@FXML
-	private Button quitButton;
+	private Button logOutButton;
 	
 	@FXML
-	private Button timataButton;
+	public Button timataButton;
 	
 	@FXML
 	private Button howToButton;
@@ -47,6 +47,9 @@ public class MenuController {
 	@FXML
 	public Label userStatus;
 	
+	@FXML
+	public Label userLabel;
+	
 	public void achievementsPress(ActionEvent event) throws IOException {
 		
 		Scene achievements = StorageAndSetUps.getInstance().achievements;		
@@ -54,8 +57,10 @@ public class MenuController {
 		window.setScene(achievements);
 	}
 	
-	public void creditsShow(MouseEvent event) {
-		
+	public void creditsPress(ActionEvent event) throws IOException {
+		Scene credits = StorageAndSetUps.getInstance().credits;
+		Stage window = (Stage) creditsButton.getScene().getWindow();
+		window.setScene(credits);
 	}
 	
 	/**Function that loads quit option as pop-up, to be utilized by the Quit button
@@ -63,13 +68,14 @@ public class MenuController {
 	 * @param event
 	 * @throws IOException
 	 */
-	public void quitPress(ActionEvent event) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("QuitPage.fxml"));
+	public void logOutPress(ActionEvent event) throws IOException {
+	
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LogoutPage.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         Scene scene = new Scene(root1);
-        stage.setTitle("Quit Page");
+        stage.setTitle("Log Out Page");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.initStyle(StageStyle.UNDECORATED);

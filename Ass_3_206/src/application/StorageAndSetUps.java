@@ -27,9 +27,11 @@ public class StorageAndSetUps {
 	public AchievementsController achc;
 	public MenuController mc;
 	public UserLoginController ulc;
+	public CreditsController crc;
+	public DeleteUserController duc;
 
 
-	public Scene menu,quiz,levelMenu,instructions,score, statistics, advanced, custom, clearStats, achievements, userLogin;
+	public Scene menu,quiz,levelMenu,instructions,score, statistics, advanced, custom, clearStats, achievements, userLogin, credits, deleteUser;
 
 	// Specify variables within SceneStorage instances, that may be accessed.
 
@@ -40,6 +42,8 @@ public class StorageAndSetUps {
 		clearStats = new Scene(FXMLLoader.load(getClass().getResource("ClearStats.fxml")));
 		achievements = new Scene(FXMLLoader.load(getClass().getResource("Achievements.fxml")));
 		userLogin = new Scene(FXMLLoader.load(getClass().getResource("UserLogin.fxml")));
+		credits = new Scene(FXMLLoader.load(getClass().getResource("Credits.fxml")));
+		deleteUser = new Scene(FXMLLoader.load(getClass().getResource("DeleteUser.fxml")));
 		
 		userLoginLoader();
 		menuLoader();
@@ -51,6 +55,8 @@ public class StorageAndSetUps {
 		quizLoader();
 		levelMenuLoader();
 		advancedLoader();
+		creditsLoader();
+		deleteUserLoader();
 	}
 
 	// Create constructor method that creates instances of SceneStorage, from which individual scenes may be loaded.
@@ -60,6 +66,22 @@ public class StorageAndSetUps {
 			ss = new StorageAndSetUps();
 		}
 		return ss;
+	}
+	
+	// Method that allows for access to the DeleteUserController
+	
+	private void deleteUserLoader() throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("DeleteUser.fxml"));
+		deleteUser = new Scene(loader.load());
+		duc = loader.getController();
+	}
+	
+	// Method that allows for access to the CreditsController
+	
+	private void creditsLoader() throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("Credits.fxml"));
+		credits = new Scene(loader.load());
+		crc = loader.getController();
 	}
 	
 	// Method that allows for access to the UserLoginController

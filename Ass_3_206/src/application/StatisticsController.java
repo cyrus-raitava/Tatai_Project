@@ -1,13 +1,11 @@
 package application;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -39,9 +37,7 @@ public class StatisticsController implements Initializable {
 		Stage window = (Stage) returnButton.getScene().getWindow();
 		window.setScene(menu);
 	}
-	
-	
-	
+
 	@FXML
 	private Button easyClear;
 	
@@ -50,12 +46,12 @@ public class StatisticsController implements Initializable {
 	public static void changeDisplayMessage(boolean change) throws IOException {
 		
 		if (change) {
-		StorageAndSetUps.getInstance().csc.displayLabel.setText("There are no");
-		StorageAndSetUps.getInstance().csc.displayLabel1.setText("Statistics");
-		StorageAndSetUps.getInstance().csc.ok.setVisible(true);
-		
-		StorageAndSetUps.getInstance().csc.No.setVisible(false);
-		StorageAndSetUps.getInstance().csc.Yes.setVisible(false);
+			StorageAndSetUps.getInstance().csc.displayLabel.setText("There are no");
+			StorageAndSetUps.getInstance().csc.displayLabel1.setText("Statistics");
+			StorageAndSetUps.getInstance().csc.ok.setVisible(true);
+			StorageAndSetUps.getInstance().csc.warningLabel.setVisible(false);
+			StorageAndSetUps.getInstance().csc.No.setVisible(false);
+			StorageAndSetUps.getInstance().csc.Yes.setVisible(false);
 		
 		} else {
 			StorageAndSetUps.getInstance().csc.displayLabel.setText("Are you sure you want to delete:");
@@ -63,6 +59,7 @@ public class StatisticsController implements Initializable {
 			StorageAndSetUps.getInstance().csc.ok.setVisible(false);
 			StorageAndSetUps.getInstance().csc.Yes.setVisible(true);
 			StorageAndSetUps.getInstance().csc.No.setVisible(true);
+			StorageAndSetUps.getInstance().csc.warningLabel.setVisible(true);
 		}
 		
 	}
@@ -72,6 +69,7 @@ public class StatisticsController implements Initializable {
 		
 		if (StatisticsController.listEasy.isEmpty()) {
 			StatisticsController.changeDisplayMessage(true);
+			
 		} else {
 			StatisticsController.changeDisplayMessage(false);
 		}
@@ -200,7 +198,7 @@ public class StatisticsController implements Initializable {
 				// Alongside adding score to ArrayList<String>, append score to relevant text file,
 				// to retain as a persistent statistic.
 				
-				PersistentStates.appendStat(sessionScore, level);
+				PersistentStates.appendStat(sessionScore, level, UserLogin.username);
 				
 				
 				
@@ -217,7 +215,7 @@ public class StatisticsController implements Initializable {
 				
 				listEasy.add(format);
 				
-				PersistentStates.appendStat(sessionScore, level);
+				PersistentStates.appendStat(sessionScore, level, UserLogin.username);
 				
 			} else if (level == Level.MEDIUM) {
 				// If level chosen is Easy, then increment easySessions counter: similar to the formatting for the Hard ListView,
@@ -231,7 +229,7 @@ public class StatisticsController implements Initializable {
 				
 				listMedium.add(format);
 				
-				PersistentStates.appendStat(sessionScore, level);
+				PersistentStates.appendStat(sessionScore, level, UserLogin.username);
 			}
 
 		

@@ -12,6 +12,17 @@ import javafx.scene.image.Image;
 
 public class PersistentStates {
 	
+	public static void setUps() throws IOException {
+		
+		PersistentStates.createStartFile();
+		PersistentStates.loadStats(UserLogin.username);
+		PersistentStates.defaultAchievements();
+		PersistentStates.stageUnlockSet(UserLogin.username);
+		PersistentStates.achievementsLoad(UserLogin.username);	
+		
+		
+	}
+	
 	public static void defaultAchievements() throws IOException {
 		
 		StorageAndSetUps.getInstance().achc.arrowIcon.setOpacity(0.3);
@@ -20,7 +31,7 @@ public class PersistentStates {
 		StorageAndSetUps.getInstance().achc.starIcon.setOpacity(0.3);
 		StorageAndSetUps.getInstance().achc.streakIcon.setOpacity(0.3);
 		StorageAndSetUps.getInstance().achc.wreathIcon.setOpacity(0.3);
-		
+			
 		StorageAndSetUps.getInstance().achc.arrowText.setText("LOCKED");
 		StorageAndSetUps.getInstance().achc.arrowText.setVisible(true);
 		StorageAndSetUps.getInstance().achc.arrowText.setWrapText(true);
@@ -59,51 +70,42 @@ public class PersistentStates {
 		
 		
 	}
-
-	public static void createFile() throws IOException {
-
+	
+	
+	public static void createStartFile() throws IOException {
 
 		// Gets current working directory
 		String pwd = System.getProperty("user.dir");
 
-		File fileEasy = new File(pwd + "/easyStats.txt");
-
-		File fileMedium = new File(pwd + "/mediumStats.txt");
-
-		File fileHard = new File(pwd + "/hardStats.txt");
+		File resource = new File(pwd + "/TataiResources");
+	
 		
-		File fileLevels = new File(pwd + "/persistentLevels.txt");
-
-		if(!fileEasy.exists()) {
-			fileEasy.createNewFile();
-		}
-
-		if(!fileMedium.exists()) {
-			fileMedium.createNewFile();
-		}
-
-		if(!fileHard.exists()) {
-			fileHard.createNewFile();
+		File fileUserList = new File(pwd + "/TataiResources/userList.txt");
+		
+		if(!resource.exists()) {
+			resource.mkdir();
 		}
 		
-		if(!fileLevels.exists()) {
-			fileLevels.createNewFile();
+		if (!fileUserList.exists()) {
+			fileUserList.createNewFile();
 		}
 
 
 	}
+	
+	
 
 
-	public static void loadStats() throws IOException {
+	public static void loadStats(String username) throws IOException {
 
 		// Gets current working directory
 		String pwd = System.getProperty("user.dir");
 
-		File fileEasy = new File(pwd + "/easyStats.txt");
+		File fileEasy = new File(pwd + "/TataiResources/" + username + "easyStats.txt");
 
-		File fileMedium = new File(pwd + "/mediumStats.txt");
+		File fileMedium = new File(pwd + "/TataiResources/" + username + "mediumStats.txt");
 
-		File fileHard = new File(pwd + "/hardStats.txt");
+		File fileHard = new File(pwd + "/TataiResources/" + username + "hardStats.txt");
 
 		try {
 
@@ -163,7 +165,7 @@ public class PersistentStates {
 
 	}
 
-	public static void appendStat(int sessionScore, Level level) throws IOException {
+	public static void appendStat(int sessionScore, Level level, String username) throws IOException {
 
 		BufferedWriter bw = null;
 		FileWriter fw = null;
@@ -176,11 +178,11 @@ public class PersistentStates {
 			File file;
 
 			if (level == Level.HARD) {
-				file = new File(pwd + "/hardStats.txt");
+				file = new File(pwd + "/TataiResources/" + username + "hardStats.txt");
 			} else if (level == level.EASY){
-				file = new File(pwd + "/easyStats.txt");
+				file = new File(pwd + "/TataiResources/" + username + "easyStats.txt");
 			} else  {
-				file = new File(pwd + "/mediumStats.txt");
+				file = new File(pwd + "/TataiResources/" + username + "mediumStats.txt");
 			}
 
 			fw = new FileWriter(file.getAbsoluteFile(), true);
@@ -209,16 +211,16 @@ public class PersistentStates {
 
 	}
 	
-	public static void achievementsLoad() throws IOException {
+	public static void achievementsLoad(String username) throws IOException {
 		
 		// Gets current working directory
 		String pwd = System.getProperty("user.dir");
 		
-		File fileEasy = new File(pwd + "/easyStats.txt");
+		File fileEasy = new File(pwd + "/TataiResources/" + username + "easyStats.txt");
 
-		File fileMedium = new File(pwd + "/mediumStats.txt");
+		File fileMedium = new File(pwd + "/TataiResources/" + username + "mediumStats.txt");
 
-		File fileHard = new File(pwd + "/hardStats.txt");
+		File fileHard = new File(pwd + "/TataiResources/" + username + "hardStats.txt");
 		
 		accuracyUnlock(fileEasy);
 		accuracyUnlock(fileMedium);
@@ -246,7 +248,6 @@ public class PersistentStates {
 		wreathUnlock(fileMedium);
 		wreathUnlock(fileHard);
 
-		//StorageAndSetUps.getInstance().mc.menuUserStatus.setImage(new Image("/images/BRONZE_WREATH.png", true));
 	}
 	
 	public static void accuracyUnlock(File file) throws IOException {
@@ -264,7 +265,7 @@ public class PersistentStates {
 				StorageAndSetUps.getInstance().achc.arrowIcon.setOpacity(1.0);
 				StorageAndSetUps.getInstance().achc.arrowIcon.setMouseTransparent(true);
 				StorageAndSetUps.getInstance().achc.arrowIcon.setImage(new Image("/images/C_ACCURACY.png", true));
-				StorageAndSetUps.getInstance().achc.arrowText.setText("UNLOCKED! You have gotten 10/10 in at least one session.");
+				StorageAndSetUps.getInstance().achc.arrowText.setText("You have gotten 10/10 in at least one session.");
 				return;
 			}
 			
@@ -296,7 +297,7 @@ public class PersistentStates {
 				StorageAndSetUps.getInstance().achc.streakIcon.setOpacity(1.0);
 				StorageAndSetUps.getInstance().achc.streakIcon.setMouseTransparent(true);
 				StorageAndSetUps.getInstance().achc.streakIcon.setImage(new Image("/images/C_RISING.png", true));
-				StorageAndSetUps.getInstance().achc.streakText.setText("UNLOCKED! You have gotten 10/10 in at least 3 consecutive sessions.");
+				StorageAndSetUps.getInstance().achc.streakText.setText("You have gotten 10/10 in at least 3 consecutive sessions.");
 				StorageAndSetUps.getInstance().achc.streakText.setWrapText(true);
 
 			}
@@ -329,13 +330,13 @@ public class PersistentStates {
 					StorageAndSetUps.getInstance().achc.scrollIcon.setOpacity(1.0);
 					StorageAndSetUps.getInstance().achc.scrollIcon.setMouseTransparent(true);
 					StorageAndSetUps.getInstance().achc.scrollIcon.setImage(new Image("/images/C_SCROLL.png", true));
-					StorageAndSetUps.getInstance().achc.scrollText.setText("UNLOCKED! You have gotten at least " + limit + " questions correct, total.");
+					StorageAndSetUps.getInstance().achc.scrollText.setText("You have gotten at least " + limit + " questions correct, total.");
 					break;
 				case 100:
 					StorageAndSetUps.getInstance().achc.scholarIcon.setOpacity(1.0);
 					StorageAndSetUps.getInstance().achc.scholarIcon.setMouseTransparent(true);
 					StorageAndSetUps.getInstance().achc.scholarIcon.setImage(new Image("/images/C_STUDENT.png", true));
-					StorageAndSetUps.getInstance().achc.scholarText.setText("UNLOCKED! You have gotten at least " + limit + " questions correct, total.");
+					StorageAndSetUps.getInstance().achc.scholarText.setText("You have gotten at least " + limit + " questions correct, total.");
 					break;
 				}
 				
@@ -367,7 +368,7 @@ public class PersistentStates {
 		if ((PersistentStates.totalAnswered >= 20) && (PersistentStates.totalAnswered < 50)) {
 			StorageAndSetUps.getInstance().achc.wreathIcon.setImage(new Image("/images/BRONZE_WREATH.png", true));
 			StorageAndSetUps.getInstance().achc.wreathIcon.setMouseTransparent(true);
-			StorageAndSetUps.getInstance().achc.wreathText.setText("UNLOCKED! You have answered at least 20 questions total.");
+			StorageAndSetUps.getInstance().achc.wreathText.setText("You have answered at least 20 questions total.");
 			StorageAndSetUps.getInstance().achc.wreathIcon.setOpacity(1.0);
 			
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setImage(new Image("/images/BRONZE_WREATH.png", true));
@@ -378,7 +379,7 @@ public class PersistentStates {
 		} else if ((PersistentStates.totalAnswered >= 50) && (PersistentStates.totalAnswered < 100)) {
 			StorageAndSetUps.getInstance().achc.wreathIcon.setImage(new Image("/images/SILVER_WREATH.png", true));
 			StorageAndSetUps.getInstance().achc.wreathIcon.setMouseTransparent(true);
-			StorageAndSetUps.getInstance().achc.wreathText.setText("UNLOCKED! You have answered at least 50 questions total.");
+			StorageAndSetUps.getInstance().achc.wreathText.setText("You have answered at least 50 questions total.");
 			StorageAndSetUps.getInstance().achc.wreathIcon.setOpacity(1.0);
 			
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setImage(new Image("/images/SILVER_WREATH.png", true));
@@ -389,7 +390,7 @@ public class PersistentStates {
 		} else if ((PersistentStates.totalAnswered >= 100) && (PersistentStates.totalAnswered < 250)) {
 			StorageAndSetUps.getInstance().achc.wreathIcon.setImage(new Image("/images/GOLD_WREATH.png", true));
 			StorageAndSetUps.getInstance().achc.wreathIcon.setMouseTransparent(true);
-			StorageAndSetUps.getInstance().achc.wreathText.setText("UNLOCKED! You have answered at least 100 questions total.");
+			StorageAndSetUps.getInstance().achc.wreathText.setText("You have answered at least 100 questions total.");
 			StorageAndSetUps.getInstance().achc.wreathIcon.setOpacity(1.0);
 			
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setImage(new Image("/images/GOLD_WREATH.png", true));
@@ -400,7 +401,7 @@ public class PersistentStates {
 		} else if ((PersistentStates.totalAnswered >= 250) && (PersistentStates.totalAnswered < 500)) {
 			StorageAndSetUps.getInstance().achc.wreathIcon.setImage(new Image("/images/PLATINUM_WREATH.png", true));
 			StorageAndSetUps.getInstance().achc.wreathIcon.setMouseTransparent(true);
-			StorageAndSetUps.getInstance().achc.wreathText.setText("UNLOCKED! You have answered at least 250 questions total.");
+			StorageAndSetUps.getInstance().achc.wreathText.setText("You have answered at least 250 questions total.");
 			StorageAndSetUps.getInstance().achc.wreathIcon.setOpacity(1.0);
 			
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setImage(new Image("/images/PLATINUM_WREATH.png", true));
@@ -411,7 +412,7 @@ public class PersistentStates {
 		} else if ((PersistentStates.totalAnswered >= 500)) {
 			StorageAndSetUps.getInstance().achc.wreathIcon.setImage(new Image("/images/DIAMOND.png", true));
 			StorageAndSetUps.getInstance().achc.wreathIcon.setMouseTransparent(true);
-			StorageAndSetUps.getInstance().achc.wreathText.setText("UNLOCKED! You have answered at least 500 questions total.");
+			StorageAndSetUps.getInstance().achc.wreathText.setText("You have answered at least 500 questions total.");
 			StorageAndSetUps.getInstance().achc.wreathIcon.setOpacity(1.0);
 			
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setImage(new Image("/images/DIAMOND.png", true));
@@ -425,12 +426,12 @@ public class PersistentStates {
 	
 	}
 	
-	public static void stageUnlockSet() throws IOException {
+	public static void stageUnlockSet(String username) throws IOException {
 				
 		// Gets current working directory
 		String pwd = System.getProperty("user.dir");
 		
-		File fileLevels = new File(pwd + "/persistentLevels.txt");
+		File fileLevels = new File(pwd + "/TataiResources/" + username + "persistentLevels.txt");
 		
 		Scanner sL = new Scanner(fileLevels);
 		

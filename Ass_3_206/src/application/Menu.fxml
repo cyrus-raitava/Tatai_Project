@@ -44,7 +44,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="quitButton" layoutX="224.0" layoutY="328.0" mnemonicParsing="false" onAction="#quitPress" prefWidth="150.0" text="Quit">
+      <Button fx:id="logOutButton" layoutX="224.0" layoutY="328.0" mnemonicParsing="false" onAction="#logOutPress" prefWidth="150.0" text="Log Out">
          <font>
             <Font size="18.0" />
          </font>
@@ -61,6 +61,10 @@
          </image>
       </ImageView>
       <Label fx:id="userStatus" layoutX="257.0" layoutY="36.0" prefHeight="35.0" prefWidth="89.0" text="GOLD USER" />
-      <Button fx:id="creditsButton" layoutX="460.0" layoutY="350.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="121.0" text="Credits" />
+      <Button fx:id="creditsButton" layoutX="460.0" layoutY="350.0" mnemonicParsing="false" onAction="#creditsPress" prefHeight="27.0" prefWidth="121.0" text="Credits" />
+      <Label fx:id="userLabel" layoutX="11.0" layoutY="4.0" prefHeight="43.0" prefWidth="161.0" text="USER:">
+         <font>
+            <Font size="21.0" />
+         </font></Label>
    </children>
 </AnchorPane>
