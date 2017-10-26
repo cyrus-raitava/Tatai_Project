@@ -106,11 +106,7 @@ public class PersistentStates {
 		File fileMedium = new File(pwd + "/TataiResources/" + username + "mediumStats.txt");
 
 		File fileHard = new File(pwd + "/TataiResources/" + username + "hardStats.txt");
-		
-		StorageAndSetUps.getInstance().sc.listEasy.clear();
-		StorageAndSetUps.getInstance().sc.listMedium.clear();
-		StorageAndSetUps.getInstance().sc.listHard.clear();
-		
+
 		try {
 
 			
@@ -463,9 +459,9 @@ public class PersistentStates {
 				}
 				
 				if ((Integer.parseInt(stage) == 1) && (line == 4)) {
-					StorageAndSetUps.getInstance().lmc.customGoButton.setDisable(false);
-					StorageAndSetUps.getInstance().lmc.customSettings.setVisible(true);
-					StorageAndSetUps.getInstance().lmc.customMessage.setVisible(false);
+//					StorageAndSetUps.getInstance().lmc.customGoButton.setDisable(false);
+//					StorageAndSetUps.getInstance().lmc.customSettings.setVisible(true);
+//					StorageAndSetUps.getInstance().lmc.customMessage.setVisible(false);
 					
 					StorageAndSetUps.getInstance().achc.starIcon.setImage(new Image("/images/GOLD_STAR.png", true));
 					StorageAndSetUps.getInstance().achc.starIcon.setOpacity(1.0);

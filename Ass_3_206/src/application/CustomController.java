@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -14,6 +15,9 @@ public class CustomController {
 
 	@FXML 
 	Button advanced;
+	
+	@FXML 
+	Label warning;
 	
 	@FXML 
 	Button levelMenuButton;
@@ -26,6 +30,25 @@ public class CustomController {
 	CheckBox checkBoxPlus;
 	@FXML 
 	CheckBox checkBoxMinus;
+	
+	
+	/**
+	 * When a checkbox is pressed display a warning message if all are unchecked or else do not.
+	 * @param event
+	 * @throws IOException
+	 */
+	public void checkBox(ActionEvent event) throws IOException {
+		boolean div = !checkBoxDiv.isSelected();
+		boolean times = !checkBoxTimes.isSelected();
+		boolean plus = !checkBoxPlus.isSelected();
+		boolean minus = !checkBoxMinus.isSelected();
+		
+		if (div && times && plus && minus) {
+			warning.setVisible(true);
+		} else {
+			warning.setVisible(false);
+		}
+	}
 	
 	
 	/**

@@ -168,29 +168,7 @@ public class QuizController {
 				bw.close();
 
 			}
-			
-			// set custom transition to true only if the score is 8 or above and
-			// we are on the medium level (hard = false)
-			if ((currentScore >= 8) && (level == Level.HARD)) {
-				StorageAndSetUps.getInstance().lmc.customGoButton.setDisable(false);
-				StorageAndSetUps.getInstance().lmc.customSettings.setVisible(true);
-				StorageAndSetUps.getInstance().lmc.customMessage.setVisible(false);
-				
-				// On top of this, write to the PersistentLevels.txt file, to retain custom stage unlock
-				// for user's future sessions.
-				
-				fw = new FileWriter(file.getAbsoluteFile());
-				
-				bw = new BufferedWriter(fw);
-				
-				String customUnlock = "1\n1\n1\n1";
-				
-				bw.write(customUnlock);
-				
-				bw.close();
 
-
-			}
 
 			// Move to score scene
 			Scene score = StorageAndSetUps.getInstance().score;

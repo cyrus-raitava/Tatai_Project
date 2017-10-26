@@ -123,6 +123,7 @@ public class StorageAndSetUps {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Custom.fxml"));
 		custom = new Scene(loader.load());
 		cc = loader.getController();
+		cc.warning.setVisible(false);
 	}
 
 	// Method that allows for access to the AdvancedController
@@ -182,7 +183,7 @@ public class StorageAndSetUps {
 			String sessionNum = "Easy Session";
 			qc.sessionLabel.setText(sessionNum);
 		} else {
-			String sessionNum = "Custom Session";
+			String sessionNum = "Practice Session";
 			qc.sessionLabel.setText(sessionNum);
 
 		}
@@ -208,8 +209,6 @@ public class StorageAndSetUps {
 	
 	public void levelMenuSetup() {
 		lmc.mediumGoButton.setDisable(true);
-		lmc.customGoButton.setDisable(true);
-		lmc.customSettings.setVisible(false);
 		lmc.hardGoButton.setDisable(true);
 		
 	}
@@ -224,11 +223,11 @@ public class StorageAndSetUps {
 		ac.minusDigits.setItems(FXCollections.observableArrayList("1 Digit", "2 Digits"));
 		ac.minusDigits.setValue("2 Digits");
 
-		ac.plusVariables.setItems(FXCollections.observableArrayList("2 Variables", "3 Variables"));
-		ac.plusVariables.setValue("2 Variables");
+		ac.plusVariables.setItems(FXCollections.observableArrayList("2 Numbers", "3 Numbers"));
+		ac.plusVariables.setValue("2 Numbers");
 
-		ac.minusVariables.setItems(FXCollections.observableArrayList("2 Variables", "3 Variables"));
-		ac.minusVariables.setValue("2 Variables");
+		ac.minusVariables.setItems(FXCollections.observableArrayList("2 Numbers", "3 Numbers"));
+		ac.minusVariables.setValue("2 Numbers");
 
 		ac.divRange.setItems(FXCollections.observableArrayList("Up to 1", "Up to 2", "Up to 3",
 				"Up to 4","Up to 5","Up to 6","Up to 7","Up to 8","Up to 9","Up to 10",
