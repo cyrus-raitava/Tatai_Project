@@ -106,7 +106,11 @@ public class PersistentStates {
 		File fileMedium = new File(pwd + "/TataiResources/" + username + "mediumStats.txt");
 
 		File fileHard = new File(pwd + "/TataiResources/" + username + "hardStats.txt");
-
+		
+		StorageAndSetUps.getInstance().sc.listEasy.clear();
+		StorageAndSetUps.getInstance().sc.listMedium.clear();
+		StorageAndSetUps.getInstance().sc.listHard.clear();
+		
 		try {
 
 			
