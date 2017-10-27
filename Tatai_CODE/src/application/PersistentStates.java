@@ -601,6 +601,7 @@ public class PersistentStates {
 		// Gets current working directory
 		String pwd = System.getProperty("user.dir");
 		
+		// Create file instance (the file itself definitively already exists)
 		File fileLevels = new File(pwd + "/TataiResources/" + username + "persistentLevels.txt");
 		
 		Scanner sL = new Scanner(fileLevels);
@@ -610,29 +611,27 @@ public class PersistentStates {
 		int line = 0;
 		
 		try {
-			
+			// Use scanner instance to go through file, reading through the values, and unlocking levels accordingly
 			while (sL.hasNextLine()) {
 				line++;
 				
 				stage = sL.nextLine();
 				
-
+				// If the second line of text is a 1, unlock the Medium level
 				if ((Integer.parseInt(stage) == 1) && (line == 2)) {
 					StorageAndSetUps.getInstance().lmc.mediumGoButton.setDisable(false);
 					StorageAndSetUps.getInstance().lmc.mediumMessage.setVisible(false);
 					
 				}
 				
+				// If the third line of text is a 1, unlock the Hard Level
 				if ((Integer.parseInt(stage) == 1) && (line == 3)) {
 					StorageAndSetUps.getInstance().lmc.hardGoButton.setDisable(false);
 					StorageAndSetUps.getInstance().lmc.hardMessage.setVisible(false);
 				}
 				
+				// If the fourth line of text is a 1, unlock the all levels unlocked Achievement Icon
 				if ((Integer.parseInt(stage) == 1) && (line == 4)) {
-					
-//					StorageAndSetUps.getInstance().lmc.customGoButton.setDisable(false);
-//					StorageAndSetUps.getInstance().lmc.customSettings.setVisible(true);
-//					StorageAndSetUps.getInstance().lmc.customMessage.setVisible(false);
 					
 					StorageAndSetUps.getInstance().achc.starIcon.setImage(new Image("/images/GOLD_STAR.png", true));
 					StorageAndSetUps.getInstance().achc.starIcon.setOpacity(1.0);
@@ -648,6 +647,7 @@ public class PersistentStates {
 				
 			}
 			
+			// Close the scanner instance
 			sL.close();
 			
 		} finally {
