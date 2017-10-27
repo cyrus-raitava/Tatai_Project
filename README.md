@@ -4,12 +4,12 @@ This application is built for training in mathematical skills and recognition of
 
 ## Computer Requirements
 
-To maximise the probability of the application running without problems, the user should run the application on a Linux OS, preferably Ubuntu. In order to be able to run this application and use it succesfully, you must have the following folder structure, after having unzipped the Project.zip:
+To maximise the probability of the application running without problems, the user should run the application on a Linux OS, preferably Ubuntu. In order to be able to run this application and use it successfully, you must have the following folder structure, after having unzipped the Project.zip:
 
 ```
 Project
 |
-|__Tatai.jar (JAR file, from which you shold run the application)
+|__Tatai.jar (JAR file, from which you should run the application)
 |
 |__HTK (External Speech Recognition Software)
 |  |
@@ -46,7 +46,7 @@ Following from this, the user must make the application jar executable: at this 
 $ ls 
 ```
 
-If the JAR does get echoed in the terminal upon performing this command, then the user is in the right location, to continue on to succesfully run it. From here, the user should either type:
+If the JAR does get echoed in the terminal upon performing this command, then the user is in the right location, to continue on to successfully run it. From here, the user should either type:
 
 ```
 $ chmod a+x Tatai.jar
@@ -74,7 +74,7 @@ As stated before, upon extracting the contents of the Project.zip, the user shou
 ```
 Project
 |
-|__Tatai.jar (JAR file, from which you shold run the application)
+|__Tatai.jar (JAR file, from which you should run the application)
 |
 |__HTK (External Speech Recognition Software)
 |  |
@@ -100,7 +100,7 @@ To run the application by double-clicking the JAR from a file explorer, **you mu
 
 ****Note the sidebar, and the "Home" Option, highlighted in orange. If your file explorer sidebar looks like that in the picture above, then you are in the correct Home Directory.****
 
-Upon succesfully moving the entire HTK folder to the Home Directory, the user may run the application by double-clicking it, regardless of where exactly the runnable JAR is. It is of note however, that once the HTK folder is moved to the Home Directory, the user may possibly not utilise the first method of running the application via the command line.
+Upon successfully moving the entire HTK folder to the Home Directory, the user may run the application by double-clicking it, regardless of where exactly the runnable JAR is. It is of note however, that once the HTK folder is moved to the Home Directory, the user may possibly not utilise the first method of running the application via the command line.
 
 Any questions regarding the usage of the application or the initial setup, can be forwarded on to either one of the following email addresses:
 
