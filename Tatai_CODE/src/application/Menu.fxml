@@ -61,9 +61,5 @@
          <font>
             <Font name="System Bold" size="21.0" />
          </font></Label>
-      <Label fx:id="achieveNotify" layoutX="17.0" layoutY="321.0" prefHeight="27.0" prefWidth="150.0" text="NEW ACHIEVEMENT" textFill="RED">
-         <font>
-            <Font name="System Bold Italic" size="13.0" />
-         </font></Label>
    </children>
 </AnchorPane>

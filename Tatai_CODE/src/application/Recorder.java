@@ -55,8 +55,10 @@ public class Recorder {
 		double time = 3.5;
 
 
+		String pwd = System.getProperty("user.dir");
+		
 		// run bash script for audio recognition using 'time' for recording time
-		ProcessBuilder builder = new ProcessBuilder("/bin/bash","-c", "cd /home/se206/Documents/HTK/MaoriNumbers ; arecord -d " + time + " -r 22050 -c 1 -i -t wav -f s16_LE foo.wav ; " + 
+		ProcessBuilder builder = new ProcessBuilder("/bin/bash","-c", "cd " + pwd + "/HTK/MaoriNumbers ; arecord -d " + time + " -r 22050 -c 1 -i -t wav -f s16_LE foo.wav ; " + 
 				"HVite -H HMMs/hmm15/macros -H HMMs/hmm15/hmmdefs -C user/configLR  -w user/wordNetworkNum -o SWT -l '*' -i recout.mlf -p 0.0 -s 5.0  user/dictionaryD user/tiedList foo.wav ; " + 
 				"aplay foo.wav ; " + 
 				"rm foo.wav");
@@ -97,8 +99,10 @@ public class Recorder {
 
 			StorageAndSetUps.getInstance().qc.progBar.setVisible(false);
 
+			
+			String pwd = System.getProperty("user.dir");
 			// read voice recognition file
-			try (BufferedReader br = new BufferedReader(new FileReader("/home/se206/Documents"
+			try (BufferedReader br = new BufferedReader(new FileReader(pwd
 					+ "/HTK/MaoriNumbers/recout.mlf"))) {
 				String line = null;
 
