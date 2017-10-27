@@ -178,6 +178,7 @@ public class Recorder {
 					text = text + "\"";
 					StorageAndSetUps.getInstance().qc.expectedAnswer.setText(text);
 				}
+				// set the continue button to true
 				continueButton.setVisible(true);
 			}
 
