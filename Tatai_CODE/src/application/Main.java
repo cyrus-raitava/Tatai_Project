@@ -15,7 +15,12 @@ public class Main extends Application {
 		
 		try {
 			
+			// Call specific method for creating necessary files and subsequent folder structure
+			
 			PersistentStates.createStartFile();
+			
+			// Load the created users, and set the necessary controls as being visible or not,
+			// in the UserLogin screen, prior to showing it.
 			
 			UserLogin.loadUsers();
 			UserLogin.startUp();
@@ -28,7 +33,6 @@ public class Main extends Application {
 
 			// set constraints of the stage
 			window.setTitle("Tātai");
-			
 			window.setScene(scene);
 			window.show();
 			window.setResizable(false);

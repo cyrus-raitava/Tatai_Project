@@ -192,8 +192,10 @@ public class EquationGenerator {
 	 */
 	private static String[] addSubtract(boolean twoDigits, boolean twoVariables, boolean add) {
 
+		// Declare the integers to be potentially used
 		int int1,int2,int3,ans;
 
+		// Define the operator, based on the value of the Boolean add variable.
 		String operator;
 		if (add) {
 			operator = " + ";
@@ -201,8 +203,10 @@ public class EquationGenerator {
 			operator = " − ";
 		}
 
+		// Provide logic behind creating two variable equation
 		if (twoVariables) {
 
+			// Provide logic behind creating two digits variable equation
 			if (twoDigits) {
 				if (add) {
 					int1 = (int)(98*Math.random() + 1);
@@ -213,6 +217,7 @@ public class EquationGenerator {
 					int2 = (int)((int1 - 1)*Math.random() + 1);
 					ans = int1 - int2;
 				}
+			// Provide logic behind creating single digits variable equation
 			} else {
 				if (add) {
 					int1 = (int)(9*Math.random() + 1);
@@ -228,7 +233,7 @@ public class EquationGenerator {
 			return new String[] {int1 + operator + int2, "" + ans};
 
 		} else {
-
+			// Provide logic behind creating two digits variable equation
 			if (twoDigits) {
 				if (add) {
 					int1 = (int)(97*Math.random() + 1);
@@ -242,6 +247,8 @@ public class EquationGenerator {
 					ans = int1 - int2 - int3;
 				}
 			} else {
+				
+				// Provide logic behind creating single digits variable equation
 				if (add ) {
 					int1 = (int)(9*Math.random() + 1);
 					int2 = (int)(9*Math.random() + 1);
@@ -254,23 +261,38 @@ public class EquationGenerator {
 					ans = int1 - int2 - int3;
 				}
 			}
-
+			
+			// Concatenate strings together, to form string variable to return, that is the equation
+			
 			return new String[] {int1 + operator + int2 + operator + int3, "" + ans};
-
+			
 		}
 
 
 
 	}
 
+	/**
+	 * The multiplyDivide() function takes in an ArrayList<Integer>, the range, and whether or not
+	 * the equation is to be a division or multiplication equation. 
+	 * 
+	 * @param timesTable
+	 * @param range
+	 * @param multiply
+	 * @return
+	 */
 	private static String[] multiplyDivide(ArrayList<Integer> timesTable, int range, boolean multiply) {
 
+		// Checks the size of the input ArrayList<Integer>, representing the number of 
+		// chosen check boxes for multiplication/division
 		int size = timesTable.size();
 
 		int index = (int)(size*Math.random());
 
 		int int1 = timesTable.get(index);
 
+		
+		
 		if (int1 > 6) {
 			switch (int1) {
 			case 7:

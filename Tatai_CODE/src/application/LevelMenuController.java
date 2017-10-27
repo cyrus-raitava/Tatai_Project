@@ -10,6 +10,9 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class LevelMenuController {
+	/**
+	 * Create all JavaFX controls, for the levelMenu Scene, for the user.
+	 */
 	
 	@FXML
 	protected Button easyGoButton;

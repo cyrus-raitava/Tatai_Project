@@ -20,6 +20,13 @@ import javafx.stage.StageStyle;
 
 public class MenuController {
 
+	/**
+	 * Create all necessary JavaFX controls for the main menu. Features of note are all of the 
+	 * buttons and their respective functionality in changing scenes, the personalized user banner, and
+	 * personalized user badge, on the top of the scene.
+	 * 
+	 */
+	
 	@FXML
 	private Label myLabel;
 	
@@ -50,24 +57,30 @@ public class MenuController {
 	@FXML
 	public Label userLabel;
 	
-	@FXML
-	public Label achieveNotify;
-	
+	/**
+	 * Method that resets the scene to be that of the Achievements page, for the Achievements Button
+	 * @param event
+	 * @throws IOException
+	 */
 	public void achievementsPress(ActionEvent event) throws IOException {
-		
-		StorageAndSetUps.getInstance().mc.achieveNotify.setVisible(false);
 		Scene achievements = StorageAndSetUps.getInstance().achievements;		
 		Stage window = (Stage) achievementsButton.getScene().getWindow();
 		window.setScene(achievements);
 	}
 	
+	/**
+	 * Method that resets the scene to be that of the Credits page, for the Credits Button
+	 * @param event
+	 * @throws IOException
+	 */
 	public void creditsPress(ActionEvent event) throws IOException {
 		Scene credits = StorageAndSetUps.getInstance().credits;
 		Stage window = (Stage) creditsButton.getScene().getWindow();
 		window.setScene(credits);
 	}
 	
-	/**Function that loads quit option as pop-up, to be utilized by the Quit button
+	/**
+	 * Function that loads quit option as pop-up, to be utilized by the Quit button
 	 * from the main menu. Note that the quit scene in itself is UNDECORATED.
 	 * @param event
 	 * @throws IOException

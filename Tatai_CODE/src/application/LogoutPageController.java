@@ -59,6 +59,8 @@ public class LogoutPageController {
 		StorageAndSetUps.getInstance().ulc.loginConfirm.setDisable(true);
 		StorageAndSetUps.getInstance().ulc.deleteUser.setDisable(true);
 		
+		// Changes window back to the userLogin scene
+		
 		Scene userLogin = StorageAndSetUps.getInstance().userLogin;
 		
 		Stage window = (Stage) Yes.getScene().getWindow();
