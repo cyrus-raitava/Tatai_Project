@@ -173,6 +173,7 @@ public class StorageAndSetUps {
 
 	public void quizSetup() {
 
+		// Set the title of teh quiz controller to the approrpiate dificulty session
 		if (qc.level == Level.HARD) {
 			String sessionNum = "Hard Session";
 			qc.sessionLabel.setText(sessionNum);
@@ -188,10 +189,12 @@ public class StorageAndSetUps {
 
 		}
 
+		// display the questionNumber out of 10
 		String questionNum = (qc.questionCount + 1) + "/10";
 		qc.questionLabel.setText(questionNum);
 
 
+		// set default button and label visibilities.
 		qc.recordButton.setVisible(false);
 		qc.reRecordButton.setVisible(false);
 		qc.menuButton.setVisible(false);
@@ -215,6 +218,7 @@ public class StorageAndSetUps {
 
 	// When method is called upon, necessary buttons are made invisible, allows for re-usage of FXML
 	// scene setup, without having to actually change scene.
+	// default values for advanced practice settings are set.
 
 	public void advancedSetup() {
 		ac.plusDigits.setItems(FXCollections.observableArrayList("1 Digit", "2 Digits"));
