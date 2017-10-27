@@ -28,13 +28,15 @@ public class ScoreController {
 	public void mediumTransitionPressed(ActionEvent event) throws IOException {
 		PersistentStates.stageUnlockSet(UserLogin.username);
 		PersistentStates.achievementsLoad(UserLogin.username);	
-		
+				
+		// set quizLevel to medium
 		StorageAndSetUps.getInstance().qc.level = Level.MEDIUM;
+				
+		// reset quizController to defaults 
 		StorageAndSetUps.getInstance().quizSetup();
 		Scene quiz = StorageAndSetUps.getInstance().quiz;
 		Stage window = (Stage) mediumTransition.getScene().getWindow();
 		window.setScene(quiz);
-		// reset quizController to defaults 
 	}
 	
 	/**
@@ -46,12 +48,12 @@ public class ScoreController {
 		PersistentStates.stageUnlockSet(UserLogin.username);
 		PersistentStates.achievementsLoad(UserLogin.username);	
 		
+		// reset quizController to defaults after setting level as hard
 		StorageAndSetUps.getInstance().qc.level = Level.HARD;
 		StorageAndSetUps.getInstance().quizSetup();
 		Scene quiz = StorageAndSetUps.getInstance().quiz;
 		Stage window = (Stage) hardTransition.getScene().getWindow();
 		window.setScene(quiz);
-		// reset quizController to defaults 
 	}
 	
 	@FXML
