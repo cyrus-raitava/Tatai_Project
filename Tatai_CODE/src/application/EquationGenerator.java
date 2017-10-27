@@ -336,8 +336,10 @@ public class EquationGenerator {
 			}
 		}
 
+		// randomly generate a number to multiply with.
 		int int2 = (int)(range*Math.random() + 1);
 
+		// return a multiplication/division string depending on whether the multiply parameter is true or false.
 		if (multiply) {
 			return new String [] {int1 + " × " + int2, "" + int1*int2};
 		} else {
