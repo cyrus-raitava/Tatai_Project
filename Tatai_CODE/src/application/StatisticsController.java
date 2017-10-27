@@ -21,17 +21,21 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class StatisticsController implements Initializable {
 
-	/*
-	 * Controller class for Statistics FXML scene. Return Button and returnPress()
-	 * field/methods implemented to return back to menu screen.
-	 * 
-	 */
+/*
+ * Controller class for Statistics FXML scene. Return Button and returnPress()
+ * field/methods implemented to return back to menu screen.
+ */
+public class StatisticsController implements Initializable {
 	
 	@FXML
 	private Button returnButton;
 	
+	/*
+	 * Return to main menu and update stats when return is pressed
+	 * @param ActionEvent event
+	 * @throws IOException
+	 */
 	public void returnPress(ActionEvent event) throws IOException {
 		
 		PersistentStates.defaultAchievements();
@@ -49,6 +53,12 @@ public class StatisticsController implements Initializable {
 	
 	public static String levelChosen;
 	
+	/*
+	 * Displays a message to the user when they click a clear statistics button. If there
+	 * are no statistics the appropriate message is displayed.
+	 * @param boolean change = whether there is any statistics
+	 * 
+	 */
 	public static void changeDisplayMessage(boolean change) throws IOException {
 		
 		if (change) {
@@ -70,9 +80,15 @@ public class StatisticsController implements Initializable {
 		
 	}
 	
+	/*
+	 * When easy clear is pressed, clears easy statistics (if there are any) and sets level string to "easy"
+	 * for warning display messsgage which is displayed.
+	 * 
+	 */
 	public void easyClearPress(ActionEvent event) throws IOException {
 		StatisticsController.levelChosen = "easy";
 		
+		// displays message that differs on whether the stats are empty or not
 		if (StatisticsController.listEasy.isEmpty()) {
 			StatisticsController.changeDisplayMessage(true);
 			
@@ -80,6 +96,7 @@ public class StatisticsController implements Initializable {
 			StatisticsController.changeDisplayMessage(false);
 		}
 		
+		// Set level text to appropriate text, font, colour and size
 		StorageAndSetUps.getInstance().csc.levelLabel.setText("Easy");
 		StorageAndSetUps.getInstance().csc.levelLabel.setTextFill(Paint.valueOf("#4dc313"));
 		StorageAndSetUps.getInstance().csc.levelLabel.setFont(new Font("System", 49));
@@ -97,19 +114,28 @@ public class StatisticsController implements Initializable {
 	@FXML
 	private Button mediumClear;
 	
+	/*
+	 * When medium clear is pressed, clears medium statistics (if there are any) and sets level string to "medium"
+	 * for warning display messsgage which is displayed.
+	 * @param ActionEvent event
+	 * 
+	 */
 	public void mediumClearPress(ActionEvent event) throws IOException {
 		StatisticsController.levelChosen = "medium";
 		
+		// displays message that differs on whether the stats are empty or not
 		if (StatisticsController.listMedium.isEmpty()) {
 			StatisticsController.changeDisplayMessage(true);
 		} else {
 			StatisticsController.changeDisplayMessage(false);
 		}
 		
+		// Set level text to appropriate text, font, colour and size
 		StorageAndSetUps.getInstance().csc.levelLabel.setText("Medium");
 		StorageAndSetUps.getInstance().csc.levelLabel.setTextFill(Paint.valueOf("#ff8800"));
 		StorageAndSetUps.getInstance().csc.levelLabel.setFont(new Font("System", 49));
-		
+	
+	// pop up window for clearStats scene
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         Scene scene = StorageAndSetUps.getInstance().clearStats;
@@ -123,20 +149,28 @@ public class StatisticsController implements Initializable {
 	@FXML
 	private Button hardClear;
 	
+	/*
+	 * When hard clear is pressed, clears hard statistics (if there are any) and sets level string to "hard"
+	 * for warning display messsgage which is displayed.
+	 * @param ActionEvent event
+	 * 
+	 */
 	public void hardClearPress(ActionEvent event) throws IOException {
 		StatisticsController.levelChosen = "hard";
 		
+		// displays message that differs on whether the stats are empty or not
 		if (StatisticsController.listHard.isEmpty()) {
 			StatisticsController.changeDisplayMessage(true);
 		} else {
 			StatisticsController.changeDisplayMessage(false);
 		}
 		
-		
+		// Set level text to appropriate text, font, colour and size
 		StorageAndSetUps.getInstance().csc.levelLabel.setText("Hard");
 		StorageAndSetUps.getInstance().csc.levelLabel.setTextFill(Paint.valueOf("#0055ff"));
 		StorageAndSetUps.getInstance().csc.levelLabel.setFont(new Font("System", 49));
-		
+	
+	// pop up window for clearStats scene
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         Scene scene = StorageAndSetUps.getInstance().clearStats;
@@ -171,10 +205,16 @@ public class StatisticsController implements Initializable {
 	public static int mediumSession;
 	public static int hardSession;
 	
-	// Method to be invoked when sessionScore is to be added. When called, String will
-	// be added to ListView, in the relevant format. This will then be visually updated
-	// within the ListView, that is within the Statistics FXML.
+
 	
+	/*
+	 * Method to be invoked when sessionScore is to be added. When called, String will
+	 * be added to ListView, in the relevant format. This will then be visually updated
+	 * within the ListView, that is within the Statistics FXML.
+	 * @param int sessionScore = the score for a session
+	 * @param Level level = the level of a session
+	 * @throws IOException
+	 */
 	public void addSessionScore(int sessionScore, Level level) throws IOException {
 		
 		
@@ -244,6 +284,11 @@ public class StatisticsController implements Initializable {
 	}
 
 	@Override
+	/*
+	 * Sets statistics items in each list display when scene is initialised.
+	 * @param URL sessionScore
+	 * @param ResourceBundle
+	 */
 	public void initialize(URL location, ResourceBundle resources) {
 		easyList.setItems(listEasy);
 		mediumList.setItems(listMedium);
