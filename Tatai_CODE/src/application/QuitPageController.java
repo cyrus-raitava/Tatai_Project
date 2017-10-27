@@ -22,7 +22,8 @@ public class QuitPageController {
 	private Button No;
 	
 	
-	/**'No' Button functionality: returns user to Main Menu if pressed.
+	/**
+	 * 'No' Button functionality: returns user to Main Menu if pressed.
 	 * @param event
 	 */
 	@FXML
@@ -31,7 +32,8 @@ public class QuitPageController {
 		stage.close();
 	}
 	
-	/**'Yes' Quit Button functionality: quits application with exit code of 0, if pressed.
+	/**
+	 * 'Yes' Quit Button functionality: quits application with exit code of 0, if pressed.
 	 * @param event
 	 */
 	@FXML
