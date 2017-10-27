@@ -278,7 +278,15 @@ public class QuizController {
 
 	}
 	
+	
+	/**
+	 * Automates a progress bar with input time and direction.
+	 * @param double time = the length of progress bar in seconds
+	 * @param boolean up = true if progress bar is going left to right
+	 */
 	public void progressBar(double time, boolean up) {
+		
+		// set bar to visible and initialise to either full if going up or empty otherwise
 		progBar.setVisible(true);
 		if (up) {
 			progBar.setProgress(0);
@@ -289,7 +297,11 @@ public class QuizController {
 		}
 
 
+		// Create a timeline counter to do something every count. THe count is set to time/seconds
+		// because this will evenly distribute the progress of the bar.
 		Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(time/counts), ae -> {
+			
+			// increase progress until full
 			if (up) {
 				if (!(prog >= 1)) {
 					prog = prog + 1/counts;
@@ -297,6 +309,7 @@ public class QuizController {
 					prog = 1;
 				}
 
+			// decrese progress until empty
 			} else {
 				if (!(prog <= 0)) {
 					prog = prog - 1/counts;
@@ -307,6 +320,8 @@ public class QuizController {
 
 			progBar.setProgress(prog);
 		} ));
+		
+		// set counts to one more than counts to ensure comopletion of progress bar.
 		timeline2.setCycleCount((int)(counts + 1));
 		timeline2.play();
 	}
