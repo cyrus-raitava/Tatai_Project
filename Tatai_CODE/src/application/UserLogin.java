@@ -11,10 +11,15 @@ public class UserLogin {
 
 	public static String username;
 
+	/*
+	 * Sets the layout of the scene that the user is presented when they first open the application.
+	 */
 	public static void startUp() {
 		
 		try {
 
+			// appropriate buttons are set to invisible so only , create and
+			// login with existing users are visible.
 			StorageAndSetUps.getInstance().ulc.userList.setVisible(false);
 			StorageAndSetUps.getInstance().ulc.loginConfirm.setVisible(false);
 			StorageAndSetUps.getInstance().ulc.goBack.setVisible(false);
@@ -31,6 +36,10 @@ public class UserLogin {
 	}
 	
 
+	/*
+	 * This method adds a user to the existing list of users.
+	 * @param String username = name of new user
+	 */
 	public static void addUser(String username) {
 
 		// Gets current working directory
@@ -41,6 +50,7 @@ public class UserLogin {
 
 		try {
 
+			// ensure new username does not already exist and add it
 			if (!StorageAndSetUps.getInstance().ulc.listUser.contains(username)) {
 
 				StorageAndSetUps.getInstance().ulc.listUser.add(username);
@@ -77,6 +87,11 @@ public class UserLogin {
 
 	}
 
+	/*
+	 * Sets default visibilities of login buttons so that only create and existing user buttons are
+	 * visible.
+	 * @throws IOException
+	 */
 	public static void defaultScreen() throws IOException {
 		StorageAndSetUps.getInstance().ulc.userList.setVisible(false);
 		StorageAndSetUps.getInstance().ulc.loginConfirm.setVisible(false);
@@ -93,20 +108,23 @@ public class UserLogin {
 		
 	}
 
+	/*
+	 * Creates files to store user progress for session scores and stage unlock.
+	 * @param String username = name of user
+	 * @throws IOException
+	 */
 	public static void createUserFiles(String username) throws IOException {
 		
 		// Gets current working directory
 		String pwd = System.getProperty("user.dir");
 		
+		// Create files for all stats and levelUnlock
 		File fileEasy = new File(pwd + "/TataiResources/" + username + "easyStats.txt");
-
 		File fileMedium = new File(pwd + "/TataiResources/" + username + "mediumStats.txt");
-
 		File fileHard = new File(pwd + "/TataiResources/" + username + "hardStats.txt");
-		
 		File fileLevels = new File(pwd + "/TataiResources/" + username + "persistentLevels.txt");
 		
-		
+		// Ensure new files are created only if they do not already exist
 		if(!fileEasy.exists()) {
 			fileEasy.createNewFile();
 		}
@@ -125,13 +143,17 @@ public class UserLogin {
 		
 	}
 	
+	/*
+	 * Loads the list of users so they appear in the user dropdown box.
+	 * @throws IOException
+	 */
 	public static void loadUsers() throws IOException {
 
 		// Gets current working directory
 		String pwd = System.getProperty("user.dir");
 
+		// Create user list file if it does not already exist.
 		File fileUserList = new File(pwd + "/TataiResources/userList.txt");
-		
 		if (!fileUserList.exists()) {
 			fileUserList.createNewFile();
 		}
@@ -142,16 +164,19 @@ public class UserLogin {
 
 			String user;
 
+			// read in users from file
 			while (s.hasNextLine()) {
 
 				user = s.nextLine();
 
+				// add user to list of users
 				UserLoginController.listUser.add(user);
 
 			}
 
 			s.close();
 
+			// if the list is empty, disable the login button.
 			if (UserLoginController.listUser.isEmpty()) {
 				StorageAndSetUps.getInstance().ulc.loginExistingUser.setDisable(true);
 			}
