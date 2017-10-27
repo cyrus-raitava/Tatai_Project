@@ -90,10 +90,12 @@ public class EquationGenerator {
 			// The underlying logic for the Practice Mode: here, the Check-boxes regarding whether the user wants
 			// Addition, Subtraction, Multiplication or Division questions is checked here.
 			
+			// Get the controllers so that we can access the checkboxes for practice mode
 			CustomController cc = StorageAndSetUps.getInstance().cc;
 			AdvancedController ac = StorageAndSetUps.getInstance().ac;
 			ArrayList<Operation> operations = new ArrayList<Operation>();
 
+			// determine what operations are to be used
 			if (cc.checkBoxPlus.isSelected()) {
 				operations.add(Operation.ADD);
 			}
@@ -111,7 +113,7 @@ public class EquationGenerator {
 			// application will simply produce numbers which the user can try to say and record: no equations.
 			
 			int length = operations.size();
-
+			
 			if (length == 0) {
 				String random = Integer.toString((int)(99*Math.random() + 1));
 				return new String[] {random,random};
@@ -289,10 +291,10 @@ public class EquationGenerator {
 
 		int index = (int)(size*Math.random());
 
+		// randomly select a timestable to use.
 		int int1 = timesTable.get(index);
-
 		
-		
+		// ensure that the range is adjusted so that the product is never above 100
 		if (int1 > 6) {
 			switch (int1) {
 			case 7:
