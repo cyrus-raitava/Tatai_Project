@@ -489,7 +489,7 @@ public class PersistentStates {
 		
 		// Use scanner instance to go through, summing up the number
 		// of questions answered as 10*(however many scores exist in the user's statistics files),
-		// as for every session the user has played, 
+		// as for every session the user has played, the user has answered 10 questions.
 		while (s.hasNextLine()) {
 			score = s.nextLine();
 			session++;
@@ -498,12 +498,16 @@ public class PersistentStates {
 		PersistentStates.totalAnswered += session*10;
 		
 		if ((PersistentStates.totalAnswered >= 20) && (PersistentStates.totalAnswered < 50)) {
+			
+			// Unlock the relevant icon, upon the total being between a certain range
+			
 			StorageAndSetUps.getInstance().achc.wreathIcon.setImage(new Image("/images/BRONZE_WREATH.png", true));
 			StorageAndSetUps.getInstance().achc.wreathIcon.setMouseTransparent(true);
 			StorageAndSetUps.getInstance().achc.wreathText.setText("Answered at least 20 questions total.");
 			StorageAndSetUps.getInstance().achc.wreathText.setAlignment(Pos.CENTER);
 			StorageAndSetUps.getInstance().achc.wreathIcon.setOpacity(1.0);
 			
+			// Update the User's badge, alongside the Achievement Icon being changed
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setImage(new Image("/images/BRONZE_WREATH.png", true));
 			StorageAndSetUps.getInstance().mc.userStatus.setText("BRONZE USER");
 			StorageAndSetUps.getInstance().mc.userStatus.setAlignment(Pos.CENTER);
@@ -511,12 +515,16 @@ public class PersistentStates {
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setOpacity(0.4);
 			
 		} else if ((PersistentStates.totalAnswered >= 50) && (PersistentStates.totalAnswered < 100)) {
+			
+			// Unlock the relevant icon, upon the total being between a certain range
+			
 			StorageAndSetUps.getInstance().achc.wreathIcon.setImage(new Image("/images/SILVER_WREATH.png", true));
 			StorageAndSetUps.getInstance().achc.wreathIcon.setMouseTransparent(true);
 			StorageAndSetUps.getInstance().achc.wreathText.setText("Answered at least 50 questions total.");
 			StorageAndSetUps.getInstance().achc.wreathText.setAlignment(Pos.CENTER);
 			StorageAndSetUps.getInstance().achc.wreathIcon.setOpacity(1.0);
 			
+			// Update the User's badge, alongside the Achievement Icon being changed
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setImage(new Image("/images/SILVER_WREATH.png", true));
 			StorageAndSetUps.getInstance().mc.userStatus.setText("SILVER USER");
 			StorageAndSetUps.getInstance().mc.userStatus.setAlignment(Pos.CENTER);
@@ -524,12 +532,16 @@ public class PersistentStates {
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setOpacity(0.4);
 			
 		} else if ((PersistentStates.totalAnswered >= 100) && (PersistentStates.totalAnswered < 250)) {
+			
+			// Unlock the relevant icon, upon the total being between a certain range
+			
 			StorageAndSetUps.getInstance().achc.wreathIcon.setImage(new Image("/images/GOLD_WREATH.png", true));
 			StorageAndSetUps.getInstance().achc.wreathIcon.setMouseTransparent(true);
 			StorageAndSetUps.getInstance().achc.wreathText.setText("Answered at least 100 questions total.");
 			StorageAndSetUps.getInstance().achc.wreathText.setAlignment(Pos.CENTER);
 			StorageAndSetUps.getInstance().achc.wreathIcon.setOpacity(1.0);
 			
+			// Update the User's badge, alongside the Achievement Icon being changed
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setImage(new Image("/images/GOLD_WREATH.png", true));
 			StorageAndSetUps.getInstance().mc.userStatus.setText("GOLD USER");
 			StorageAndSetUps.getInstance().mc.userStatus.setAlignment(Pos.CENTER);
@@ -538,12 +550,16 @@ public class PersistentStates {
 			
 			
 		} else if ((PersistentStates.totalAnswered >= 250) && (PersistentStates.totalAnswered < 500)) {
+			
+			// Unlock the relevant icon, upon the total being between a certain range
+			
 			StorageAndSetUps.getInstance().achc.wreathIcon.setImage(new Image("/images/PLATINUM_WREATH.png", true));
 			StorageAndSetUps.getInstance().achc.wreathIcon.setMouseTransparent(true);
 			StorageAndSetUps.getInstance().achc.wreathText.setText("Answered at least 250 questions total.");
 			StorageAndSetUps.getInstance().achc.wreathText.setAlignment(Pos.CENTER);
 			StorageAndSetUps.getInstance().achc.wreathIcon.setOpacity(1.0);
 			
+			// Update the User's badge, alongside the Achievement Icon being changed
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setImage(new Image("/images/PLATINUM_WREATH.png", true));
 			StorageAndSetUps.getInstance().mc.userStatus.setText("PLATINUM USER");
 			StorageAndSetUps.getInstance().mc.userStatus.setAlignment(Pos.CENTER);
@@ -558,6 +574,7 @@ public class PersistentStates {
 			StorageAndSetUps.getInstance().achc.wreathText.setAlignment(Pos.CENTER);
 			StorageAndSetUps.getInstance().achc.wreathIcon.setOpacity(1.0);
 			
+			// Update the User's badge, alongside the Achievement Icon being changed
 			StorageAndSetUps.getInstance().mc.menuUserStatus.setImage(new Image("/images/DIAMOND.png", true));
 			StorageAndSetUps.getInstance().mc.userStatus.setText("DIAMOND USER");
 			StorageAndSetUps.getInstance().mc.userStatus.setAlignment(Pos.CENTER);
@@ -571,6 +588,14 @@ public class PersistentStates {
 	
 	}
 	
+	/**
+	 * This method goes through the user's PersistentLevel.txt file, and keeps a record of which 
+	 * stages they have unlocked, so that when they log out and then log back in to the application, their
+	 * 
+	 * 
+	 * @param username
+	 * @throws IOException
+	 */
 	public static void stageUnlockSet(String username) throws IOException {
 				
 		// Gets current working directory
